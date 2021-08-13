@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_main"
+    tools:context=".RegisterActivity"
+    android:orientation="vertical"
+    >
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal"
+            android:id="@+id/linear_sign_up"><!--sign up area-->
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/cardview_shadow_end_color"
+                app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
+                />
+
+            <TextView
+                android:id="@+id/txtsignup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="5dp"
+                android:text="Sign up"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+        </LinearLayout><!--sign up area-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal"
+            android:id="@+id/linear_congratulation"
+            android:visibility="invisible"
+            ><!--congatulation area-->
+
+
+            <TextView
+                android:id="@+id/txtcongratulation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="5dp"
+                android:text="Congratulation"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+        </LinearLayout><!--congratulation area-->
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible"
+            android:id="@+id/linear_email"
+
+            ><!--email area-->
+
+            <TextView
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What's your email?"
+                android:textColor="@color/white"
+                android:textSize="34dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:id="@+id/regiEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:textSize="24dp"
+                android:hint="Email address"
+                android:inputType="textPersonName"
+                android:background="@null"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"
+                />
+
+
+
+        </LinearLayout><!--email area-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            android:id="@+id/linear_pw"
+            ><!--password area-->
+
+            <TextView
+                android:id="@+id/txtPw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Create a password"
+                android:textColor="@color/white"
+                android:textSize="34dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                />
+
+
+            <EditText
+                android:id="@+id/regiPw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginTop="10dp"
+                android:inputType="textPassword"
+                android:background="@null"
+                android:textColorHint="@color/white"
+                android:textSize="24dp"
+                android:textColor="@color/white"
+                android:hint="Password"
+                />
+
+        </LinearLayout><!--password area-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            android:id="@+id/linear_name"
+            ><!--name area-->
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What's your name?"
+                android:textColor="@color/white"
+                android:textSize="34dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/regiName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:textColor="@color/white"
+                android:textSize="24dp"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:background="@null"
+                android:textColorHint="@color/white" />
+
+        </LinearLayout><!--name area-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            android:id="@+id/linear_txt_congratulation"
+            ><!--name area-->
+
+            <TextView
+                android:id="@+id/txtfinish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="이제 준비가 완료되었습니다."
+                android:textColor="@color/white"
+                android:textSize="34dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold" />
+
+        </LinearLayout><!--name area-->
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:id="@+id/linear_progressbar"
+            android:layout_marginBottom="60dp"
+            ><!--button area-->
+
+            <TextView
+                android:id="@+id/page_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1 of 3"
+                android:textStyle="bold"
+                android:layout_gravity="end"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                />
+
+            <ProgressBar
+                android:id="@+id/proBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:backgroundTint="#00FFFFFF"
+                android:indeterminate="false"
+                android:progressTint="#FFFFFF" />
+
+        </LinearLayout><!--button area-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:id="@+id/linear_next"
+            android:visibility="visible"><!--button area-->
+
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_radius"
+                android:text="Next"
+                android:textSize="17dp"
+                android:layout_marginTop="20dp"
+                android:textAllCaps="false"
+                android:textColor="#396AFC"
+                android:layout_weight="1"
+
+                />
+
+        </RelativeLayout><!--next button area-->
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:id="@+id/linear_finish"
+            android:visibility="invisible"><!--finish button area-->
+
+            <Button
+                android:id="@+id/btnfinish"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/btn_radius"
+                android:text="Finish"
+                android:textSize="17dp"
+                android:layout_marginTop="20dp"
+                android:textAllCaps="false"
+                android:textColor="#396AFC"
+                android:layout_weight="1"
+                /><!--finish button area-->
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</LinearLayout>
