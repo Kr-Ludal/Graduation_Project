@@ -1,4 +1,6 @@
 package com.example.graduation_project.ui.login
 
-class LoginFormResult {
-}
+data class LoginResult(
+        val success : LoggedInUserView?=null,
+        val error : Int ?= null
+)

@@ -1,4 +1,4 @@
-package com.example.graduation_project.model
+package com.example.graduation_project.data.Login.model
 
 data class LoggedInUser (
         val userId : String,

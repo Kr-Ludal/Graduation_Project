@@ -1,4 +1,5 @@
 package com.example.graduation_project.ui.login
 
-class LoggedInUserView {
-}
+data class LoggedInUserView (
+        val displayId : String
+        )

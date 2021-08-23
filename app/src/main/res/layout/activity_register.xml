@@ -133,19 +133,36 @@
                 />
 
 
-            <EditText
-                android:id="@+id/regiPw"
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:layout_marginTop="10dp"
-                android:inputType="textPassword"
-                android:background="@null"
-                android:textColorHint="@color/white"
-                android:textSize="24dp"
-                android:textColor="@color/white"
-                android:hint="Password"
-                />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/regiPw"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="11"
+                    android:layout_marginTop="10dp"
+                    android:inputType="textPassword"
+                    android:background="@null"
+                    android:textColorHint="@color/white"
+                    android:textSize="24dp"
+                    android:textColor="@color/white"
+                    android:hint="Password"
+                    />
+                <ImageButton
+                    android:id="@+id/edtxt_register_password_visivility"
+                    android:layout_width="40dp"
+                    android:layout_height="wrap_content"
+                    android:background="#00FFFFFF"
+                    android:layout_gravity=""
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/visibility_black_24_dp" />
+            </LinearLayout>
+
+
 
         </LinearLayout><!--password area-->
 
@@ -250,7 +267,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="bottom"
-            android:id="@+id/linear_next"
+            android:id="@+id/relative_next"
             android:visibility="visible"><!--button area-->
 
             <Button
@@ -264,7 +281,7 @@
                 android:textAllCaps="false"
                 android:textColor="#396AFC"
                 android:layout_weight="1"
-
+                android:enabled="false"
                 />
 
         </RelativeLayout><!--next button area-->
@@ -274,7 +291,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="bottom"
-            android:id="@+id/linear_finish"
+            android:id="@+id/relative_finish"
             android:visibility="invisible"><!--finish button area-->
 
             <Button

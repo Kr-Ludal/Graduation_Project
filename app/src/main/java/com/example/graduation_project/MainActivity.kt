@@ -4,7 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import kotlinx.android.synthetic.main.activity_main.*
+import android.widget.Button
+import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import com.example.graduation_project.ui.login.LoginViewModel
+//import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val btnsign_up : Button = findViewById(R.id.btnsign_up)
 
         btnsign_up.setOnClickListener {
             val i = Intent(this, RegisterActivity::class.java)
@@ -21,17 +26,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        /*btnEnter.setOnClickListener {
-            RetrofitClient.getInstance().getUserInfo(edtxtId.toString(), edtxtPw.toString(),
-                {
-                
-                },
-                { it, t ->
-                    Log.d("Login Faild", "Login Faild")
-                    Toast.makeText(this, "아이디 혹은 비밀번호를 확인해주시기 바랍니다.", Toast.LENGTH_SHORT).show()
-                })
 
-        }*/
 
     }
 
