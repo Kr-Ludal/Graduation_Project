@@ -4,65 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_main"
+    android:background="@drawable/background_color_white"
     android:orientation="vertical"
     tools:context=".MainActivity"
     >
 
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_navigation"
+        app:itemIconSize="50dp"
+        app:labelVisibilityMode="unlabeled"
+        app:itemIconTint="@drawable/navigation_color"
+        android:id="@+id/home_bottom_navigation"
+        />
 
-    <LinearLayout
+    <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        android:orientation="vertical">
+        android:layout_above="@id/home_bottom_navigation"
+        android:id="@+id/home_fragment_frame"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
 
-        <ImageView
-            android:id="@+id/imgHelloworld"
-            android:layout_width="74dp"
-            android:layout_height="44dp"
-            android:layout_marginLeft="24sp"
-            android:layout_marginTop="26dp"
-            app:srcCompat="@drawable/hello_world" />
-
-        <ImageView
-            android:id="@+id/imgHero"
-            android:layout_width="360dp"
-            android:layout_height="360dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="74dp"
-            app:srcCompat="@drawable/hero" />
-
-
-        <Button
-            android:id="@+id/btnsign_up"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="70dp"
-            android:background="@drawable/btn_radius"
-            android:text="Sign up"
-            android:textAllCaps="false"
-            android:textColor="#396AFC"
-            android:textSize="17dp"
-            android:layout_gravity="end"/>
-
-        <TextView
-            android:id="@+id/txtlogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:onClick="login"
-            android:text="Log in"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-
-
-    </LinearLayout>
-
-
-
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

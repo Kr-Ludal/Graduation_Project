@@ -15,8 +15,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.graduation_project.ui.Register.RegisterViewModel
 import com.example.graduation_project.ui.Register.RegisterViewModelFectory
-
-//import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_register.*
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -26,29 +26,6 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-
-            //progressbar,imagebutton part
-            val proBar : ProgressBar=findViewById(R.id.proBar)
-            val imageButton : ImageButton=findViewById(R.id.imageButton)
-            val edtxt_register_password_visivility : ImageButton=findViewById(R.id.edtxt_register_password_visivility)
-            //layout_part
-            val linear_pw : LinearLayout = findViewById(R.id.linear_pw)
-            val linear_email : LinearLayout = findViewById(R.id.linear_email)
-            val linear_sign_up : LinearLayout = findViewById(R.id.linear_sign_up)
-            val linear_congratulation : LinearLayout = findViewById(R.id.linear_congratulation)
-            val linear_next : RelativeLayout = findViewById(R.id.relative_next)
-            val linear_finish : RelativeLayout = findViewById(R.id.relative_finish)
-            val linear_txt_congratulation : LinearLayout = findViewById(R.id.linear_txt_congratulation)
-            val linear_name : LinearLayout = findViewById(R.id.linear_name)
-            //button part
-            val btnNext : Button = findViewById(R.id.btnNext)
-            val btnfinish : Button = findViewById(R.id.btnfinish)
-            //edittext part
-            val regiEmail : EditText = findViewById(R.id.regiEmail)
-            val regiPw : EditText = findViewById(R.id.regiPw)
-            val regiName : EditText = findViewById(R.id.regiName)
-            //textView part
-            val page_count : TextView = findViewById(R.id.page_count)
 
         var emailSave: String = ""
         var passwordSave: String = ""
@@ -123,8 +100,8 @@ class RegisterActivity : AppCompatActivity() {
                     linear_name.isInvisible=true
                     linear_sign_up.isInvisible=true
                     linear_congratulation.isVisible=true
-                    linear_next.isInvisible=true
-                    linear_finish.isVisible=true
+                    relative_next.isInvisible=true
+                    relative_finish.isVisible=true
                     linear_txt_congratulation.isVisible=true
                     nameSave = regiName.text.toString()
                     regiName.setText(null)
@@ -176,9 +153,13 @@ class RegisterActivity : AppCompatActivity() {
         edtxt_register_password_visivility.setOnClickListener {
             if(regiPw.transformationMethod.equals(HideReturnsTransformationMethod.getInstance())){
                 regiPw.transformationMethod = PasswordTransformationMethod.getInstance()
-            }else
+                edtxt_register_password_visivility.setImageResource(R.drawable.ic_launcher_eye_foreground)
+            }else{
                 regiPw.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                edtxt_register_password_visivility.setImageResource(R.drawable.ic_launcher_eye_off_foreground)
+            }
         }
+
 
     }
 

@@ -1,6 +1,7 @@
 package com.example.graduation_project
 
 import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -8,12 +9,8 @@ import android.text.InputType.*
 import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
-import android.text.method.SingleLineTransformationMethod
-import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.lifecycle.Observer
@@ -21,10 +18,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.graduation_project.ui.login.LoggedInUserView
 import com.example.graduation_project.ui.login.LoginViewModel
 import com.example.graduation_project.ui.login.LoginViewModelFectory
-import org.w3c.dom.Text
 
-//import kotlinx.android.synthetic.main.activity_login.*
-//import kotlinx.android.synthetic.main.activity_login.view.*
+import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -37,12 +32,6 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_login)
-
-        val edtxtId : EditText = findViewById(R.id.edtxtId)
-        val edtxtPw : EditText = findViewById(R.id.edtxtPw)
-        val btnEnter : Button = findViewById(R.id.btnEnter)
-        val backLogin : ImageButton = findViewById(R.id.backLogin)
-        val passwordVisibility : ImageButton = findViewById(R.id.password_visivility)
 
         loginViewModel = ViewModelProvider(this, LoginViewModelFectory())
                 .get(LoginViewModel::class.java)
@@ -101,12 +90,13 @@ class LoginActivity : AppCompatActivity() {
                 }
                 false
             }
+            btnEnter.setOnClickListener {
+                val i = Intent(this@LoginActivity, HomeActivity::class.java)
+                startActivityForResult(i, RESULT_OK)
 
+                //loginViewModel.login(edtxtId.text.toString(), edtxtPw.text.toString())
+            }
         }
-        btnEnter.setOnClickListener {
-            loginViewModel.login(edtxtId.text.toString(), edtxtPw.text.toString())
-        }
-
 
         backLogin.setOnClickListener {
             finish()
@@ -115,8 +105,11 @@ class LoginActivity : AppCompatActivity() {
         passwordVisibility.setOnClickListener {
             if(edtxtPw.transformationMethod.equals(HideReturnsTransformationMethod.getInstance())){
                 edtxtPw.transformationMethod = PasswordTransformationMethod.getInstance()
-            }else
+                passwordVisibility.setImageResource(R.drawable.ic_launcher_eye_foreground)
+            }else{
                 edtxtPw.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                passwordVisibility.setImageResource(R.drawable.ic_launcher_eye_off_foreground)
+            }
         }
     }
 
@@ -143,6 +136,7 @@ class LoginActivity : AppCompatActivity() {
 
     }
 }
+
 /*btnEnter.setOnClickListener {
         RetrofitClient.getInstance().getUserInfo(edtxtId.toString(), edtxtPw.toString(),
             {

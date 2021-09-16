@@ -17,11 +17,10 @@
 
         <ImageButton
             android:id="@+id/backLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="32dp"
+            android:layout_height="match_parent"
             android:backgroundTint="@color/cardview_shadow_end_color"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
-            />
+            app:srcCompat="@drawable/ic_launcher_chevron_foreground" />
 
         <TextView
             android:layout_marginLeft="13dp"
@@ -29,10 +28,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Log in"
-            android:textColor="@color/white"
+            android:textColor="@color/res_text_color_black"
             android:textSize="24dp"
             android:textStyle="bold"
-            android:layout_marginTop="5dp"
+            android:layout_marginVertical="5dp"
             />
 
 
@@ -53,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text="Email"
             android:textSize="16dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/res_text_color_black"/>
 
         <EditText
             android:id="@+id/edtxtId"
@@ -61,11 +60,12 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:ems="10"
-            android:textSize="34dp"
+            android:textSize="28sp"
             android:hint="Enter your email"
             android:inputType="textPersonName"
             android:background="@null"
-            android:textColorHint="@color/white" />
+            android:textColor="@color/res_text_color_black"
+            android:textColorHint="@color/res_text_hint_gray" />
 
         <TextView
             android:id="@+id/textView3"
@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:text="Password"
             android:textSize="16dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/res_text_color_black"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,36 +83,36 @@
                 android:id="@+id/edtxtPw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="8"
-                android:textSize="34dp"
+                android:ems="9"
+                android:textSize="28sp"
                 android:hint="Enter your Password"
                 android:inputType="textPassword"
                 android:background="@null"
-                android:textColorHint="@color/white"/>
+                android:textColor="@color/res_text_color_black"
+                android:textColorHint="@color/res_text_hint_gray"/>
 
             <ImageButton
-                android:id="@+id/password_visivility"
-                android:layout_width="35dp"
-                android:layout_height="wrap_content"
-                android:background="#00FFFFFF"
+                android:id="@+id/passwordVisibility"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_launcher_eye_foreground"
                 android:layout_gravity="center_horizontal"
-                app:srcCompat="@drawable/visibility_black_24_dp" />
+                android:background="#00FFFFFF"
+                />
         </LinearLayout>
-
 
 
         <Button
             android:id="@+id/btnEnter"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@drawable/btn_radius"
-            android:text="Log in"
-            android:textSize="17dp"
             android:layout_marginTop="20dp"
-            android:textAllCaps="false"
-            android:textColor="#396AFC"
+            android:background="@drawable/btn_radius_black"
             android:enabled="false"
-            />
+            android:text="Log in"
+            android:textAllCaps="false"
+            android:textColor="@color/res_btn_color_white"
+            android:textSize="17dp" />
 
         <TextView
             android:id="@+id/txtpwfind"
@@ -121,7 +121,7 @@
             android:layout_marginTop="20dp"
             android:text="Forgot your password?"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/res_text_color_black"
             android:textSize="17dp"
             />
 
@@ -129,8 +129,8 @@
             android:id="@+id/btnGithub"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@drawable/btn_radius_black"
-            android:textColor="@color/white"
+            android:background="@drawable/btn_radius"
+            android:textColor="@color/res_text_color_black"
             android:text="Continue with Github"
             android:textAllCaps="false"
             android:textSize="20dp"

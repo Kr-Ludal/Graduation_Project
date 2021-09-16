@@ -1,15 +1,23 @@
 <resources>
+    <!--navigation-->
+    <string name="nav_home">HOME</string>
+    <string name="nav_contest">CONTEST</string>
+    <string name="nav_write">WRITE</string>
+    <string name="nav_bookmark">BOOKMARK</string>
+    <string name="nav_profile">PROFILE</string>
+    <!--login-->
     <string name="app_name">Graduation_Project</string>
     <string name="Login_Failed">로그인에 실패하였습니다.</string>
     <string name="Login_userid_error">아이디를 입력해주세요.</string>
     <string name="Login_password_error">비밀번호를 5자 이상 입력해주세요.</string>
     <string name="Login_Welcome">Welcome !</string>
-
+    <!--register-->
     <string name="Register_userEmail_error">이메일을 입력해주세요.</string>
     <string name="Register_Password_error">비밀번호를 5자 이상 입력해주세요.</string>
     <string name="Register_userName_error">이름을 입력해주세요.</string>
     <string name="Register_Complete">Hello World\n의 일원이 되신걸 환영해요!</string>
-
+    <!--fragment-->
+    <string name="Fragment_Home">Home</string>
 
 
 </resources>

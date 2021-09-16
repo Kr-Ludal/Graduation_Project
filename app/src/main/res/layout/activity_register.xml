@@ -24,21 +24,22 @@
 
             <ImageButton
                 android:id="@+id/imageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="19dp"
+                android:background="#FFFFFF"
+                android:layout_marginVertical="4dp"
                 android:backgroundTint="@color/cardview_shadow_end_color"
-                app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
-                />
+                app:srcCompat="@drawable/ic_launcher_chevron_foreground" />
 
             <TextView
                 android:id="@+id/txtsignup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="13dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="5dp"
                 android:text="Sign up"
-                android:textColor="@color/white"
-                android:textSize="24dp"
+                android:textColor="@color/res_text_color_black"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
         </LinearLayout><!--sign up area-->
@@ -58,9 +59,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="13dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="5dp"
                 android:text="Congratulation"
-                android:textColor="@color/white"
+                android:textColor="@color/res_text_color_black"
                 android:textSize="24dp"
                 android:textStyle="bold" />
 
@@ -80,7 +81,6 @@
             android:orientation="vertical"
             android:visibility="visible"
             android:id="@+id/linear_email"
-
             ><!--email area-->
 
             <TextView
@@ -88,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="What's your email?"
-                android:textColor="@color/white"
+                android:textColor="@color/res_text_color_black"
                 android:textSize="34dp"
                 android:layout_marginTop="10dp"
                 android:textStyle="bold" />
@@ -104,8 +104,8 @@
                 android:hint="Email address"
                 android:inputType="textPersonName"
                 android:background="@null"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"
+                android:textColorHint="@color/res_text_hint_gray"
+                android:textColor="@color/res_text_color_black"
                 />
 
 
@@ -126,7 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Create a password"
-                android:textColor="@color/white"
+                android:textColor="@color/res_text_color_black"
                 android:textSize="34dp"
                 android:layout_marginTop="10dp"
                 android:textStyle="bold"
@@ -139,6 +139,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
+
                 <EditText
                     android:id="@+id/regiPw"
                     android:layout_width="wrap_content"
@@ -147,19 +148,19 @@
                     android:layout_marginTop="10dp"
                     android:inputType="textPassword"
                     android:background="@null"
-                    android:textColorHint="@color/white"
+                    android:textColorHint="@color/res_text_hint_gray"
                     android:textSize="24dp"
-                    android:textColor="@color/white"
+                    android:textColor="@color/res_text_color_black"
                     android:hint="Password"
                     />
                 <ImageButton
                     android:id="@+id/edtxt_register_password_visivility"
-                    android:layout_width="40dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_launcher_eye_foreground"
+                    android:layout_gravity="center_horizontal"
                     android:background="#00FFFFFF"
-                    android:layout_gravity=""
-                    android:layout_margin="8dp"
-                    app:srcCompat="@drawable/visibility_black_24_dp" />
+                    />
             </LinearLayout>
 
 
@@ -180,7 +181,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="What's your name?"
-                android:textColor="@color/white"
+                android:textColor="@color/res_text_color_black"
                 android:textSize="34dp"
                 android:layout_marginTop="10dp"
                 android:textStyle="bold" />
@@ -191,12 +192,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:ems="10"
-                android:textColor="@color/white"
+                android:textColor="@color/res_text_color_black"
                 android:textSize="24dp"
                 android:hint="Name"
                 android:inputType="textPersonName"
                 android:background="@null"
-                android:textColorHint="@color/white" />
+                android:textColorHint="@color/res_text_hint_gray" />
 
         </LinearLayout><!--name area-->
 
@@ -213,7 +214,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="이제 준비가 완료되었습니다."
-                android:textColor="@color/white"
+                android:textColor="@color/res_text_color_black"
                 android:textSize="34dp"
                 android:layout_marginTop="10dp"
                 android:textStyle="bold" />
@@ -245,7 +246,7 @@
                 android:text="1 of 3"
                 android:textStyle="bold"
                 android:layout_gravity="end"
-                android:textColor="@color/white"
+                android:textColor="@color/res_text_color_black"
                 android:textSize="14sp"
                 />
 
@@ -255,10 +256,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="10dp"
                 android:layout_weight="1"
-                android:background="#FFFFFF"
+                android:background="#000000"
                 android:backgroundTint="#00FFFFFF"
                 android:indeterminate="false"
-                android:progressTint="#FFFFFF" />
+                android:progressTint="#000000" />
 
         </LinearLayout><!--button area-->
 
@@ -274,12 +275,12 @@
                 android:id="@+id/btnNext"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/btn_radius"
+                android:background="@drawable/btn_radius_black"
+                android:textColor="@color/res_text_color_white"
                 android:text="Next"
                 android:textSize="17dp"
                 android:layout_marginTop="20dp"
                 android:textAllCaps="false"
-                android:textColor="#396AFC"
                 android:layout_weight="1"
                 android:enabled="false"
                 />
@@ -298,13 +299,13 @@
                 android:id="@+id/btnfinish"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/btn_radius"
+                android:background="@drawable/btn_radius_black"
                 android:text="Finish"
                 android:textSize="17dp"
                 android:layout_marginTop="20dp"
                 android:textAllCaps="false"
-                android:textColor="#396AFC"
                 android:layout_weight="1"
+                android:textColor="@color/res_text_color_white"
                 /><!--finish button area-->
 
         </RelativeLayout>
