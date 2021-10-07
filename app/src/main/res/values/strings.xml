@@ -8,7 +8,7 @@
     <!--login-->
     <string name="app_name">Graduation_Project</string>
     <string name="Login_Failed">로그인에 실패하였습니다.</string>
-    <string name="Login_userid_error">아이디를 입력해주세요.</string>
+    <string name="Login_userid_error">이메일을 입력해주세요.</string>
     <string name="Login_password_error">비밀번호를 5자 이상 입력해주세요.</string>
     <string name="Login_Welcome">Welcome !</string>
     <!--register-->
@@ -18,6 +18,10 @@
     <string name="Register_Complete">Hello World\n의 일원이 되신걸 환영해요!</string>
     <!--fragment-->
     <string name="Fragment_Home">Home</string>
+    <string name="Fragment_Contest">Contest</string>
+    <string name="Fragment_WritePost">WritePost</string>
+    <string name="Fragment_Bookmark">Bookmark</string>
+    <string name="Fragment_Profile">Profile</string>
 
 
 </resources>

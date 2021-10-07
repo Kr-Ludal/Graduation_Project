@@ -17,7 +17,7 @@ class LoginViewModel (private val loginRepository : LoginRepository) : ViewModel
     val loginResult : LiveData<LoginResult> = _loginResult
 
     fun login(userid : String, password : String){
-        val result = loginRepository.login(userid,password)//레포지토리에 있는 로그인에 요청 보냄냄
+        val result = loginRepository.login(userid,password)//레포지토리에 있는 로그인에 요청 보냄
 
        if(result is Result.Success) {//만약 loginReposity가 보낸 로그인 요청이 성공하여 반환되었을 때 Result클래스에 success와 같다면
            _loginResult.value = LoginResult(success = LoggedInUserView(displayId = result.data.displayId))
@@ -37,7 +37,11 @@ class LoginViewModel (private val loginRepository : LoginRepository) : ViewModel
     }
 
     private fun isUserNameValid(username: String):Boolean{//userid에 @가 있으면 이메일 패턴 매치시키기. 아니면 비어있지 않다고 해줌
-            return username.isNotBlank()
+            return return if (username.contains('@')) {
+                Patterns.EMAIL_ADDRESS.matcher(username).matches()
+            } else {
+                username.isNotBlank()
+            }
     }
 
     private fun isPasswordValid(password: String):Boolean{

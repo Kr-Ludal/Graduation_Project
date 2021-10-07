@@ -1,69 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="40dp"
-        android:layout_marginHorizontal="20dp"
-        >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginBottom="?attr/actionBarSize"
+    tools:context=".ui.home.HomeFragment"
+    >
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp"
+            android:layout_marginHorizontal="20dp"
+            android:id="@+id/home_BBS"
+            android:visibility="visible"
+            >
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/pretendard_extrab"
+                    android:textColor="@color/res_text_color_black"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:id="@+id/imgNotification"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
+                    android:padding="0dp"
+                    app:srcCompat="@drawable/ic_launcher_bell_foreground"
+                    />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/home"
+                android:id="@+id/home_txtbtn_search"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:text="Search"
+                android:textSize="16sp"
+                android:textColor="@color/res_search_hint_gray"
+                android:gravity="center_vertical"
+                android:drawableLeft="@drawable/group"
+                android:drawablePadding="10dp"
+                android:paddingHorizontal="10dp"
+                android:background="@drawable/edittext_background"
+                android:fontFamily="@font/pretendard"
+                />
+
+
+
+            <!--Button
+                android:id="@+id/home_btn_search"
+                android:layout_width="match_parent"
+                android:layout_height="38dp"
+                android:text="Search"
+                android:background="@drawable/edittext_background"
+                android:fontFamily="@font/pretendard"
+                android:drawableLeft="@drawable/group"
+                android:paddingLeft="10dp"
+                android:gravity="center|left"
+                android:drawablePadding="10dp"
+                android:textColor="@color/res_search_hint_gray"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:textStyle="normal"
+                -->
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                tools:listitem="@layout/cardview_home_tagitem"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+
+                />
+
+            <TextView
+                android:id="@+id/Codes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Home"
-                android:textSize="24sp"
+                android:text="Codes"
                 android:textStyle="bold"
-                android:fontFamily="@font/pretendard_extrab"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/pretendard_b"
+                android:textSize="14sp"
                 android:textColor="@color/res_text_color_black"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/Home_Recycler"
+                    tools:listitem="@layout/home_listview"
+                    />
 
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/edSearch"
-            android:layout_width="match_parent"
-            android:layout_height="38dp"
-            android:layout_marginTop="20dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Search"
-            android:textColorHint="#aaaaaa"
-            android:background="@drawable/edittext_background"
-            android:fontFamily="@font/pretendard"
-            android:drawableLeft="@drawable/group"
-            android:paddingLeft="10dp"
-            android:drawablePadding="10dp"
-            />
 
-        <TextView
-            android:id="@+id/Codes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Codes"
-            android:textStyle="bold"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/pretendard_b"
-            android:textSize="14sp"
-            android:textColor="@color/res_text_color_black"/>
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/home_listview"
-            android:divider="#00000000"
-            android:dividerHeight="10dp"
-            >
-        </ListView>
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

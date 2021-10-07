@@ -1,4 +1,4 @@
 package com.example.graduation_project.ui.contest
 
-class ContestModel(val profile_img:Int, val title:String, val nickname:String, val tag:String, val date: String, val saved:Int) {
+class ContestModel(val text:String, val profile_img:Int, val nickname:String, val language_img : Int,val medal : Int) {
 }

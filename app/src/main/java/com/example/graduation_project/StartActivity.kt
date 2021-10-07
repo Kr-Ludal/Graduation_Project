@@ -3,8 +3,8 @@ package com.example.graduation_project
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.graduation_project.ui.login.LoginActivity
+import kotlinx.android.synthetic.main.activity_start.*
 
 class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +19,8 @@ class StartActivity : AppCompatActivity() {
         }
 
 
-        fun login(view: View) {
+
+        txtlogin.setOnClickListener {
             val i = Intent(this, LoginActivity::class.java)
             startActivityForResult(i, RESULT_OK)
         }

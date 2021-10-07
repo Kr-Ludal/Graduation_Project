@@ -5,30 +5,30 @@
     android:id="@+id/mobile_navigation">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/nav_home"
         android:name="com.example.graduation_project.HomeActivity"
         android:label="@string/Fragment_Home"
-        tools:layout="@layout/activity_home" />
+        tools:layout="@layout/fragment_home" />
     <fragment
-        android:id="@+id/navigation_contest"
+        android:id="@+id/nav_contest"
         android:name="com.example.graduation_project.ContestActivity"
-        android:label="@string/Fragment_Home"
-        tools:layout="@layout/activity_contest" />
+        android:label="@string/Fragment_Contest"
+        tools:layout="@layout/fragment_contest" />
     <fragment
-        android:id="@+id/navigation_write"
+        android:id="@+id/nav_write"
         android:name="com.example.graduation_project.WritepostActivity"
-        android:label="@string/Fragment_Home"
-        tools:layout="@layout/activity_writepost" />
+        android:label="@string/Fragment_WritePost"
+        tools:layout="@layout/fragment_write" />
     <fragment
-        android:id="@+id/navigation_bookmark"
+        android:id="@+id/nav_bookmark"
         android:name="com.example.graduation_project.BookmarkActivity"
-        android:label="@string/Fragment_Home"
-        tools:layout="@layout/activity_bookmark" />
+        android:label="@string/Fragment_Bookmark"
+        tools:layout="@layout/fragment_bookmark" />
     <fragment
-        android:id="@+id/navigation_profile"
+        android:id="@+id/nav_profile"
         android:name="com.example.graduation_project.HomeActivity"
-        android:label="@string/Fragment_Home"
-        tools:layout="@layout/activity_writepost" />
+        android:label="@string/Fragment_Profile"
+        tools:layout="@layout/fragment_profile" />
 
 
 </navigation>

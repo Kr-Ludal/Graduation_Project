@@ -54,7 +54,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:onClick="login"
             android:text="Log in"
             android:fontFamily="@font/pretendard_b"
             android:textColor="@color/res_text_color_black"

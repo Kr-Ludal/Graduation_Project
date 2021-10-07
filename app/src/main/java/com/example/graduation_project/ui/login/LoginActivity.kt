@@ -1,7 +1,6 @@
-package com.example.graduation_project
+package com.example.graduation_project.ui.login
 
 import android.app.Activity
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
@@ -9,24 +8,20 @@ import android.text.InputType.*
 import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.util.Log
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.graduation_project.ui.login.LoggedInUserView
-import com.example.graduation_project.ui.login.LoginViewModel
-import com.example.graduation_project.ui.login.LoginViewModelFectory
+import com.example.graduation_project.R
 
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
 
-
-
     private lateinit var loginViewModel: LoginViewModel
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,11 +31,11 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel = ViewModelProvider(this, LoginViewModelFectory())
                 .get(LoginViewModel::class.java)
 
-        loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
-            val loginState = it ?: return@Observer//loginformstate에 값을 받음 null값일 때 return하고 아니면 그 값 넣기
+            loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
+                val loginState = it ?: return@Observer//loginformstate에 값을 받음 null값일 때 return하고 아니면 그 값 넣기
 
 
-            btnEnter.isEnabled = loginState.isDataValid//isDataVaild가 참거짓에 따라 변경
+                btnEnter.isEnabled = loginState.isDataValid//isDataVaild가 참거짓에 따라 변경
 
            if (loginState.useridError != null) {//loginformstate에 있는 useriderror에 값이 null이 아니라면
                 edtxtId.error = getString(loginState.useridError)
@@ -59,8 +54,10 @@ class LoginActivity : AppCompatActivity() {
             }
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)//Welcome! 누구누구 나옴
+                Log.d("로그인", "로그인 성공!")
             }
             setResult(Activity.RESULT_OK)
+
             finish()//그리고 끔
         })
 
@@ -91,10 +88,10 @@ class LoginActivity : AppCompatActivity() {
                 false
             }
             btnEnter.setOnClickListener {
-                val i = Intent(this@LoginActivity, HomeActivity::class.java)
-                startActivityForResult(i, RESULT_OK)
+                //val i = Intent(this@LoginActivity, HomeActivity::class.java)
+                //startActivityForResult(i, RESULT_OK)
 
-                //loginViewModel.login(edtxtId.text.toString(), edtxtPw.text.toString())
+                loginViewModel.login(edtxtId.text.toString(), edtxtPw.text.toString())
             }
         }
 

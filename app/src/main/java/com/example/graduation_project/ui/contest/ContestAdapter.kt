@@ -1,51 +1,52 @@
 package com.example.graduation_project.ui.contest
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.graduation_project.R
+import kotlinx.android.synthetic.main.cardview_contest.view.*
 import kotlinx.android.synthetic.main.cardview_home.view.*
-import java.util.*
 import kotlin.collections.ArrayList
 
-//
-class ContestAdapter(val arrayList: ArrayList<ContestModel>,val context:Context): RecyclerView.Adapter<ContestAdapter.ViewHolder>() {
+
+class ContestAdapter(val profileList: List<ContestModel>): RecyclerView.Adapter<ContestAdapter.ViewHolder>() {
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+
+        val v=LayoutInflater.from(parent.context).inflate(R.layout.cardview_contest,parent,false)
+        return ViewHolder(v).apply {
+            itemView.setOnClickListener {
+                Log.d("tag", "onCreateViewHolder: ")
+            }
+        }
+
+    }
+
+
+    override fun getItemCount(): Int {
+        return profileList.size
+    }
+
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.bindItems(profileList[position])
+    }
+
 
     class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
 
         fun bindItems(model:ContestModel) {
 
-            itemView.profile_img.setImageResource(model.profile_img)
-            itemView.nametxt.text=model.nickname
-            itemView.title_txt.text=model.title
-            itemView.tag_txt.text=model.tag
-            itemView.status_txt.text = model.date + model.saved
-
+            itemView.contest_cardview_text.text = model.text
+            itemView.contest_cardview_profile_img.setImageResource(model.profile_img)
+            itemView.contest_cardview_name.text=model.nickname
+            itemView.contest_cardview_language_img.setImageResource(model.language_img)
 
         }
-
     }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-
-        val v=LayoutInflater.from(parent.context).inflate(R.layout.cardview_home,parent,false)
-        return ViewHolder(v)
-
-        TODO("Not yet implemented")
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItems(arrayList[position])
-
-        TODO("Not yet implemented")
-    }
-
-    override fun getItemCount(): Int {
-        return arrayList.size
-        TODO("Not yet implemented")
-    }
-
-
 }

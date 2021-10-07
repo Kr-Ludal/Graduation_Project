@@ -8,9 +8,10 @@
     <!--text-->
 
     <item name="res_text_hint_gray" type="color">#999999</item>
+    <item name="res_search_hint_gray" type="color">#aaaaaa</item>
 
-    <item name="res_text_color_black" type="color">@color/black</item>
-    <item name="res_text_color_white" type="color">@color/white</item>
+    <item name="res_text_color_black" type="color">#111111</item>
+    <item name="res_text_color_white" type="color">#ffffff</item>
 
     <!--background-->
     <item name="res_background_gray" type="color">#eff2f5</item>
@@ -21,16 +22,29 @@
 
     <!--navigation-->
     <item name="res_nav_color" type="drawable">@drawable/navigation_color</item>
-    <!--
-    <item name="res_btn_radius" type="drawable">@drawable/btn_radius</item>
-    <item name="res_btn_radius_black" type="drawable">@drawable/btn_radius_black</item>
 
-    <style name="Theme.notitle" parent="android:Theme.Material.Wallpaper.NoTitleBar">
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="android:windowTranslucentNavigation">true</item>
-    </style>
-    -->
+    <!--writepost-->
+    <item name="res_writepost_listitem_background" type="color">#eeeeee</item>
+    <!--profile-->
+    <item name="res_profile_button_check_background" type="color">#111111</item>
+    <item name="res_profile_button_uncheck_background" type="color">#EFF2F5</item>
+    <item name="res_profile_textcolor_black" type="color">#111111</item>
+    <item name="res_profile_textcolor_white" type="color">#ffffff</item>
+
+    <!--home-->
+    <item name="res_cardview_listitem_background" type="color">#EFF2F5</item>
+
+    <!--comment-->
+    <item name="res_cardview_comment_listitem_txtcolor" type="color">#EEEEEE</item>
+
+    <!--search-->
+    <item name="res_search_txtcolor_gray" type="color">#999999</item>
+
+    <!--postdetail-->
+    <item name="res_post_cardview_background_gray" type="color">#EFF2F5</item>
+
+    <!--profile-->
+    <item name="res_cardview_background_black" type="color">#111111</item>
+
 
 </resources>

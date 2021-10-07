@@ -12,7 +12,7 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="?attr/actionBarSize"
         android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,14 +24,15 @@
         android:id="@+id/home_bottom_navigation"
         />
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/home_fragment_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/home_bottom_navigation"
-        android:id="@+id/home_fragment_frame"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
