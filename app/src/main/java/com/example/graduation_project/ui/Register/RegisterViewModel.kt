@@ -11,7 +11,7 @@ import com.example.graduation_project.RegisterActivity
 import com.example.graduation_project.data.Register.RegisterRepository
 import com.example.graduation_project.ui.login.LoginFormState
 
-class RegisterViewModel (registerRepository: RegisterRepository) : ViewModel(){
+class RegisterViewModel (private val registerRepository: RegisterRepository) : ViewModel(){
 
     private val _registerFrom=MutableLiveData<RegisterFormState>()
     val registerFormState : LiveData<RegisterFormState> = _registerFrom
@@ -20,11 +20,10 @@ class RegisterViewModel (registerRepository: RegisterRepository) : ViewModel(){
     val registerResult : LiveData<RegisterResult> = _registerResult
 
     fun register(useremail : String, password : String, username : String){
-        val result : RegisterRepository
+        val result = registerRepository.register(useremail,password,username)
 
 
     }
-
     fun registerDataChanged(userEmail: String , password: String, userName : String){
 
         if(!isEmailDataValid(userEmail)){

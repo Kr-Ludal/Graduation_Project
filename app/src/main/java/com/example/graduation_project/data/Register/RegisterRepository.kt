@@ -7,7 +7,7 @@ class RegisterRepository(val dataSource: RegisterDataSource) {
 
         val result = dataSource.register(userEmail,password,userName)
 
-
+        return result
 
     }
 }

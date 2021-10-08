@@ -61,6 +61,12 @@ class RegisterActivity : AppCompatActivity() {
 
         registerViewModel.registerResult.observe(this@RegisterActivity, Observer {
             val registerResult = it ?: return@Observer
+            if(registerResult.error !=null){
+                Toast.makeText(applicationContext,"회원가입에 실패하였습니다.", Toast.LENGTH_SHORT).show()
+            }
+            if(registerResult.success !=null){
+                finish()
+            }
 
         })
 
@@ -147,6 +153,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         btnfinish.setOnClickListener {
+            registerViewModel.register(emailSave,passwordSave,nameSave)
             finish()
         }
 
