@@ -16,6 +16,7 @@ import androidx.annotation.StringRes
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.graduation_project.R
+import com.example.graduation_project.StartActivity
 
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -91,6 +92,7 @@ class LoginActivity : AppCompatActivity() {
                 //val i = Intent(this@LoginActivity, HomeActivity::class.java)
                 //startActivityForResult(i, RESULT_OK)
 
+                StartActivity.isHaveLoginToken = true
                 loginViewModel.login(edtxtId.text.toString(), edtxtPw.text.toString())
             }
         }
