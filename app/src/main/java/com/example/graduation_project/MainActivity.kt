@@ -16,12 +16,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-        let {
-            val intent = Intent(it,StartActivity::class.java)
-            startActivity(intent)
-        }
+//
+//
+//        let {
+//            val intent = Intent(it,StartActivity::class.java)
+//            startActivity(intent)
+//        }
 
         home_bottom_navigation.setOnNavigationItemSelectedListener(onBottomNavItemSelectedListener)
         val homeFragment= HomeFragment()

@@ -1,6 +1,7 @@
 package com.example.graduation_project
 
 import android.util.Log
+import com.example.graduation_project.ui.login.postJoin
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
@@ -77,7 +78,7 @@ class RetrofitClient {
         CoroutineScope(Dispatchers.IO).launch {
             // Create Retrofit
             val retrofit = Retrofit.Builder()
-                    .baseUrl("https://httpbin.org/")
+                     .baseUrl("https://httpbin.org/")
                             .build()
 
                             // Create Service
@@ -229,31 +230,29 @@ class RetrofitClient {
 
     }
 
-    data class postJoin(val email : String, val password : String, val nickname : String)
-//
-//    fun postUserInfo(email : String, password : String, nickname:String,
-//                     success: (JSONObject) -> Unit, error: (Call<JsonObject>, Throwable) -> Unit){
-//
-//        val res : Call<JsonObject> = RetrofitClient
-//                .getInstance()
-//                .buildRetrofit()
-//                .postUserInfo(RetrofitService.postJoin(email,password,nickname))
-//
-//        val result = res.enqueue(object : Callback<JsonObject>{
-//            override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
-//
-//            }
-//
-//            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
-//                TODO("Not yet implemented")
-//            }
-//
-//
-//        })
-//
-//
-//        return result
-//    }
+    fun postUserInfo(email : String, password : String, nickname:String,
+                     success: (JSONObject) -> Unit, error: (Call<JsonObject>, Throwable) -> Unit){
+
+        val res : Call<JsonObject> = RetrofitClient
+                .getInstance()
+                .buildRetrofit()
+                .postUserInfo(postJoin(email,password,nickname))
+
+        val result = res.enqueue(object : Callback<JsonObject>{
+            override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {
+
+            }
+
+            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+
+        })
+
+
+        return result
+    }
 
 
 

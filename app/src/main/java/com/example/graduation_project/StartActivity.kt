@@ -3,6 +3,7 @@ package com.example.graduation_project
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.graduation_project.ui.Register.RegisterActivity
 import com.example.graduation_project.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_start.*
 
@@ -24,5 +25,11 @@ class StartActivity : AppCompatActivity() {
             val i = Intent(this, LoginActivity::class.java)
             startActivityForResult(i, RESULT_OK)
         }
+
+        
+
     }
+
+
+
 }

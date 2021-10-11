@@ -26,10 +26,10 @@ class LoginDataSource {
 //                    Result.Error(IOException("Error"))
 //                })
 //
-
-        RetrofitClient.getInstance().postpost({ it, t -> }, {
-            Log.d("TAG", "login: ")
-        })
+//
+//        RetrofitClient.getInstance().postpost({ it, t -> }, {
+//            Log.d("TAG", "login: ")
+//        })
 
         try{
 

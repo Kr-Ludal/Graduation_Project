@@ -1,15 +1,11 @@
 package com.example.graduation_project.ui.Register
 
-import android.util.Log
 import android.util.Patterns
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.graduation_project.R
-import com.example.graduation_project.RegisterActivity
 import com.example.graduation_project.data.Register.RegisterRepository
-import com.example.graduation_project.ui.login.LoginFormState
 
 class RegisterViewModel (private val registerRepository: RegisterRepository) : ViewModel(){
 
@@ -22,6 +18,10 @@ class RegisterViewModel (private val registerRepository: RegisterRepository) : V
     fun register(useremail : String, password : String, username : String){
         val result = registerRepository.register(useremail,password,username)
 
+        if(result == true){
+            _registerResult.value = RegisterResult(success = true)
+        }else{_registerResult.value = RegisterResult(error=R.string.Register_error)
+        }
 
     }
     fun registerDataChanged(userEmail: String , password: String, userName : String){
