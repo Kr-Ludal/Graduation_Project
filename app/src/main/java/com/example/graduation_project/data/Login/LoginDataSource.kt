@@ -27,29 +27,28 @@ class LoginDataSource {
 //                })
 //
 
-        RetrofitClient.getInstance().postpost({ it, t -> }, {
-            Log.d("TAG", "login: ")
-        })
-
-        try{
-
-
-
-                RetrofitClient.getInstance().getUser(userid,password,{
-
-                },{
-                    it,t->
-                })
-
-                RetrofitClient.getInstance().getusers(userid,password,{},{it,t->})
-
-            val fakeUser = LoggedInUser(java.util.UUID.randomUUID().toString(),"lasodjaso")
-            return Result.Success(fakeUser)
-        }catch (e:Throwable){
-            Log.d("LoginDataSource", "실패")
-            return Result.Error(IOException("Error Logging in",e))
-        }
-
+//        RetrofitClient.getInstance().postpost({ it, t -> }, {
+//            Log.d("TAG", "login: ")
+//        })
+//
+//        try{
+//
+//
+//
+//                RetrofitClient.getInstance().getUser(userid,password,{
+//
+//                },{
+//                    it,t->
+//                })
+//
+//                RetrofitClient.getInstance().getusers(userid,password,{},{it,t->})
+//
+//            val fakeUser = LoggedInUser(java.util.UUID.randomUUID().toString(),"lasodjaso")
+//            return Result.Success(fakeUser)
+//        }catch (e:Throwable){
+//            Log.d("LoginDataSource", "실패")
+//            return Result.Error(IOException("Error Logging in",e))
+        return Result.Success(LoggedInUser(userid, password))
     }
 
 

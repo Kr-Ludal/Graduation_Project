@@ -17,10 +17,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-        let {
-            val intent = Intent(it,StartActivity::class.java)
-            startActivity(intent)
+        if(!StartActivity.isHaveLoginToken) {
+            let {
+                val intent = Intent(it,StartActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         home_bottom_navigation.setOnNavigationItemSelectedListener(onBottomNavItemSelectedListener)
