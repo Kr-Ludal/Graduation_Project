@@ -1,4 +1,4 @@
-package com.example.graduation_project
+package com.example.graduation_project.ui.Register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,15 +6,13 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
-import android.util.Log
 import android.view.inputmethod.EditorInfo
 import android.widget.*
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.graduation_project.ui.Register.RegisterViewModel
-import com.example.graduation_project.ui.Register.RegisterViewModelFectory
+import com.example.graduation_project.R
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 
@@ -65,12 +63,13 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext,"회원가입에 실패하였습니다.", Toast.LENGTH_SHORT).show()
             }
             if(registerResult.success !=null){
+                Toast.makeText(applicationContext,"회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show()
                 finish()
             }
 
         })
 
-        imageButton.setOnClickListener{
+        register_btn_back.setOnClickListener{
             proBar.incrementProgressBy(-1)
             if(proBar.progress.equals(0))
                 finish()

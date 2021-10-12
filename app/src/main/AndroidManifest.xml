@@ -22,7 +22,7 @@
         <activity android:name=".StartActivity" />
         <activity android:name=".PostdetailActivity" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".ui.Register.RegisterActivity"
             android:windowSoftInputMode="adjustResize" />
         <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".MainActivity">

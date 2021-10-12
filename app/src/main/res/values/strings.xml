@@ -15,6 +15,7 @@
     <string name="Register_userEmail_error">이메일을 입력해주세요.</string>
     <string name="Register_Password_error">비밀번호를 5자 이상 입력해주세요.</string>
     <string name="Register_userName_error">이름을 입력해주세요.</string>
+    <string name="Register_error">이름을 입력해주세요.</string>
     <string name="Register_Complete">Hello World\n의 일원이 되신걸 환영해요!</string>
     <!--fragment-->
     <string name="Fragment_Home">Home</string>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_main"
-    tools:context=".RegisterActivity"
+    tools:context=".ui.Register.RegisterActivity"
     android:orientation="vertical"
     >
 
@@ -23,7 +23,7 @@
             android:id="@+id/linear_sign_up"><!--sign up area-->
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/register_btn_back"
                 android:layout_width="20dp"
                 android:layout_height="19dp"
                 android:background="#FFFFFF"
