@@ -10,9 +10,8 @@ import java.util.HashMap
 
 interface RetrofitService {
 
-    @GET("/requestSignUp")
-    suspend fun requestSignUp(
-        @Query("uid") uid: String
-    ): Response<ResponseBody>
+    @FormUrlEncoded
+    @POST("/requestSignUp")
+    suspend fun requestSignUp(@FieldMap params: HashMap<String?, String?>): Response<ResponseBody>
 
 }

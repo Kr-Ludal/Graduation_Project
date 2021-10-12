@@ -28,7 +28,7 @@ class RetrofitClient {
 
     private fun buildRetrofit(): RetrofitService {
         val retrofit: Retrofit? = Retrofit.Builder()
-            .baseUrl("https://choidaham.com/")                  // 서버url
+            .baseUrl("https://choidaham.com")                   // 서버url
             .addConverterFactory(GsonConverterFactory.create())         // gson으로 받은 값을 레트로핏이 사용할 수 있게 변환하는 과정
             .build()                                                    // 사용할 수 있는 레트로핏 클라이언트를 만듦
 
@@ -40,8 +40,11 @@ class RetrofitClient {
         success: (JSONObject) -> Unit,
         error: (String) -> Unit
     ) {
+        val params = HashMap<String?, String?>()
+        params["uid"] = uid
+
         CoroutineScope(Dispatchers.IO).launch {
-            val response = buildRetrofit().requestSignUp(uid)
+            val response = buildRetrofit().requestSignUp(params)
 
             withContext(Dispatchers.Main) {
                 if(response.isSuccessful) {

@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var registerViewModel : RegisterViewModel
+    private lateinit var registerViewModel: RegisterViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,13 +27,13 @@ class RegisterActivity : AppCompatActivity() {
 
         var emailSave: String = ""
         var passwordSave: String = ""
-        var nameSave : String = ""
+        var nameSave: String = ""
 
         proBar.progress = 1
         proBar.max = 3
 
-
-        registerViewModel=ViewModelProvider(this,RegisterViewModelFectory()).get(RegisterViewModel::class.java)
+        registerViewModel =
+            ViewModelProvider(this, RegisterViewModelFectory()).get(RegisterViewModel::class.java)
 
         registerViewModel.registerFormState.observe(this@RegisterActivity, Observer {
             val registerState = it ?: return@Observer
@@ -59,114 +59,133 @@ class RegisterActivity : AppCompatActivity() {
 
         registerViewModel.registerResult.observe(this@RegisterActivity, Observer {
             val registerResult = it ?: return@Observer
-            if(registerResult.error !=null){
-                Toast.makeText(applicationContext,"회원가입에 실패하였습니다.", Toast.LENGTH_SHORT).show()
+            if (registerResult.error != null) {
+                Toast.makeText(applicationContext, "회원가입에 실패하였습니다.", Toast.LENGTH_SHORT).show()
             }
-            if(registerResult.success !=null){
-                Toast.makeText(applicationContext,"회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show()
+            if (registerResult.success != null) {
+                Toast.makeText(applicationContext, "회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show()
                 finish()
             }
-
         })
 
-        register_btn_back.setOnClickListener{
+        register_btn_back.setOnClickListener {
             proBar.incrementProgressBy(-1)
-            if(proBar.progress.equals(0))
+            if (proBar.progress.equals(0))
                 finish()
-            else if(proBar.progress.equals(1)){
-                linear_pw.isInvisible=true
-                linear_email.isVisible=true
+            else if (proBar.progress.equals(1)) {
+                linear_pw.isInvisible = true
+                linear_email.isVisible = true
                 regiEmail.setText("$emailSave")
-            }
-            else if(proBar.progress.equals(2)) {
-                linear_pw.isVisible=true
-                linear_name.isInvisible=true
+            } else if (proBar.progress.equals(2)) {
+                linear_pw.isVisible = true
+                linear_name.isInvisible = true
                 regiPw.setText("$passwordSave")
             }
-
         }
 
         btnNext.setOnClickListener {
-            if(proBar.progress.equals(1)){
-                    linear_pw.isVisible=true
-                    linear_email.isInvisible=true
-                    proBar.incrementProgressBy(1)
-                    page_count.setText(proBar.progress.toString()+" of 3")
-                    emailSave=regiEmail.text.toString()
-                    regiEmail.setText(null)
-            }else if(proBar.progress.equals(2)){
-                    linear_pw.isInvisible=true
-                    linear_name.isVisible=true
-                    proBar.incrementProgressBy(1)
-                    page_count.setText(proBar.progress.toString()+" of 3")
-                    passwordSave= regiPw.text.toString()
-                    regiPw.setText(null)
-            }else if(proBar.progress.equals(3)) {
-                    linear_name.isInvisible=true
-                    linear_sign_up.isInvisible=true
-                    linear_congratulation.isVisible=true
-                    relative_next.isInvisible=true
-                    relative_finish.isVisible=true
-                    linear_txt_congratulation.isVisible=true
-                    nameSave = regiName.text.toString()
-                    regiName.setText(null)
+            if (proBar.progress.equals(1)) {
+                linear_pw.isVisible = true
+                linear_email.isInvisible = true
+                proBar.incrementProgressBy(1)
+                page_count.setText(proBar.progress.toString() + " of 3")
+                emailSave = regiEmail.text.toString()
+                regiEmail.setText(null)
+            } else if (proBar.progress.equals(2)) {
+                linear_pw.isInvisible = true
+                linear_name.isVisible = true
+                proBar.incrementProgressBy(1)
+                page_count.setText(proBar.progress.toString() + " of 3")
+                passwordSave = regiPw.text.toString()
+                regiPw.setText(null)
+            } else if (proBar.progress.equals(3)) {
+                linear_name.isInvisible = true
+                linear_sign_up.isInvisible = true
+                linear_congratulation.isVisible = true
+                relative_next.isInvisible = true
+                relative_finish.isVisible = true
+                linear_txt_congratulation.isVisible = true
+                nameSave = regiName.text.toString()
+                regiName.setText(null)
             }
         }
 
         regiEmail.apply {
-            afterTextChanged{
-            registerViewModel.registerDataChanged(regiEmail.text.toString(),regiPw.text.toString(),regiName.text.toString())
+            afterTextChanged {
+                registerViewModel.registerDataChanged(
+                    regiEmail.text.toString(),
+                    regiPw.text.toString(),
+                    regiName.text.toString()
+                )
             }
             setOnEditorActionListener { _, actionId, _ ->
                 when (actionId) {
                     EditorInfo.IME_ACTION_DONE ->
-                        registerViewModel.registerDataChanged(regiEmail.text.toString(),regiPw.text.toString(),regiName.text.toString())
-                }
-                false
-            }
-
-        }
-
-        regiPw.apply { afterTextChanged {
-            registerViewModel.registerDataChanged(regiEmail.text.toString(),regiPw.text.toString(),regiName.text.toString())
-            }
-            setOnEditorActionListener { _, actionId, _ ->
-                when (actionId) {
-                    EditorInfo.IME_ACTION_DONE ->
-                        registerViewModel.registerDataChanged(regiEmail.text.toString(),regiPw.text.toString(),regiName.text.toString())
+                        registerViewModel.registerDataChanged(
+                            regiEmail.text.toString(),
+                            regiPw.text.toString(),
+                            regiName.text.toString()
+                        )
                 }
                 false
             }
         }
 
-        regiName.apply { afterTextChanged {
-            registerViewModel.registerDataChanged(regiEmail.text.toString(),regiPw.text.toString(),regiName.text.toString())
+        regiPw.apply {
+            afterTextChanged {
+                registerViewModel.registerDataChanged(
+                    regiEmail.text.toString(),
+                    regiPw.text.toString(),
+                    regiName.text.toString()
+                )
             }
             setOnEditorActionListener { _, actionId, _ ->
                 when (actionId) {
                     EditorInfo.IME_ACTION_DONE ->
-                        registerViewModel.registerDataChanged(regiEmail.text.toString(),regiPw.text.toString(),regiName.text.toString())
+                        registerViewModel.registerDataChanged(
+                            regiEmail.text.toString(),
+                            regiPw.text.toString(),
+                            regiName.text.toString()
+                        )
+                }
+                false
+            }
+        }
+
+        regiName.apply {
+            afterTextChanged {
+                registerViewModel.registerDataChanged(
+                    regiEmail.text.toString(),
+                    regiPw.text.toString(),
+                    regiName.text.toString()
+                )
+            }
+            setOnEditorActionListener { _, actionId, _ ->
+                when (actionId) {
+                    EditorInfo.IME_ACTION_DONE ->
+                        registerViewModel.registerDataChanged(
+                            regiEmail.text.toString(),
+                            regiPw.text.toString(),
+                            regiName.text.toString()
+                        )
                 }
                 false
             }
         }
 
         btnfinish.setOnClickListener {
-            registerViewModel.register(emailSave,passwordSave,nameSave)
-            finish()
+            registerViewModel.register(emailSave, passwordSave, nameSave)
         }
 
         edtxt_register_password_visivility.setOnClickListener {
-            if(regiPw.transformationMethod.equals(HideReturnsTransformationMethod.getInstance())){
+            if (regiPw.transformationMethod.equals(HideReturnsTransformationMethod.getInstance())) {
                 regiPw.transformationMethod = PasswordTransformationMethod.getInstance()
                 edtxt_register_password_visivility.setImageResource(R.drawable.ic_launcher_eye_foreground)
-            }else{
+            } else {
                 regiPw.transformationMethod = HideReturnsTransformationMethod.getInstance()
                 edtxt_register_password_visivility.setImageResource(R.drawable.ic_launcher_eye_off_foreground)
             }
         }
-
-
     }
 
     fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
@@ -179,7 +198,5 @@ class RegisterActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
         })
-
     }
-
 }
