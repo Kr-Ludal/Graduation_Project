@@ -104,10 +104,10 @@ class LoginActivity : AppCompatActivity() {
         passwordVisibility.setOnClickListener {
             if (edtxtPw.transformationMethod.equals(HideReturnsTransformationMethod.getInstance())) {
                 edtxtPw.transformationMethod = PasswordTransformationMethod.getInstance()
-                passwordVisibility.setImageResource(R.drawable.ic_launcher_eye_foreground)
+                passwordVisibility.setImageResource(R.drawable.ic_round_visibility_24)
             } else {
                 edtxtPw.transformationMethod = HideReturnsTransformationMethod.getInstance()
-                passwordVisibility.setImageResource(R.drawable.ic_launcher_eye_off_foreground)
+                passwordVisibility.setImageResource(R.drawable.ic_round_visibility_off_24)
             }
         }
     }

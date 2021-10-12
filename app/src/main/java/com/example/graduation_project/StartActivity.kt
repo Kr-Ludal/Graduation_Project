@@ -15,14 +15,13 @@ class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
+
         supportActionBar?.hide()
+
         btnsign_up.setOnClickListener {
             val i = Intent(this, RegisterActivity::class.java)
             startActivityForResult(i, RESULT_OK)
-
         }
-
-
 
         txtlogin.setOnClickListener {
             val i = Intent(this, LoginActivity::class.java)

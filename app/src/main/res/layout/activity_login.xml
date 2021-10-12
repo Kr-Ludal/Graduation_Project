@@ -24,7 +24,7 @@
             android:layout_width="32dp"
             android:layout_height="match_parent"
             android:backgroundTint="@color/cardview_shadow_end_color"
-            app:srcCompat="@drawable/ic_launcher_chevron_foreground" />
+            app:srcCompat="@drawable/ic_round_keyboard_arrow_left_24" />
 
         <TextView
             android:id="@+id/textView"
@@ -90,7 +90,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:ems="9"
+                android:layout_weight="1"
                 android:hint="Enter your Password"
                 android:inputType="textPassword"
                 android:textColor="@color/res_text_color_black"
@@ -103,7 +103,7 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:background="#00FFFFFF"
-                android:src="@drawable/ic_launcher_eye_foreground" />
+                android:src="@drawable/ic_round_visibility_24" />
         </LinearLayout>
 
 

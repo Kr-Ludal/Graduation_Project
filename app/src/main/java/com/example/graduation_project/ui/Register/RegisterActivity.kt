@@ -180,10 +180,10 @@ class RegisterActivity : AppCompatActivity() {
         edtxt_register_password_visivility.setOnClickListener {
             if (regiPw.transformationMethod.equals(HideReturnsTransformationMethod.getInstance())) {
                 regiPw.transformationMethod = PasswordTransformationMethod.getInstance()
-                edtxt_register_password_visivility.setImageResource(R.drawable.ic_launcher_eye_foreground)
+                edtxt_register_password_visivility.setImageResource(R.drawable.ic_round_visibility_24)
             } else {
                 regiPw.transformationMethod = HideReturnsTransformationMethod.getInstance()
-                edtxt_register_password_visivility.setImageResource(R.drawable.ic_launcher_eye_off_foreground)
+                edtxt_register_password_visivility.setImageResource(R.drawable.ic_round_visibility_off_24)
             }
         }
     }
