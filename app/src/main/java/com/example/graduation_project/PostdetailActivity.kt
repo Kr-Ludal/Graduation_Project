@@ -10,7 +10,7 @@ class PostdetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_postdetail)
-
+        supportActionBar?.hide()
 
         post_txt_content.setText(intent.getStringExtra("content"))
         postdetail_txt_tag.setText(intent.getStringExtra("tag"))

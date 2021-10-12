@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        supportActionBar?.hide()
+
         home_bottom_navigation.setOnNavigationItemSelectedListener(onBottomNavItemSelectedListener)
         val homeFragment= HomeFragment()
         supportFragmentManager.beginTransaction().add(R.id.home_fragment_frame,homeFragment).commit()
@@ -52,8 +54,6 @@ class MainActivity : AppCompatActivity() {
                 val profileFragment= ProfileFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.home_fragment_frame,profileFragment).commit()
             }
-
-
         }
         true
     }
