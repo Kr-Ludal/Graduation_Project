@@ -10,19 +10,36 @@ import com.example.graduation_project.data.Login.Result
 
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 
+<<<<<<< HEAD
     private val _loginForm = MutableLiveData<LoginFormState>()//라이브데이터를 수정할 수 있게 만들어줌
     val loginFormState: LiveData<LoginFormState> = _loginForm//수정가능한 라이브데이터를 loginFormState에 넣음
+=======
+    private val _loginForm = MutableLiveData<LoginFormState>() // 라이브데이터를 수정할 수 있게 만들어줌
+    val loginFormState: LiveData<LoginFormState> = _loginForm  // 수정가능한 라이브데이터를 loginFormState에 넣음
+>>>>>>> 04420ed856f004e3a72b131d2a1d34e12c224c8d
 
     private val _loginResult = MutableLiveData<LoginResult>()
     val loginResult: LiveData<LoginResult> = _loginResult
 
     fun login(userid: String, password: String) {
+<<<<<<< HEAD
         val result = loginRepository.login(userid, password)//레포지토리에 있는 로그인에 요청 보냄
 
         if (result is Result.Success) {//만약 loginReposity가 보낸 로그인 요청이 성공하여 반환되었을 때 Result클래스에 success와 같다면
             _loginResult.value = LoginResult(success = LoggedInUserView(displayId = result.data.displayId))
         } else {
             _loginResult.value = LoginResult(error = R.string.Login_Failed)
+=======
+        // 레포지토리에 있는 로그인에 요청 보냄
+        loginRepository.login(userid, password) {
+            // 만약 loginReposity가 보낸 로그인 요청이 성공하여 반환되었을 때 Result클래스에 success와 같다면
+            if (it is Result.Success) {
+                _loginResult.value =
+                    LoginResult(success = it.data)
+            } else {
+                _loginResult.value = LoginResult(error = R.string.Login_Failed)
+            }
+>>>>>>> 04420ed856f004e3a72b131d2a1d34e12c224c8d
         }
     }
 
@@ -36,8 +53,14 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
         }
     }
 
+<<<<<<< HEAD
     private fun isUserNameValid(username: String): Boolean {//userid에 @가 있으면 이메일 패턴 매치시키기. 아니면 비어있지 않다고 해줌
         return return if (username.contains('@')) {
+=======
+    // userid에 @가 있으면 이메일 패턴 매치시키기. 아니면 비어있지 않다고 해줌
+    private fun isUserNameValid(username: String): Boolean {
+        return if (username.contains('@')) {
+>>>>>>> 04420ed856f004e3a72b131d2a1d34e12c224c8d
             Patterns.EMAIL_ADDRESS.matcher(username).matches()
         } else {
             username.isNotBlank()
@@ -47,6 +70,4 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
     private fun isPasswordValid(password: String): Boolean {
         return password.length > 5
     }
-
-
 }

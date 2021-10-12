@@ -9,6 +9,8 @@ import com.example.graduation_project.ui.home.HomeFragment
 import com.example.graduation_project.ui.post.WriteFragment
 import com.example.graduation_project.ui.profile.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+<<<<<<< HEAD
 
 
 
@@ -26,6 +29,12 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(it,StartActivity::class.java)
                 startActivity(intent)
             }
+=======
+        val currentUser = Firebase.auth.currentUser
+        if(currentUser == null) {
+            val intent = Intent(this, StartActivity::class.java)
+            startActivity(intent)
+>>>>>>> 04420ed856f004e3a72b131d2a1d34e12c224c8d
         }
 
 

@@ -5,14 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.graduation_project.ui.Register.RegisterActivity
 import com.example.graduation_project.ui.login.LoginActivity
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.ktx.app
 import kotlinx.android.synthetic.main.activity_start.*
 
 class StartActivity : AppCompatActivity() {
-
-    // 임시 코드
-    companion object {
-        var isHaveLoginToken = false
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +33,8 @@ class StartActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        if(isHaveLoginToken) {
+        val currentUser = Firebase.auth.currentUser
+        if(currentUser != null) {
             finish()
         }
     }

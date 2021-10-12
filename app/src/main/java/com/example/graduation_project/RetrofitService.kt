@@ -10,6 +10,7 @@ import java.util.HashMap
 
 interface RetrofitService {
 
+<<<<<<< HEAD
 
     @GET("weather")//주소 뒤에 weather이 추가로 입력됨
     fun getCurrentWeather(
@@ -71,4 +72,11 @@ interface RetrofitService {
     ): Call<JsonObject>
 
 
+=======
+    @GET("/requestSignUp")
+    suspend fun requestSignUp(
+        @Query("uid") uid: String
+    ): Response<ResponseBody>
+
+>>>>>>> 04420ed856f004e3a72b131d2a1d34e12c224c8d
 }
