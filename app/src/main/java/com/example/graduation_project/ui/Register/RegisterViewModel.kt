@@ -7,7 +7,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.graduation_project.R
-import com.example.graduation_project.RegisterActivity
 import com.example.graduation_project.data.Register.RegisterRepository
 import com.example.graduation_project.data.Register.Result
 import com.example.graduation_project.ui.login.LoginFormState
@@ -33,7 +32,6 @@ class RegisterViewModel(private val registerRepository: RegisterRepository) : Vi
     }
 
     fun registerDataChanged(userEmail: String, password: String, userName: String) {
-
         if (!isEmailDataValid(userEmail)) {
             _registerFrom.value =
                 RegisterFormState(registeremailError = R.string.Register_userEmail_error)
@@ -52,9 +50,7 @@ class RegisterViewModel(private val registerRepository: RegisterRepository) : Vi
         } else if (isUserNameValid(userName)) {
             _registerFrom.value = RegisterFormState(isNameDataValid = true)
         }
-
     }
-
 
     private fun isEmailDataValid(username: String): Boolean {
         return if (username.contains('@')) {

@@ -18,14 +18,14 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
 
     fun login(userid: String, password: String) {
         // 레포지토리에 있는 로그인에 요청 보냄
-        val result = loginRepository.login(userid, password)
-
-        // 만약 loginReposity가 보낸 로그인 요청이 성공하여 반환되었을 때 Result클래스에 success와 같다면
-        if (result is Result.Success) {
-            _loginResult.value =
-                LoginResult(success = LoggedInUserView(displayId = result.data.displayId))
-        } else {
-            _loginResult.value = LoginResult(error = R.string.Login_Failed)
+        loginRepository.login(userid, password) {
+            // 만약 loginReposity가 보낸 로그인 요청이 성공하여 반환되었을 때 Result클래스에 success와 같다면
+            if (it is Result.Success) {
+                _loginResult.value =
+                    LoginResult(success = it.data)
+            } else {
+                _loginResult.value = LoginResult(error = R.string.Login_Failed)
+            }
         }
     }
 

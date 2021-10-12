@@ -3,59 +3,23 @@ package com.example.graduation_project.data.Login
 import android.util.Log
 import com.example.graduation_project.RetrofitClient
 import com.example.graduation_project.data.Login.model.LoggedInUser
+import com.example.graduation_project.ui.login.LoggedInUserView
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import java.io.IOException
 
 class LoginDataSource {
 
-    fun initUserInfo(result: ()->Unit){
-
+    fun loginEmail(userid: String, password: String, result: (Result<LoggedInUserView>) -> Unit) {
+        Firebase.auth.signInWithEmailAndPassword(userid, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val currentUser = Firebase.auth.currentUser
+                    result(Result.Success(
+                        LoggedInUserView(displayId = currentUser?.displayName.toString())))
+                } else {
+                    result(task.exception?.let { Result.Error(it) }!!)
+                }
+            }
     }
-
-    fun login(userid : String, password : String):Result<LoggedInUser> {
-//        RetrofitClient.getInstance().getUserInfo(userid, password,
-//                {
-//
-//                    val getid = it.getJSONObject("id").toString()
-//                    val getpw = it.getJSONObject("password").toString()
-//                    Log.d("LoginInfo", "id : ${getid}, pw${getpw}")
-//                    Result.Success(LoggedInUser(getid, getpw))
-//
-//                },
-//                { it, t ->
-//                    Log.d("Login Faild", "Login Faild")
-//                    Result.Error(IOException("Error"))
-//                })
-//
-
-//        RetrofitClient.getInstance().postpost({ it, t -> }, {
-//            Log.d("TAG", "login: ")
-//        })
-//
-//        try{
-//
-//
-//
-//                RetrofitClient.getInstance().getUser(userid,password,{
-//
-//                },{
-//                    it,t->
-//                })
-//
-//                RetrofitClient.getInstance().getusers(userid,password,{},{it,t->})
-//
-//            val fakeUser = LoggedInUser(java.util.UUID.randomUUID().toString(),"lasodjaso")
-//            return Result.Success(fakeUser)
-//        }catch (e:Throwable){
-//            Log.d("LoginDataSource", "실패")
-//            return Result.Error(IOException("Error Logging in",e))
-        return Result.Success(LoggedInUser(userid, password))
-    }
-
-
-
-
-    fun logout(){
-
-    }
-
 }
