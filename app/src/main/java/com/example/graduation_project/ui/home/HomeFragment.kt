@@ -17,11 +17,11 @@ class HomeFragment : Fragment() {
     //var homeListItem = mutableListOf<ContestModel>()
 
 
-    val homeListItem= arrayListOf(
-            HomeModel(R.drawable.ic_swift,"1번글","올리비아","#algorithm","2021-09-23",1, R.drawable.ic_python,0),
-            HomeModel(R.drawable.ic_cplpl,"완주하지 못한 선수2","올리비아","#algorithm","2021-09-23",99, R.drawable.ic_python,0),
-            HomeModel(R.drawable.ic_c,"3번","올리비아","#algorithm","2021-09-23",1, R.drawable.ic_python,0),
-            HomeModel(R.drawable.ic_cshop,"4","올리비아","#algorithm","2021-09-23",1, R.drawable.ic_python,1)
+    val homeListItem = arrayListOf(
+            HomeModel(R.drawable.ic_swift, "1번글", "올리비아", "#algorithm", "2021-09-23", 1, R.drawable.ic_python, 0),
+            HomeModel(R.drawable.ic_cplpl, "완주하지 못한 선수2", "올리비아", "#algorithm", "2021-09-23", 99, R.drawable.ic_python, 0),
+            HomeModel(R.drawable.ic_c, "3번", "올리비아", "#algorithm", "2021-09-23", 1, R.drawable.ic_python, 0),
+            HomeModel(R.drawable.ic_cshop, "4", "올리비아", "#algorithm", "2021-09-23", 1, R.drawable.ic_python, 1)
 
 
     )
@@ -52,7 +52,6 @@ class HomeFragment : Fragment() {
         }
 
 
-
     }
 
     override fun onAttach(context: Context) {
@@ -61,6 +60,6 @@ class HomeFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_home,container,false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 }

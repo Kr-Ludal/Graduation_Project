@@ -24,7 +24,7 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-
+        supportActionBar?.hide()
         var emailSave: String = ""
         var passwordSave: String = ""
         var nameSave : String = ""

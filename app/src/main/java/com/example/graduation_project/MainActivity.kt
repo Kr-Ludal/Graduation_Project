@@ -17,6 +17,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
+
+
         if(!StartActivity.isHaveLoginToken) {
             let {
                 val intent = Intent(it,StartActivity::class.java)
@@ -24,10 +28,19 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
+        supportActionBar?.hide()
+
+
+
+
         home_bottom_navigation.setOnNavigationItemSelectedListener(onBottomNavItemSelectedListener)
         val homeFragment= HomeFragment()
         supportFragmentManager.beginTransaction().add(R.id.home_fragment_frame,homeFragment).commit()
     }
+
+
+
 
     private val onBottomNavItemSelectedListener=BottomNavigationView.OnNavigationItemSelectedListener {
         when(it.itemId){

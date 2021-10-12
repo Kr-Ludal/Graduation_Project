@@ -41,13 +41,13 @@ interface RetrofitService {
 //    ) : Call<JsonObject>
 
 
-    data class reqLogin (val email: String,val password : String)
+    data class reqLogin(val email: String, val password: String)
 
 
     @POST("requestLogin")
     fun getusers(
-            @Body info:reqLogin
-    ) : Call<JsonObject>
+            @Body info: reqLogin
+    ): Call<JsonObject>
 
     @FormUrlEncoded
     @POST("/response-headers")
@@ -58,17 +58,17 @@ interface RetrofitService {
 
     @POST("requestLogin")
     fun getUser(
-            @Body info:reqLogin
-    ) : Call<reqLogin>
+            @Body info: reqLogin
+    ): Call<reqLogin>
 
     @GET("RequestMainScreen")
     fun getHomeBoardData(
-    ) : Call<JsonObject>
+    ): Call<JsonObject>
 
     @POST("RequestJoin")
     fun postUserInfo(
-            @Body info : postJoin
-    ):Call<JsonObject>
+            @Body info: postJoin
+    ): Call<JsonObject>
 
 
 }

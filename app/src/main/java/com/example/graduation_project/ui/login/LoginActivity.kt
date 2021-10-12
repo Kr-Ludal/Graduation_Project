@@ -26,19 +26,20 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        supportActionBar?.hide()
         setContentView(R.layout.activity_login)
 
         loginViewModel = ViewModelProvider(this, LoginViewModelFectory())
                 .get(LoginViewModel::class.java)
 
-            loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
-                val loginState = it ?: return@Observer//loginformstate에 값을 받음 null값일 때 return하고 아니면 그 값 넣기
+        loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
+            val loginState = it
+                    ?: return@Observer//loginformstate에 값을 받음 null값일 때 return하고 아니면 그 값 넣기
 
 
-                btnEnter.isEnabled = loginState.isDataValid//isDataVaild가 참거짓에 따라 변경
+            btnEnter.isEnabled = loginState.isDataValid//isDataVaild가 참거짓에 따라 변경
 
-           if (loginState.useridError != null) {//loginformstate에 있는 useriderror에 값이 null이 아니라면
+            if (loginState.useridError != null) {//loginformstate에 있는 useriderror에 값이 null이 아니라면
                 edtxtId.error = getString(loginState.useridError)
             }
             if (loginState.passwordError != null) {
@@ -74,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
         edtxtPw.apply {
             afterTextChanged {
                 loginViewModel.loginDataChanged(
-                       edtxtId.text.toString(),
+                        edtxtId.text.toString(),
                         edtxtPw.text.toString()
                 )
             }
@@ -102,10 +103,10 @@ class LoginActivity : AppCompatActivity() {
         }
 
         passwordVisibility.setOnClickListener {
-            if(edtxtPw.transformationMethod.equals(HideReturnsTransformationMethod.getInstance())){
+            if (edtxtPw.transformationMethod.equals(HideReturnsTransformationMethod.getInstance())) {
                 edtxtPw.transformationMethod = PasswordTransformationMethod.getInstance()
                 passwordVisibility.setImageResource(R.drawable.ic_launcher_eye_foreground)
-            }else{
+            } else {
                 edtxtPw.transformationMethod = HideReturnsTransformationMethod.getInstance()
                 passwordVisibility.setImageResource(R.drawable.ic_launcher_eye_off_foreground)
             }
