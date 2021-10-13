@@ -63,7 +63,7 @@
                     android:fontFamily="@font/pretendard"/>
 
                 <TextView
-                    android:id="@+id/cardview_comment_title"
+                    android:id="@+id/cardview_comment_postdate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

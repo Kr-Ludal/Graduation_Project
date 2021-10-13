@@ -37,6 +37,10 @@
     <!--comment-->
     <item name="res_cardview_comment_listitem_txtcolor" type="color">#EEEEEE</item>
 
+    <!--contest-->
+    <item name="res_contest_hero_background" type="color">#396AFC</item>
+    <item name="res_contest_benner_text_color" type="color">#FFFFFF</item>
+
     <!--search-->
     <item name="res_search_txtcolor_gray" type="color">#999999</item>
 

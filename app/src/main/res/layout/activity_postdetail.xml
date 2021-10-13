@@ -89,7 +89,6 @@
 
             </androidx.cardview.widget.CardView>
 
-
         </LinearLayout>
 
         <TextView
@@ -258,10 +257,7 @@
 
 
             </LinearLayout>
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:listitem="@layout/cardview_comment"/>
+
         </LinearLayout>
 
         <!--comment end-->
