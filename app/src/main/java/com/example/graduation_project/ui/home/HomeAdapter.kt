@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.graduation_project.PostdetailActivity
+import com.example.graduation_project.ui.post.PostdetailActivity
 import com.example.graduation_project.R
 import kotlinx.android.synthetic.main.cardview_home.view.*
 

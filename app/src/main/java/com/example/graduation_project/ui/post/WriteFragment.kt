@@ -170,8 +170,6 @@ class WriteFragment : Fragment() {
                 )
                 radio_javascript.setTypeface(Typeface.DEFAULT)
             }
-
-
         }
 
         write_enter.setOnClickListener {
@@ -183,9 +181,12 @@ class WriteFragment : Fragment() {
             }
         }
 
+        write_back.setOnClickListener {
+            write_select_language_layout.isVisible = true
+            write_post_layout.isInvisible = true
+        }
 
     }
-
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

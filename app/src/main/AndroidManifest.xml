@@ -19,7 +19,7 @@
             android:exported="false" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".StartActivity" />
-        <activity android:name=".PostdetailActivity" />
+        <activity android:name=".ui.post.PostdetailActivity" />
         <activity
             android:name=".ui.Register.RegisterActivity"
             android:windowSoftInputMode="adjustResize" />
