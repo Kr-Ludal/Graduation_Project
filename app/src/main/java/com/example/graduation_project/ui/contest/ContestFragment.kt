@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.graduation_project.R
 import kotlinx.android.synthetic.main.fragment_contest.*
 
-class ContestFragment:Fragment() {
+class ContestFragment : Fragment() {
 
     var profileList = mutableListOf<ContestModel>()
 
@@ -21,13 +21,18 @@ class ContestFragment:Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        contestViewModel = ViewModelProvider(requireActivity(),ContestViewModelFectory()).get(ContestViewModel::class.java)
+        contestViewModel = ViewModelProvider(
+            requireActivity(),
+            ContestViewModelFectory()
+        ).get(ContestViewModel::class.java)
 
 
 
 
 
-                profileList.add(ContestModel("class MetricsCallback(Callback):\n" +
+        profileList.add(
+            ContestModel(
+                "class MetricsCallback(Callback):\n" +
                         "    def __init__(self, test_data, y_true):\n" +
                         "        # Should be the label encoding of your classes\n" +
                         "        self.y_true = y_true\n" +
@@ -37,7 +42,13 @@ class ContestFragment:Fragment() {
                         "        # Here we get the probabilities - longer process\n" +
                         "        y_pred = self.model.predict(self.test_data)\n" +
                         "\n" +
-                        "        # Here we get the actual classes",R.drawable.ic_javascript,"올리비아", R.drawable.ic_python,1))
+                        "        # Here we get the actual classes",
+                R.drawable.ic_javascript,
+                "올리비아",
+                R.drawable.ic_python,
+                1
+            )
+        )
 
 
         Contest_Recycler.layoutManager = LinearLayoutManager(requireContext())
@@ -51,8 +62,12 @@ class ContestFragment:Fragment() {
         super.onAttach(context)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var contestView = inflater.inflate(R.layout.fragment_contest,container,false)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        var contestView = inflater.inflate(R.layout.fragment_contest, container, false)
         return contestView
 
     }

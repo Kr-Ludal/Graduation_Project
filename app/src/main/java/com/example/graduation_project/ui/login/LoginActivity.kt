@@ -30,11 +30,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         loginViewModel = ViewModelProvider(this, LoginViewModelFectory())
-                .get(LoginViewModel::class.java)
+            .get(LoginViewModel::class.java)
 
         loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
             val loginState = it
-                    ?: return@Observer//loginformstate에 값을 받음 null값일 때 return하고 아니면 그 값 넣기
+                ?: return@Observer//loginformstate에 값을 받음 null값일 때 return하고 아니면 그 값 넣기
 
 
             btnEnter.isEnabled = loginState.isDataValid//isDataVaild가 참거짓에 따라 변경
@@ -67,24 +67,24 @@ class LoginActivity : AppCompatActivity() {
 
         edtxtId.afterTextChanged {
             loginViewModel.loginDataChanged(//logindatachanged에 값을 넣었을 때 null값인지, 이메일인지의 여부 판별
-                    edtxtId.text.toString(),
-                    edtxtPw.text.toString()
+                edtxtId.text.toString(),
+                edtxtPw.text.toString()
             )
         }
 
         edtxtPw.apply {
             afterTextChanged {
                 loginViewModel.loginDataChanged(
-                        edtxtId.text.toString(),
-                        edtxtPw.text.toString()
+                    edtxtId.text.toString(),
+                    edtxtPw.text.toString()
                 )
             }
             setOnEditorActionListener { _, actionId, _ ->
                 when (actionId) {
                     EditorInfo.IME_ACTION_DONE ->
                         loginViewModel.login(
-                                edtxtId.text.toString(),
-                                edtxtPw.text.toString()
+                            edtxtId.text.toString(),
+                            edtxtPw.text.toString()
                         )
                 }
                 false

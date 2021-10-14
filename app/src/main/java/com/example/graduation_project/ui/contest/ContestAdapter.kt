@@ -13,12 +13,14 @@ import kotlinx.android.synthetic.main.cardview_home.view.*
 import kotlin.collections.ArrayList
 
 
-class ContestAdapter(val profileList: List<ContestModel>): RecyclerView.Adapter<ContestAdapter.ViewHolder>() {
+class ContestAdapter(val profileList: List<ContestModel>) :
+    RecyclerView.Adapter<ContestAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 
-        val v=LayoutInflater.from(parent.context).inflate(R.layout.cardview_contest,parent,false)
+        val v =
+            LayoutInflater.from(parent.context).inflate(R.layout.cardview_contest, parent, false)
         return ViewHolder(v).apply {
             itemView.setOnClickListener {
                 Log.d("tag", "onCreateViewHolder: ")
@@ -38,13 +40,13 @@ class ContestAdapter(val profileList: List<ContestModel>): RecyclerView.Adapter<
     }
 
 
-    class ViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindItems(model:ContestModel) {
+        fun bindItems(model: ContestModel) {
 
             itemView.contest_cardview_text.text = model.text
             itemView.contest_cardview_profile_img.setImageResource(model.profile_img)
-            itemView.contest_cardview_name.text=model.nickname
+            itemView.contest_cardview_name.text = model.nickname
             itemView.contest_cardview_language_img.setImageResource(model.language_img)
 
         }

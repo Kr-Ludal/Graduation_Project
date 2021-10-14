@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:layout_marginHorizontal="20dp"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="invisible">
 
             <ImageView
                 android:id="@+id/write_checkitem_back"
@@ -209,7 +209,7 @@
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="18dp"
             android:orientation="vertical"
-            android:visibility="invisible">
+            android:visibility="visible">
 
 
             <LinearLayout
@@ -230,7 +230,8 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    app:cardElevation="0dp">
 
 
                     <EditText

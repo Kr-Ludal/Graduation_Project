@@ -3,9 +3,9 @@ package com.example.graduation_project
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class commentActivity : AppCompatActivity() {
+class ContestPostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_comment)
+        setContentView(R.layout.activity_contest_comment)
     }
 }

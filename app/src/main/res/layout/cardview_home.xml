@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_cardview_item"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="0dp"
-    app:cardCornerRadius="15dp"
+    android:layout_marginBottom="10dp"
     android:clickable="true"
     app:cardBackgroundColor="@color/res_cardview_listitem_background"
-    android:layout_marginBottom="10dp"
-    android:id="@+id/home_cardview_item"
-    >
+    app:cardCornerRadius="15dp"
+    app:cardElevation="0dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
         android:layout_margin="16dp"
-        >
+        android:orientation="horizontal">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-
+            android:orientation="vertical">
 
 
             <LinearLayout
@@ -53,13 +49,14 @@
                     android:id="@+id/home_cardview_nametxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="nickname"
                     android:layout_marginHorizontal="8dp"
+                    android:layout_weight="1"
                     android:fontFamily="@font/pretendard_m"
+                    android:text="nickname"
                     android:textColor="@color/res_text_color_black"
 
                     />
+
                 <ImageButton
                     android:id="@+id/home_cardview_bookmark"
                     android:layout_width="20dp"
@@ -71,64 +68,59 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/home_cardview_title_txt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="title"
-                    android:textSize="16sp"
-                    android:textColor="@color/res_text_color_black"
-                    android:lineSpacingExtra="4sp"
                     android:fontFamily="@font/pretendard_b"
-                    />
+                    android:lineSpacingExtra="4sp"
+                    android:text="title"
+                    android:textColor="@color/res_text_color_black"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/home_cardview_tag_txt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="tag"
-                    android:textSize="12sp"
-                    android:textColor="@color/res_text_color_black"
-                    android:lineSpacingExtra="4sp"
                     android:fontFamily="@font/pretendard"
-                    />
+                    android:lineSpacingExtra="4sp"
+                    android:text="tag"
+                    android:textColor="@color/res_text_color_black"
+                    android:textSize="12sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
                     android:layout_marginTop="10dp"
-                    >
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/home_cardview_status_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="postinfo"
-                        android:textSize="12dp"
-                        android:textColor="@color/res_text_color_black"
                         android:layout_gravity="bottom"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/pretendard_extral"
                         android:lineSpacingExtra="0sp"
-                        android:fontFamily="@font/pretendard_extral"/>
+                        android:text="postinfo"
+                        android:textColor="@color/res_text_color_black"
+                        android:textSize="12dp" />
 
                     <ImageView
                         android:id="@+id/home_cardview_language_image"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        tools:srcCompat="@tools:sample/avatars"
                         android:layout_marginLeft="8dp"
                         android:gravity="right"
-                        />
+                        tools:srcCompat="@tools:sample/avatars" />
                 </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
-
 
 
     </LinearLayout>

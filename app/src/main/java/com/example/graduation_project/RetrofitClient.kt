@@ -47,14 +47,14 @@ class RetrofitClient {
             val response = buildRetrofit().requestSignUp(params)
 
             withContext(Dispatchers.Main) {
-                if(response.isSuccessful) {
+                if (response.isSuccessful) {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(
                         JsonParser.parseString(response.body()?.string())
                     )
 
                     val jsonObject = JSONObject(prettyJson)
-                    if(jsonObject.getString("result") == "success") {
+                    if (jsonObject.getString("result") == "success") {
                         success(JSONObject(prettyJson))
                     } else {
                         error(jsonObject.getString("error_code"))

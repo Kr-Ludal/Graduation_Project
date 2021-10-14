@@ -13,21 +13,21 @@ class PostdetailActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         post_txt_content.setText(intent.getStringExtra("content"))
-        postdetail_txt_tag.setText(intent.getStringExtra("tag"))
+        post_detail_txt_tag.setText(intent.getStringExtra("tag"))
         //post_language_img.setImageResource(intent.getIntExtra("language_img"))
 
-        post_img_benner_finisih.setOnClickListener{
+        post_img_banner_finish.setOnClickListener {
             finish()
         }
 
         img_btn_comment.setOnClickListener {
-            postdetail_post_layout.isInvisible=true
-            postdetail_comment_layout.isVisible=true
+            post_detail_post_layout.isInvisible = true
+            post_detail_comment_layout.isVisible = true
         }
 
-        post_comment_img_back.setOnClickListener{
-            postdetail_post_layout.isVisible=true
-            postdetail_comment_layout.isInvisible=true
+        post_comment_img_back.setOnClickListener {
+            post_detail_post_layout.isVisible = true
+            post_detail_comment_layout.isInvisible = true
         }
     }
 }

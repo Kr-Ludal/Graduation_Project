@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg_main"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -89,8 +88,8 @@
                 android:id="@+id/edtxtPw"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@null"
                 android:layout_weight="1"
+                android:background="@null"
                 android:hint="Enter your Password"
                 android:inputType="textPassword"
                 android:textColor="@color/res_text_color_black"

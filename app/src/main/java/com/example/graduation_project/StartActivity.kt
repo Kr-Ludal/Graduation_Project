@@ -33,7 +33,7 @@ class StartActivity : AppCompatActivity() {
         super.onResume()
 
         val currentUser = Firebase.auth.currentUser
-        if(currentUser != null) {
+        if (currentUser != null) {
             finish()
         }
     }

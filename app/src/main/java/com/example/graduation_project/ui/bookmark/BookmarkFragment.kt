@@ -18,7 +18,12 @@ class BookmarkFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
     }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_bookmark,container,false)
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_bookmark, container, false)
     }
 }

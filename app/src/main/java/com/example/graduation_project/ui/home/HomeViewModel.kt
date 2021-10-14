@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.graduation_project.data.Home.HomeRepository
 
-class HomeViewModel(private val homeRepository : HomeRepository) : ViewModel() {
+class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
 
 //    private val _homeForm = MutableLiveData<>()
 //    val homeForm : LiveData<> = _homeForm
@@ -14,9 +14,6 @@ class HomeViewModel(private val homeRepository : HomeRepository) : ViewModel() {
         val result = homeRepository
 
     }
-
-
-
 
 
 }

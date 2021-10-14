@@ -18,28 +18,27 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
         supportActionBar?.hide()
-        edtxt_search_detail.addTextChangedListener(object :TextWatcher{
+        edtxt_search_detail.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
             override fun afterTextChanged(s: Editable?) {
                 if (s != null) {
-                    if(s.length>0){
-                        search_result.isVisible=true
-                        search_before.isInvisible=true
-                    }else {
-                        search_before.isVisible=true
-                        search_result.isInvisible=true
+                    if (s.length > 0) {
+                        search_result.isVisible = true
+                        search_before.isInvisible = true
+                    } else {
+                        search_before.isVisible = true
+                        search_result.isInvisible = true
                     }
                 }
             }
 
 
         })
-        search_back.setOnClickListener{
+        search_back.setOnClickListener {
             finish()
         }
     }
-
 
 
     /*fun EditText.onTextChanged(onTextChanged: (String) -> Unit) {
@@ -54,4 +53,4 @@ class SearchActivity : AppCompatActivity() {
             }
         })*/
 
-    }
+}
