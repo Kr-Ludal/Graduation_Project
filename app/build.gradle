@@ -51,6 +51,18 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.8.6'
 
+    // Add editor, which contains the basic widget
+    implementation 'io.github.Rosemoe.sora-editor:editor:0.7.0'
+
+    // Add languages, if you need them as not everyone wants to implement one by himself
+    implementation 'io.github.Rosemoe.sora-editor:language-java:0.7.0'
+    implementation 'io.github.Rosemoe.sora-editor:language-html:0.7.0'
+    implementation 'io.github.Rosemoe.sora-editor:language-python:0.7.0'
+    implementation 'io.github.Rosemoe.sora-editor:language-universal:0.7.0'
+
+    // android-circlebutton
+    implementation 'com.github.markushi:circlebutton:1.1'
+
     //레트로핏
     implementation "com.squareup.retrofit2:retrofit:2.4.0"
     //gson컨버터
