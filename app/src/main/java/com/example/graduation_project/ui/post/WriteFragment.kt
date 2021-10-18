@@ -1,11 +1,13 @@
 package com.example.graduation_project.ui.post
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -15,181 +17,84 @@ import kotlinx.android.synthetic.main.fragment_write.*
 
 class WriteFragment : Fragment() {
 
+    data class mapItem (
+        val match_drawable: Int,
+        val checkedItem: Int,
+        val radioButton: RadioButton
+        )
+
+    lateinit var itemMap : Map<Int, mapItem>
+
+    lateinit var itemList : List<Pair<RadioButton, Int>>
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         var checkeditem: Int = 0
 
-        write_item_group.setOnCheckedChangeListener { group, checkedId ->
+        itemMap = mapOf(
+            R.id.radio_python to
+                    mapItem(R.drawable.ic_python_copy, 1, radio_python),
+            R.id.radio_cplpl to
+                    mapItem(R.drawable.ic_cplpl_copy, 2, radio_cplpl),
+            R.id.radio_c to
+                    mapItem(R.drawable.ic_c_copy, 3, radio_c),
+            R.id.radio_cshop to
+                    mapItem(R.drawable.ic_cshop_copy, 4, radio_cshop),
+            R.id.radio_kotlin to
+                    mapItem(R.drawable.ic_kotlin_copy, 5, radio_kotlin),
+            R.id.radio_java to
+                    mapItem(R.drawable.ic_java_copy, 6, radio_java),
+            R.id.radio_swift to
+                    mapItem(R.drawable.ic_swift_copy, 7, radio_swift),
+            R.id.radio_javascript to
+                    mapItem(R.drawable.ic_javascript_copy, 8, radio_javascript)
+        )
 
-            if (checkedId == R.id.radio_python) {
-                radio_python.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_python_copy,
-                    0,
-                    R.drawable.ic_launcher_checked_foreground,
-                    0
-                )
-                radio_python.setTypeface(Typeface.DEFAULT_BOLD)
-                checkeditem = 1
-            } else {
-                radio_python.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_python,
-                    0,
-                    R.drawable.ic_launcher_checked_foreground,
-                    0
-                )
-                radio_python.setTypeface(Typeface.DEFAULT)
-            }
+        itemList = listOf(
+            Pair(radio_python, R.drawable.ic_java), Pair(radio_cplpl, R.drawable.ic_cplpl),
+            Pair(radio_c, R.drawable.ic_c), Pair(radio_cshop, R.drawable.ic_cshop),
+            Pair(radio_kotlin, R.drawable.ic_kotlin), Pair(radio_java, R.drawable.ic_java),
+            Pair(radio_swift, R.drawable.ic_swift), Pair(radio_javascript, R.drawable.ic_javascript)
+        )
 
-            if (checkedId == R.id.radio_cplpl) {
-                radio_cplpl.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_cplpl_copy,
+        write_item_group.setOnCheckedChangeListener{ group, checkedId ->
+            for (item in itemList) {
+                item.first.setCompoundDrawablesWithIntrinsicBounds(
+                    item.second,
                     0,
                     R.drawable.ic_launcher_checked_foreground,
                     0
                 )
-                radio_cplpl.setTypeface(Typeface.DEFAULT_BOLD)
-                checkeditem = 2
-            } else {
-                radio_cplpl.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_cplpl,
-                    0,
-                    R.drawable.ic_launcher_checked_foreground,
-                    0
-                )
-                radio_cplpl.setTypeface(Typeface.DEFAULT)
+                item.first.setTypeface(Typeface.DEFAULT)
             }
 
-            if (checkedId == R.id.radio_c) {
-                radio_c.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_c_copy,
-                    0,
-                    R.drawable.ic_launcher_checked_foreground,
-                    0
-                )
-                radio_c.setTypeface(Typeface.DEFAULT_BOLD)
-                checkeditem = 3
-            } else {
-                radio_c.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_c,
-                    0,
-                    R.drawable.ic_launcher_checked_foreground,
-                    0
-                )
-                radio_c.setTypeface(Typeface.DEFAULT)
-            }
+            val item = itemMap[checkedId]
+            if(item != null) {
+                with(item) {
+                    radioButton.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                        match_drawable,
+                        0,
+                        R.drawable.ic_launcher_checked_foreground,
+                        0
+                    )
 
-            if (checkedId == R.id.radio_cshop) {
-                radio_cshop.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_cshop_copy,
-                    0,
-                    R.drawable.ic_launcher_checked_foreground,
-                    0
-                )
-                radio_cshop.setTypeface(Typeface.DEFAULT_BOLD)
-                checkeditem = 4
-            } else {
-                radio_cshop.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_cshop,
-                    0,
-                    R.drawable.ic_launcher_checked_foreground,
-                    0
-                )
-                radio_cshop.setTypeface(Typeface.DEFAULT)
-            }
-
-            if (checkedId == R.id.radio_kotlin) {
-                radio_kotlin.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_kotlin_copy,
-                    0,
-                    R.drawable.ic_launcher_checked_foreground,
-                    0
-                )
-                radio_kotlin.setTypeface(Typeface.DEFAULT_BOLD)
-                checkeditem = 5
-            } else {
-                radio_kotlin.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_kotlin,
-                    0,
-                    R.drawable.ic_launcher_checked_foreground,
-                    0
-                )
-                radio_kotlin.setTypeface(Typeface.DEFAULT)
-            }
-
-            if (checkedId == R.id.radio_java) {
-                radio_java.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_java_copy,
-                    0,
-                    R.drawable.ic_launcher_checked_foreground,
-                    0
-                )
-                radio_java.setTypeface(Typeface.DEFAULT_BOLD)
-                checkeditem = 6
-            } else {
-                radio_java.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_java,
-                    0,
-                    R.drawable.ic_launcher_checked_foreground,
-                    0
-                )
-                radio_java.setTypeface(Typeface.DEFAULT)
-            }
-            if (checkedId == R.id.radio_swift) {
-                radio_swift.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_swift_copy,
-                    0,
-                    R.drawable.ic_launcher_checked_foreground,
-                    0
-                )
-                radio_swift.setTypeface(Typeface.DEFAULT_BOLD)
-                checkeditem = 7
-            } else {
-                radio_swift.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_swift,
-                    0,
-                    R.drawable.ic_launcher_checked_foreground,
-                    0
-                )
-                radio_swift.setTypeface(Typeface.DEFAULT)
-            }
-            if (checkedId == R.id.radio_javascript) {
-                radio_javascript.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_javascript_copy,
-                    0,
-                    R.drawable.ic_launcher_checked_foreground,
-                    0
-                )
-                radio_javascript.setTypeface(Typeface.DEFAULT_BOLD)
-                checkeditem = 8
-            } else {
-                radio_javascript.setCompoundDrawablesWithIntrinsicBounds(
-                    R.drawable.ic_javascript,
-                    0,
-                    R.drawable.ic_launcher_checked_foreground,
-                    0
-                )
-                radio_javascript.setTypeface(Typeface.DEFAULT)
+                    radioButton.setTypeface(Typeface.DEFAULT_BOLD)
+                }
+                checkeditem = item.checkedItem
             }
         }
 
         write_enter.setOnClickListener {
-            if (checkeditem == 0) {
-
-            } else {
-                write_select_language_layout.isInvisible = true
-                write_post_layout.isVisible = true
+            if (checkeditem != 0) {
+                val intent = Intent(this.context, WriteActivity::class.java)
+                startActivity(intent)
             }
         }
-
-        write_back.setOnClickListener {
-            write_select_language_layout.isVisible = true
-            write_post_layout.isInvisible = true
-        }
-
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
     }
 
     override fun onCreateView(
