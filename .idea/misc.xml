@@ -8,6 +8,23 @@
         <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable-v24/btn_radius_black.xml" value="0.5697916666666667" />
         <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_background.xml" value="0.5697916666666667" />
         <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_combined_shape_copy.xml" value="0.5697916666666667" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_launcher_bell_background.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_launcher_bell_foreground.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_launcher_bookmark_foreground.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_launcher_checked_foreground.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_launcher_chevron_foreground.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_launcher_eye_foreground.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_launcher_eye_off_foreground.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_launcher_file_img_foreground.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_launcher_home_foreground.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_launcher_leaderboard_foreground.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_launcher_person_foreground.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_launcher_search_foreground.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_launcher_unbookmark_foreground.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_launcher_write_foreground.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_python_copy.xml" value="0.4005208333333333" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_round_arrow_upward_24.xml" value="0.4005208333333333" />
         <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_round_check_24.xml" value="0.5697916666666667" />
         <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_round_check_circle_24.xml" value="0.5697916666666667" />
         <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_round_circle_notifications_24.xml" value="0.5697916666666667" />
@@ -16,7 +33,7 @@
         <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/drawable/ic_round_visibility_off_24.xml" value="0.5697916666666667" />
         <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/layout/activity_comment.xml" value="0.5" />
         <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/layout/activity_login.xml" value="0.5" />
-        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/layout/activity_main.xml" value="0.5211122554067971" />
         <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/layout/activity_postdetail.xml" value="0.5" />
         <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/layout/activity_register.xml" value="0.5" />
         <entry key="..\:/Android 2021/AndProject/Graduation_Project/app/src/main/res/layout/activity_search.xml" value="0.2692502532928065" />

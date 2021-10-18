@@ -19,11 +19,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val currentUser = Firebase.auth.currentUser
-        if (currentUser == null) {
-            val intent = Intent(this, StartActivity::class.java)
-            startActivity(intent)
-        }
+//        val currentUser = Firebase.auth.currentUser
+//        if (currentUser == null) {
+//            val intent = Intent(this, StartActivity::class.java)
+//            startActivity(intent)
+//        }
 
         supportActionBar?.hide()
 
@@ -50,6 +50,8 @@ class MainActivity : AppCompatActivity() {
                     val writeFragment = WriteFragment()
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.home_fragment_frame, writeFragment).commit()
+//                    val intent = Intent(this, WriteFragment::class.java)
+//                    startActivity(intent)
                 }
                 R.id.nav_bookmark -> {
                     val bookmarkFragment = BookmarkFragment()
