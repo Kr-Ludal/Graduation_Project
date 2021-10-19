@@ -57,7 +57,7 @@
             android:layout_gravity="end"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:background="@drawable/btn_radius_black"
+            android:background="@drawable/res_btn_radius_black"
             android:fontFamily="@font/pretendard_bold"
             android:text="Sign up"
             android:textAllCaps="false"

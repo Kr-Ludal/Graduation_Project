@@ -19,12 +19,10 @@ class HomeAdapter(val homeListItem: ArrayList<HomeModel>) :
         return ViewHolder(v).apply {
             itemView.home_cardview_bookmark.setOnClickListener {
                 val getpos: Int = adapterPosition
-                if (homefragment.homeListItem.get(getpos).bookmark_checkable == 1) {
+                if (this@HomeAdapter.homeListItem.get(getpos).language_img==R.drawable.ic_baseline_bookmark_check_24) {
                     itemView.home_cardview_bookmark.setImageResource(R.drawable.ic_baseline_bookmark_uncheck_border_24)
-                    homefragment.homeListItem.get(getpos).bookmark_checkable == 0
                 } else {
                     itemView.home_cardview_bookmark.setImageResource(R.drawable.ic_baseline_bookmark_check_24)
-                    homefragment.homeListItem.get(getpos).bookmark_checkable == 1
                 }
             }
             itemView.setOnClickListener {

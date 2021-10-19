@@ -36,7 +36,6 @@ class LoginActivity : AppCompatActivity() {
             val loginState = it
                 ?: return@Observer//loginformstate에 값을 받음 null값일 때 return하고 아니면 그 값 넣기
 
-
             btnEnter.isEnabled = loginState.isDataValid//isDataVaild가 참거짓에 따라 변경
 
             if (loginState.useridError != null) {//loginformstate에 있는 useriderror에 값이 null이 아니라면

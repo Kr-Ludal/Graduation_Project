@@ -305,14 +305,13 @@
                 android:id="@+id/btnfinish"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
                 android:background="@drawable/btn_radius_black"
                 android:text="Finish"
-                android:textSize="17dp"
-                android:layout_marginTop="20dp"
                 android:textAllCaps="false"
-                android:layout_weight="1"
                 android:textColor="@color/res_text_color_white"
-                /><!--finish button area-->
+                android:textSize="17dp" /><!--finish button area-->
 
         </RelativeLayout>
 

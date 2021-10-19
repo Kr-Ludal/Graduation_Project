@@ -19,11 +19,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//        val currentUser = Firebase.auth.currentUser
-//        if (currentUser == null) {
-//            val intent = Intent(this, StartActivity::class.java)
-//            startActivity(intent)
-//        }
+        val currentUser = Firebase.auth.currentUser
+        if (currentUser == null) {
+            val intent = Intent(this, StartActivity::class.java)
+            startActivity(intent)
+        }
 
         supportActionBar?.hide()
 

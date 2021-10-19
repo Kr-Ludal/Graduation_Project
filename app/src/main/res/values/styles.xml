@@ -5,6 +5,10 @@
     <item name="res_btn_color_black" type="color">@color/black</item>
     <item name="res_btn_color_white" type="color">@color/white</item>
 
+    <item name="res_btn_radius_black" type="drawable">@drawable/btn_radius_black</item>
+    <item name="res_btn_radius_white" type="drawable">@drawable/btn_radius</item>
+
+
     <!--text-->
 
     <item name="res_text_hint_gray" type="color">#999999</item>
@@ -25,6 +29,7 @@
 
     <!--writepost-->
     <item name="res_writepost_listitem_background" type="color">#eeeeee</item>
+
     <!--profile-->
     <item name="res_profile_button_check_background" type="color">#111111</item>
     <item name="res_profile_button_uncheck_background" type="color">#EFF2F5</item>

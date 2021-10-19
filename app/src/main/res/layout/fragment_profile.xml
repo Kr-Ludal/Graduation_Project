@@ -8,139 +8,148 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="24dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+        <androidx.cardview.widget.CardView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:cardCornerRadius="999dp"
+            app:cardElevation="0dp">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:cardCornerRadius="999dp"
-                app:cardElevation="0dp">
-
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:srcCompat="@tools:sample/avatars" />
-
-            </androidx.cardview.widget.CardView>
-
-            <LinearLayout
+            <ImageView
+                android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                tools:srcCompat="@tools:sample/avatars" />
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
 
-                <TextView
-                    android:id="@+id/profile_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/pretendard_regular"
-                    android:text="Name"
-                    android:textColor="@color/res_text_color_black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_regular"
+                android:text="Name"
+                android:textColor="@color/res_text_color_black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/profile_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/pretendard_l"
-                    android:text="TextView"
-                    android:textColor="@color/res_text_color_black"
-                    android:textSize="12sp"
+            <TextView
+                android:id="@+id/profile_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_l"
+                android:text="TextView"
+                android:textColor="@color/res_text_color_black"
+                android:textSize="12sp"
 
-                    />
-
-            </LinearLayout>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                app:cardCornerRadius="999dp"
-                app:cardElevation="0dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@color/res_cardview_background_black"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/profile_img_setting"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/ic_round_settings_24" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
+                />
 
         </LinearLayout>
 
+        <androidx.cardview.widget.CardView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            app:cardCornerRadius="999dp"
+            app:cardElevation="0dp">
 
-        <RadioGroup
-            android:id="@+id/profile_Radiogroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radio_codes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/profile_button_checkable"
-                android:button="@null"
-                android:checked="true"
-                android:fontFamily="@font/pretendard"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="3dp"
-                android:text="Codes"
-                android:textColor="@color/res_profile_textcolor_white"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <RadioButton
-                android:id="@+id/radio_solutions"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/profile_button_checkable"
-                android:button="@null"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="3dp"
-                android:text="Solutions" />
-
-        </RadioGroup>
-
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="20dp">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/Contest_Recycler"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/home_listview" />
+                android:background="@color/res_cardview_background_black"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-        </ScrollView>
+                <ImageView
+                    android:id="@+id/profile_img_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/ic_round_settings_24" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
 
     </LinearLayout>
+
+
+    <RadioGroup
+        android:id="@+id/profile_Radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5">
+
+        <RadioButton
+            android:id="@+id/radio_codes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/profile_button_checkable"
+            android:button="@null"
+            android:checked="true"
+            android:fontFamily="@font/pretendard"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="3dp"
+            android:text="Codes"
+            android:textColor="@color/res_profile_textcolor_white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radio_solutions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/profile_button_checkable"
+            android:button="@null"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="3dp"
+            android:text="Solutions" />
+
+    </RadioGroup>
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_Radiogroup">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/Contest_Recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/home_listview" />
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

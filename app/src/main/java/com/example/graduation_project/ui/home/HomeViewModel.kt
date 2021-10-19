@@ -7,12 +7,12 @@ import com.example.graduation_project.data.Home.HomeRepository
 
 class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
 
-//    private val _homeForm = MutableLiveData<>()
-//    val homeForm : LiveData<> = _homeForm
+    private val _homeDataState = MutableLiveData<ArrayList<HomeModel>>()
+    val homeDataState : LiveData<ArrayList<HomeModel>> = _homeDataState
 
     fun getBoardItem() {
-        val result = homeRepository
-
+        val result = homeRepository.getBoardData()
+        _homeDataState.value=result
     }
 
 
