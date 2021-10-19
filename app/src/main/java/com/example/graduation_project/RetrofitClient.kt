@@ -2,6 +2,7 @@ package com.example.graduation_project
 
 import android.util.Log
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import kotlinx.coroutines.CoroutineScope
@@ -33,6 +34,30 @@ class RetrofitClient {
             .build()                                                    // 사용할 수 있는 레트로핏 클라이언트를 만듦
 
         return retrofit!!.create(RetrofitService::class.java)           // 레트로핏 인터페이스 가져오기
+    }
+
+    fun requestMainScreen(success: (JSONObject) -> Unit, error: (String) -> Unit) {
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = buildRetrofit().requestMainScreen()
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(
+                        listOf(JsonParser.parseString(response.body()?.toString()))
+                    )
+
+                    val jsonObject = JSONObject(prettyJson)
+                    if (jsonObject.getString("result") == "success") {
+                        success(JSONObject(prettyJson))
+                    } else {
+                        error(jsonObject.getString("error_code"))
+                    }
+                } else {
+                    error(response.code().toString())
+                }
+            }
+        }
     }
 
     fun requestSignUp(

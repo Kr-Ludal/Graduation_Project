@@ -4,10 +4,8 @@ import com.example.graduation_project.ui.home.HomeModel
 
 class HomeRepository(val dataSource : HomeDataSource) {
 
-    fun getBoardData() : ArrayList<HomeModel> {
-        val result = dataSource.getHomeBoardData()
-
-        return result
+    fun getBoardData(result: (Result<ArrayList<HomeModel>>) -> Unit) {
+        dataSource.getHomeBoardData(result)
     }
 
 

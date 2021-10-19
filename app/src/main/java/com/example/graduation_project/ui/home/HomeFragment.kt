@@ -48,6 +48,12 @@ class HomeFragment : Fragment() {
             Home_Recycler.setHasFixedSize(true)
         })
 
+        home_refresh_layout.setOnRefreshListener {
+            homeViewModel.getBoardItem()
+
+            home_refresh_layout.isRefreshing=false;
+        }
+
         home_txtbtn_search.setOnClickListener {
             activity?.let {
                 val intent = Intent(it, SearchActivity::class.java)

@@ -14,7 +14,7 @@ interface RetrofitService {
     @POST("/requestSignUp")
     suspend fun requestSignUp(@FieldMap params: HashMap<String?, String?>): Response<ResponseBody>
 
-    @GET("/requestPost")
-    suspend fun requestPost() : Response<ResponseBody>
+    @GET("/requestMainScreen")
+    suspend fun requestMainScreen() : Response<ResponseBody>
 
 }
