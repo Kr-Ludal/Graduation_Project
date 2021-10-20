@@ -38,7 +38,7 @@ class HomeFragment : Fragment() {
         homeViewModel=ViewModelProvider(this,HomeViewModelFectory())
             .get(HomeViewModel::class.java)
 
-        homeViewModel.getBoardItem()
+        //homeViewModel.getBoardItem()
 
         homeViewModel.homeDataState.observe(viewLifecycleOwner, Observer {
             val homeState=it ?:return@Observer

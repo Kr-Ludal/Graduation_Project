@@ -27,16 +27,16 @@ class RetrofitClient {
         }
     }
 
-    private fun buildRetrofit(): RetrofitService {
-        val retrofit: Retrofit? = Retrofit.Builder()
-            .baseUrl("https://choidaham.com")                   // 서버url
-            .addConverterFactory(GsonConverterFactory.create())         // gson으로 받은 값을 레트로핏이 사용할 수 있게 변환하는 과정
-            .build()                                                    // 사용할 수 있는 레트로핏 클라이언트를 만듦
+        private fun buildRetrofit(): RetrofitService {
+            val retrofit: Retrofit? = Retrofit.Builder()
+                .baseUrl("https://choidaham.com")                   // 서버url
+                .addConverterFactory(GsonConverterFactory.create())         // gson으로 받은 값을 레트로핏이 사용할 수 있게 변환하는 과정
+                .build()                                                    // 사용할 수 있는 레트로핏 클라이언트를 만듦
 
         return retrofit!!.create(RetrofitService::class.java)           // 레트로핏 인터페이스 가져오기
-    }
+}
 
-    fun requestMainScreen(success: (JSONObject) -> Unit, error: (String) -> Unit) {
+fun requestMainScreen(success: (JSONObject) -> Unit, error: (String) -> Unit) {
 
         CoroutineScope(Dispatchers.IO).launch {
             val response = buildRetrofit().requestMainScreen()
@@ -44,7 +44,7 @@ class RetrofitClient {
                 if (response.isSuccessful) {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(
-                        listOf(JsonParser.parseString(response.body()?.toString()))
+                        JsonParser.parseString(response.body()?.toString())
                     )
 
                     val jsonObject = JSONObject(prettyJson)
