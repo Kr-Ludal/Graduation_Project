@@ -47,7 +47,7 @@ class RegisterDataSource {
                         {
                             result(Result.Error(NetworkErrorException()))
                         })
-                } else {
+                }  else {
                     result(task.exception?.let { Result.Error(it) }!!)
                 }
             }
