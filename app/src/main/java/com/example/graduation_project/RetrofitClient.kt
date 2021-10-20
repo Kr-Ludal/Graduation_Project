@@ -1,5 +1,6 @@
 package com.example.graduation_project
 
+import android.os.Debug
 import android.util.Log
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonArray
@@ -36,23 +37,27 @@ class RetrofitClient {
         return retrofit!!.create(RetrofitService::class.java)           // 레트로핏 인터페이스 가져오기
 }
 
+<<<<<<< HEAD
 fun requestMainScreen(success: (JSONObject) -> Unit, error: (String) -> Unit) {
+=======
+    fun requestMainScreen(success: (JSONObject) -> Unit, error: (String) -> Unit) {
+        val service = buildRetrofit()
+>>>>>>> c6d154bcdd9a6848dd578edaf4a48b15c6613fef
 
         CoroutineScope(Dispatchers.IO).launch {
-            val response = buildRetrofit().requestMainScreen()
+            val response = service.requestMainScreen()
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(
+<<<<<<< HEAD
                         JsonParser.parseString(response.body()?.toString())
+=======
+                        JsonParser.parseString(response.body()?.string())
+>>>>>>> c6d154bcdd9a6848dd578edaf4a48b15c6613fef
                     )
 
-                    val jsonObject = JSONObject(prettyJson)
-                    if (jsonObject.getString("result") == "success") {
-                        success(JSONObject(prettyJson))
-                    } else {
-                        error(jsonObject.getString("error_code"))
-                    }
+                    success(JSONObject(prettyJson))
                 } else {
                     error(response.code().toString())
                 }
