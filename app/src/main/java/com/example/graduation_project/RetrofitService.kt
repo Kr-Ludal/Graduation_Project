@@ -14,4 +14,7 @@ interface RetrofitService {
     @GET("/requestmainscreen")
     suspend fun requestMainScreen() : Response<ResponseBody>
 
+    @GET("requestContestScreen")
+    suspend fun requestContestScreen() : Response<ResponseBody>
+
 }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.graduation_project.R
@@ -22,39 +23,27 @@ class ContestFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         contestViewModel = ViewModelProvider(
-            requireActivity(),
+            this,
             ContestViewModelFectory()
         ).get(ContestViewModel::class.java)
 
+        contestViewModel.contestDataState.observe(viewLifecycleOwner, Observer {
+            val contestState=it ?:return@Observer
 
 
+            Contest_Recycler.layoutManager = LinearLayoutManager(requireContext())
+            Contest_Recycler.adapter = ContestAdapter(contestState)
+
+            Contest_Recycler.setHasFixedSize(true)
+        })
 
 
-        profileList.add(
-            ContestModel(
-                "class MetricsCallback(Callback):\n" +
-                        "    def __init__(self, test_data, y_true):\n" +
-                        "        # Should be the label encoding of your classes\n" +
-                        "        self.y_true = y_true\n" +
-                        "        self.test_data = test_data\n" +
-                        "\n" +
-                        "    def on_epoch_end(self, epoch, logs=None):\n" +
-                        "        # Here we get the probabilities - longer process\n" +
-                        "        y_pred = self.model.predict(self.test_data)\n" +
-                        "\n" +
-                        "        # Here we get the actual classes",
-                R.drawable.ic_javascript,
-                "올리비아",
-                R.drawable.ic_python,
-                1
-            )
-        )
+        contest_refresh_layout.setOnRefreshListener {
+            contestViewModel.getContestItem()
 
+            contest_refresh_layout.isRefreshing=false
+        }
 
-        Contest_Recycler.layoutManager = LinearLayoutManager(requireContext())
-        Contest_Recycler.adapter = ContestAdapter(profileList)
-
-        Contest_Recycler.setHasFixedSize(true)
 
     }
 
@@ -73,3 +62,23 @@ class ContestFragment : Fragment() {
     }
 
 }
+//
+//        profileList.add(
+//            ContestModel(
+//                "class MetricsCallback(Callback):\n" +
+//                        "    def __init__(self, test_data, y_true):\n" +
+//                        "        # Should be the label encoding of your classes\n" +
+//                        "        self.y_true = y_true\n" +
+//                        "        self.test_data = test_data\n" +
+//                        "\n" +
+//                        "    def on_epoch_end(self, epoch, logs=None):\n" +
+//                        "        # Here we get the probabilities - longer process\n" +
+//                        "        y_pred = self.model.predict(self.test_data)\n" +
+//                        "\n" +
+//                        "        # Here we get the actual classes",
+//                R.drawable.ic_javascript,
+//                "올리비아",
+//                R.drawable.ic_python,
+//                1
+//            )
+//        )

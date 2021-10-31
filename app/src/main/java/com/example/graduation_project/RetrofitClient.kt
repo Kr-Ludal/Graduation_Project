@@ -39,57 +39,74 @@ class RetrofitClient {
 
     fun requestMainScreen(success: (JSONObject) -> Unit, error: (String) -> Unit) {
 
-        fun requestMainScreen(success: (JSONObject) -> Unit, error: (String) -> Unit) {
-            val service = buildRetrofit()
+        val service = buildRetrofit()
 
-            CoroutineScope(Dispatchers.IO).launch {
-                val response = service.requestMainScreen()
-                withContext(Dispatchers.Main) {
-                    if (response.isSuccessful) {
-                        val gson = GsonBuilder().setPrettyPrinting().create()
-                        val prettyJson = gson.toJson(
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = service.requestMainScreen()
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(
 
-                            JsonParser.parseString(response.body()?.toString())
+                        JsonParser.parseString(response.body()?.toString())
 
-                            //JsonParser.parseString(response.body()?.string())
-                        )
+                        //JsonParser.parseString(response.body()?.string())
+                    )
+                    success(JSONObject(prettyJson))
+                } else {
+                    error(response.code().toString())
+                }
+            }
+        }
+    }
+
+    fun requestContestScreen(success: (JSONObject) -> Unit, error: (String) -> Unit){
+        val service = buildRetrofit()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = service.requestContestScreen()
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(
+                        JsonParser.parseString(response.body()?.toString())
+                    )
+                    success(JSONObject(prettyJson))
+                } else {
+                    error(response.code().toString())
+                }
+            }
+        }
+    }
+
+    fun requestSignUp(
+        uid: String,
+        success: (JSONObject) -> Unit,
+        error: (String) -> Unit
+    ) {
+        val params = HashMap<String?, String?>()
+        params["uid"] = uid
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = buildRetrofit().requestSignUp(params)
+
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(
+                        JsonParser.parseString(response.body()?.string())
+                    )
+
+                    val jsonObject = JSONObject(prettyJson)
+                    if (jsonObject.getString("result") == "success") {
                         success(JSONObject(prettyJson))
                     } else {
-                        error(response.code().toString())
+                        error(jsonObject.getString("error_code"))
                     }
+                } else {
+                    error(response.code().toString())
                 }
             }
         }
     }
-        fun requestSignUp(
-            uid: String,
-            success: (JSONObject) -> Unit,
-            error: (String) -> Unit
-        ) {
-            val params = HashMap<String?, String?>()
-            params["uid"] = uid
-
-            CoroutineScope(Dispatchers.IO).launch {
-                val response = buildRetrofit().requestSignUp(params)
-
-                withContext(Dispatchers.Main) {
-                    if (response.isSuccessful) {
-                        val gson = GsonBuilder().setPrettyPrinting().create()
-                        val prettyJson = gson.toJson(
-                            JsonParser.parseString(response.body()?.string())
-                        )
-
-                        val jsonObject = JSONObject(prettyJson)
-                        if (jsonObject.getString("result") == "success") {
-                            success(JSONObject(prettyJson))
-                        } else {
-                            error(jsonObject.getString("error_code"))
-                        }
-                    } else {
-                        error(response.code().toString())
-                    }
-                }
-            }
-        }
-    }
+}
 

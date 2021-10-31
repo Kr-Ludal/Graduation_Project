@@ -38,8 +38,6 @@ class HomeFragment : Fragment() {
         homeViewModel=ViewModelProvider(this,HomeViewModelFectory())
             .get(HomeViewModel::class.java)
 
-        //homeViewModel.getBoardItem()
-
         homeViewModel.homeDataState.observe(viewLifecycleOwner, Observer {
             val homeState=it ?:return@Observer
 
@@ -51,7 +49,7 @@ class HomeFragment : Fragment() {
         home_refresh_layout.setOnRefreshListener {
             homeViewModel.getBoardItem()
 
-            home_refresh_layout.isRefreshing=false;
+            home_refresh_layout.isRefreshing=false
         }
 
         home_txtbtn_search.setOnClickListener {

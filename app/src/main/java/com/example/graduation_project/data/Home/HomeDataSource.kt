@@ -1,6 +1,7 @@
 package com.example.graduation_project.data.Home
 
 import android.accounts.NetworkErrorException
+import android.util.Log
 import com.example.graduation_project.R
 import com.example.graduation_project.RetrofitClient
 import com.example.graduation_project.ui.home.HomeModel
@@ -20,6 +21,7 @@ class HomeDataSource {
                 val title = item.get("title")
                 val post_tag = item.get("post_tag")
                 val language_type = item.get("language_type")
+                Log.d("log", "$language_type")
 //                val language_thumbnails = item.get("language_thumbnails")
                 val post_id = item.get("post_id")
                 val write_time = item.get("write_time")

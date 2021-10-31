@@ -12,7 +12,7 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
     val homeDataState : LiveData<ArrayList<HomeModel>> = _homeDataState
 
     fun getBoardItem() {
-        val result = homeRepository.getBoardData {
+        homeRepository.getBoardData {
             if (it is Result.Success) {
                 _homeDataState.value = it.data
             } else if (it is Result.Error) {
