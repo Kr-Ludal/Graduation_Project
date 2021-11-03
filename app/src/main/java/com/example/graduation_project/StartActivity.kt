@@ -3,6 +3,7 @@ package com.example.graduation_project
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.graduation_project.ui.Register.RegisterActivity
 import com.example.graduation_project.ui.login.LoginActivity
 import com.google.firebase.auth.ktx.auth
@@ -33,6 +34,7 @@ class StartActivity : AppCompatActivity() {
         super.onResume()
 
         val currentUser = Firebase.auth.currentUser
+        Log.d("StartActivity onResume", "$currentUser ")
         if (currentUser != null) {
             finish()
         }

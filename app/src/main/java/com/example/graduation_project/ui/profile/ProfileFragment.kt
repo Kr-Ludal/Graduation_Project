@@ -8,14 +8,33 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.graduation_project.R
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : Fragment() {
 
+    private lateinit var profileViewModel: ProfileViewModel
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        profileViewModel = ViewModelProvider(this, ProfileViewModelFactory())
+                .get(ProfileViewModel::class.java)
+
+        profileViewModel.profileCodeDataState.observe(viewLifecycleOwner, Observer {
+            val codeDataState = it?:return@Observer
+
+
+
+        })
+
+        profileViewModel.profileSolutionDataState.observe(viewLifecycleOwner, Observer {
+            val solutionDataState = it ?: return@Observer
+
+        })
+
 
         profile_Radiogroup.setOnCheckedChangeListener { group, checkedId ->
             if (checkedId == R.id.radio_codes) {

@@ -1,22 +1,33 @@
-package com.example.graduation_project.ui.post
+package com.example.graduation_project.ui.Postdetail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.graduation_project.R
 import kotlinx.android.synthetic.main.activity_postdetail.*
 
 class PostdetailActivity : AppCompatActivity() {
+
+    private lateinit var postdetailViewModel: PostdetailViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_postdetail)
         supportActionBar?.hide()
+        post_txt_content.setText(intent.getStringExtra("post_id"))
 
-        post_txt_content.setText(intent.getStringExtra("content"))
-        post_detail_txt_tag.setText(intent.getStringExtra("tag"))
-        //post_language_img.setImageResource(intent.getIntExtra("language_img"))
+        postdetailViewModel=ViewModelProvider(this,PostdetailViewModelFactory())
+            .get(PostdetailViewModel::class.java)
 
+        postdetailViewModel.postdetailDataState.observe(this, Observer {
+            val postdetailState=it?:return@Observer
+
+
+
+        })
 
         post_img_banner_finish.setOnClickListener {
             finish()

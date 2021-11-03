@@ -32,7 +32,7 @@ class RegisterDataSource {
                     }
                     user!!.updateProfile(profileUpdates)
                         .addOnCompleteListener { updateTask ->
-                            if(updateTask.isSuccessful) {
+                            if (updateTask.isSuccessful) {
                                 requestCombainRegister(result)
                             } else {
                                 result(updateTask.exception?.let { Result.Error(it) }!!)
@@ -47,7 +47,7 @@ class RegisterDataSource {
                         {
                             result(Result.Error(NetworkErrorException()))
                         })
-                }  else {
+                } else {
                     result(task.exception?.let { Result.Error(it) }!!)
                 }
             }
@@ -57,7 +57,7 @@ class RegisterDataSource {
     }
 
     private fun requestCombainRegister(result: (Result<Unit>) -> Unit) {
-        if(++successCnt >= 2) {
+        if (++successCnt >= 2) {
             result(Result.Success(Unit))
         }
     }

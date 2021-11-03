@@ -2,6 +2,9 @@ package com.example.graduation_project
 
 import android.os.Debug
 import android.util.Log
+import com.example.graduation_project.ui.home.HomeModel
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
@@ -37,18 +40,18 @@ class RetrofitClient {
         return retrofit!!.create(RetrofitService::class.java)           // 레트로핏 인터페이스 가져오기
     }
 
+    //MainScreen Area===============================================
     fun requestMainScreen(success: (JSONObject) -> Unit, error: (String) -> Unit) {
 
         val service = buildRetrofit()
-
+        val userId = Firebase.auth.currentUser?.uid.toString()
         CoroutineScope(Dispatchers.IO).launch {
-            val response = service.requestMainScreen()
+            val response = service.requestMainScreen(userId)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(
-
-                        JsonParser.parseString(response.body()?.toString())
+                        JsonParser.parseString(response.body()?.string())
 
                         //JsonParser.parseString(response.body()?.string())
                     )
@@ -60,7 +63,60 @@ class RetrofitClient {
         }
     }
 
-    fun requestContestScreen(success: (JSONObject) -> Unit, error: (String) -> Unit){
+    fun addMainScreenBookmark(
+        postId: Int,
+        success: (JSONObject) -> Unit,
+        error: (String) -> Unit
+    ) {
+        val userId = Firebase.auth.currentUser?.uid.toString()
+        Log.d("retrofitClient addMainScreen Bookmark", "$userId, $postId")
+        if (userId != null) {
+            val service = buildRetrofit()
+            CoroutineScope(Dispatchers.IO).launch {
+                val response = service.requestMainBookmark(userId, postId)
+                withContext(Dispatchers.Main) {
+                    if (response.isSuccessful) {
+                        val gson = GsonBuilder().setPrettyPrinting().create()
+                        val prettyJson = gson.toJson(
+                            JsonParser.parseString(response.body()?.string())
+                        )
+                        success(JSONObject(prettyJson))
+                    } else {
+                        error(response.code().toString())
+                    }
+                }
+            }
+        }
+    }
+
+    fun removeMainScreenBookmark(
+        postId: Int,
+        success: (JSONObject) -> Unit,
+        error: (String) -> Unit
+    ) {
+        val userId = Firebase.auth.currentUser?.uid.toString()
+        if (userId != null) {
+            val service = buildRetrofit()
+            CoroutineScope(Dispatchers.IO).launch {
+                val response = service.requestremoveMainBookmark(postId, userId)
+                withContext(Dispatchers.Main) {
+                    if (response.isSuccessful) {
+                        val gson = GsonBuilder().setPrettyPrinting().create()
+                        val prettyJson = gson.toJson(
+                            JsonParser.parseString(response.body()?.string())
+                        )
+                        success(JSONObject(prettyJson))
+                    } else {
+                        error(response.code().toString())
+                    }
+                }
+            }
+        }
+    }
+    //MainScreen Area End==================================================
+
+    //Contest Area=========================================================
+    fun requestContestScreen(success: (JSONObject) -> Unit, error: (String) -> Unit) {
         val service = buildRetrofit()
         CoroutineScope(Dispatchers.IO).launch {
             val response = service.requestContestScreen()
@@ -68,7 +124,7 @@ class RetrofitClient {
                 if (response.isSuccessful) {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(
-                        JsonParser.parseString(response.body()?.toString())
+                        JsonParser.parseString(response.body()?.string())
                     )
                     success(JSONObject(prettyJson))
                 } else {
@@ -77,7 +133,52 @@ class RetrofitClient {
             }
         }
     }
+    //Contest Area End====================================================
 
+    //Postdetail Area=====================================================
+
+    fun requestPostdetail(post_id: Int, success: (JSONObject) -> Unit, error: (String) -> Unit) {
+        val service = buildRetrofit()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = service.requestPostDetail(post_id)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(
+                        JsonParser.parseString(response.body()?.string())
+                    )
+                    success(JSONObject(prettyJson))
+                } else {
+                    error(response.code().toString())
+                }
+            }
+        }
+
+    }
+
+    //Postdetail Area End=================================================
+
+    //Bookmark Area
+    fun requestBookmark(success: (JSONObject) -> Unit, error: (String) -> Unit) {
+        val user_id = Firebase.auth.currentUser?.uid.toString()
+        val service = buildRetrofit()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = service.requestBookmark(user_id)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(
+                        JsonParser.parseString(response.body()?.string())
+                    )
+                    success(JSONObject(prettyJson))
+                } else
+                    error(response.code().toString())
+            }
+        }
+    }
+
+
+    //Register Area
     fun requestSignUp(
         uid: String,
         success: (JSONObject) -> Unit,
@@ -95,7 +196,6 @@ class RetrofitClient {
                     val prettyJson = gson.toJson(
                         JsonParser.parseString(response.body()?.string())
                     )
-
                     val jsonObject = JSONObject(prettyJson)
                     if (jsonObject.getString("result") == "success") {
                         success(JSONObject(prettyJson))
@@ -108,5 +208,7 @@ class RetrofitClient {
             }
         }
     }
+
+
 }
 

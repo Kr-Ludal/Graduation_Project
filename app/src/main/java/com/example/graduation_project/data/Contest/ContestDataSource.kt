@@ -29,9 +29,6 @@ class ContestDataSource {
             }, {
                 result(Result.Error(NetworkErrorException()))
             })
-
         }
-
     }
-
 }

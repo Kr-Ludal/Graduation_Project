@@ -89,9 +89,6 @@ class LoginActivity : AppCompatActivity() {
                 false
             }
             btnEnter.setOnClickListener {
-                //val i = Intent(this@LoginActivity, HomeActivity::class.java)
-                //startActivityForResult(i, RESULT_OK)
-
                 loginViewModel.login(edtxtId.text.toString(), edtxtPw.text.toString())
             }
         }

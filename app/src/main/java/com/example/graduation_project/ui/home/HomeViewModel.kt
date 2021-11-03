@@ -9,7 +9,7 @@ import com.example.graduation_project.data.Home.Result
 class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
 
     private val _homeDataState = MutableLiveData<ArrayList<HomeModel>>()
-    val homeDataState : LiveData<ArrayList<HomeModel>> = _homeDataState
+    val homeDataState: LiveData<ArrayList<HomeModel>> = _homeDataState
 
     fun getBoardItem() {
         homeRepository.getBoardData {
@@ -17,11 +17,6 @@ class HomeViewModel(private val homeRepository: HomeRepository) : ViewModel() {
                 _homeDataState.value = it.data
             } else if (it is Result.Error) {
             }
-
         }
-
-
     }
-
-
 }

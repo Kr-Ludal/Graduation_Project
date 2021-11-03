@@ -16,30 +16,19 @@ import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : Fragment() {
 
-
-    val homeListItem = arrayListOf(
-        HomeModel(
-            R.drawable.ic_swift,
-            "1번글",
-            "올리비아",
-            "#algorithm",
-            "2021-09-23",
-            1,
-            R.drawable.ic_python,
-            0
-        )
-    )
-
     private lateinit var homeViewModel: HomeViewModel
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        homeViewModel=ViewModelProvider(this,HomeViewModelFectory())
+
+        homeViewModel = ViewModelProvider(this, HomeViewModelFectory())
             .get(HomeViewModel::class.java)
 
+        homeViewModel.getBoardItem()
+
         homeViewModel.homeDataState.observe(viewLifecycleOwner, Observer {
-            val homeState=it ?:return@Observer
+            val homeState = it ?: return@Observer
 
             Home_Recycler.layoutManager = LinearLayoutManager(requireContext())
             Home_Recycler.adapter = HomeAdapter(homeState)
@@ -49,7 +38,7 @@ class HomeFragment : Fragment() {
         home_refresh_layout.setOnRefreshListener {
             homeViewModel.getBoardItem()
 
-            home_refresh_layout.isRefreshing=false
+            home_refresh_layout.isRefreshing = false
         }
 
         home_txtbtn_search.setOnClickListener {

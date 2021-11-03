@@ -8,5 +8,6 @@ data class HomeModel(
     val date: String,
     val saved: Int,
     val language_img: Int,
-    val bookmark_checkable: Int
+    var bookmark_checkable: Int,
+    val post_Id: Int
 )
