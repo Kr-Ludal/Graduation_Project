@@ -16,21 +16,30 @@ class WriteViewModel(private val writeRepository: WriteRepository):ViewModel() {
     }
 
     fun writeDataChanged(title : String, content:String){
-        if(isCheckDataValid(title)){
-            _writeFormState.value= WriteFormState(isTitleDataValid = true)
-        }else if(isCheckDataValid(content)){
-            _writeFormState.value= WriteFormState(isContentDataValid = true)
-        }else if(isCheckDataValid(title)&&isCheckDataValid(content)){
+        if(!isCheckDataValid(title)){
+            //_writeFormState.value= WriteFormState(isTitleDataValid = true)
+        }else if(!isCheckDataValid(content)){
+            //_writeFormState.value= WriteFormState(isContentDataValid = true)
+        }else{
             _writeFormState.value= WriteFormState(isBothDataValid = true)
         }
 
-        if(!isCheckDataValid(title)){
-            _writeFormState.value=WriteFormState(isTitleDataValid = false)
-        }else if(isCheckDataValid(content)){
-            _writeFormState.value= WriteFormState(isContentDataValid = false)
-        }else if(!isCheckDataValid(title)&&!isCheckDataValid(content)){
-            _writeFormState.value= WriteFormState(isBothDataValid = false)
-        }
+
+//        if(isCheckDataValid(title)){
+//            _writeFormState.value= WriteFormState(isTitleDataValid = true)
+//        }else if(isCheckDataValid(content)){
+//            _writeFormState.value= WriteFormState(isContentDataValid = true)
+//        }else if(isCheckDataValid(title)&&isCheckDataValid(content)){
+//            _writeFormState.value= WriteFormState(isBothDataValid = true)
+//        }
+//
+//        if(!isCheckDataValid(title)){
+//            _writeFormState.value=WriteFormState(isTitleDataValid = false)
+//        }else if(!isCheckDataValid(content)){
+//            _writeFormState.value= WriteFormState(isContentDataValid = false)
+//        }else if(!isCheckDataValid(title)&&!isCheckDataValid(content)){
+//            _writeFormState.value= WriteFormState(isBothDataValid = false)
+//        }
     }
 
     private fun isCheckDataValid(content : String): Boolean {

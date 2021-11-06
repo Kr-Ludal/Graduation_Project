@@ -3,6 +3,7 @@ package com.example.graduation_project.ui.Write
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -41,18 +42,25 @@ class WriteActivity : AppCompatActivity() {
                     Write_Title_text.toString(),
                     code_editor.toString()
                 )
+                val code_edit = code_editor.toString()
+                Log.d("Wtie", "$code_edit")
             }
         }
 
-
         val hashTagArray : Array<out String>? = Write_Hashtag_Text.insertTag
+
 
         activity_write_back_button.setOnClickListener {
             finish()
         }
 
         floatingActionButton.setOnClickListener {
-            writeViewModel.postWriteData(Write_Title_text.toString(),code_editor.toString(),languageType)
+            //writeViewModel.postWriteData(Write_Title_text.toString(),code_editor.toString(),languageType)
+            if (hashTagArray != null) {
+                for(i in 0 until hashTagArray.count())
+                    Write_Title_text.append(hashTagArray[i])
+            }
+            Log.d("WriteActivity", "commit button able")
         }
 
         initCodeEditor()
