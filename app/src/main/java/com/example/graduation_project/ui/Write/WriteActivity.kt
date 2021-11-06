@@ -31,7 +31,7 @@ class WriteActivity : AppCompatActivity() {
             val writeState =it ?:return@Observer
             floatingActionButton.isEnabled = writeState.isBothDataValid
             if(!writeState.isBothDataValid){
-                Toast.makeText(this, R.string.Write_Contents_Error, Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this, R.string.Write_Contents_Error, Toast.LENGTH_SHORT).show()
             }
         })
 
@@ -43,6 +43,9 @@ class WriteActivity : AppCompatActivity() {
                 )
             }
         }
+
+
+        val hashTagArray : Array<out String>? = Write_Hashtag_Text.insertTag
 
         activity_write_back_button.setOnClickListener {
             finish()
