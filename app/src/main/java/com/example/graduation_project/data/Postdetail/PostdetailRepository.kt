@@ -4,7 +4,7 @@ import com.example.graduation_project.ui.Postdetail.PostdetailModel
 
 class PostdetailRepository(val dataSource: PostdetailDataSource) {
 
-    fun getPostdetailData(post_id : Int, result: (Result<ArrayList<PostdetailModel>>)->Unit){
+    fun getPostdetailData(post_id : Int, result: (Result<String>)->Unit){
         dataSource.getPostDetail(post_id,result)
     }
 

@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.example.graduation_project.ui.bookmark.BookmarkFragment
 import com.example.graduation_project.ui.contest.ContestFragment
 import com.example.graduation_project.ui.home.HomeFragment
-import com.example.graduation_project.ui.post.WriteFragment
+import com.example.graduation_project.ui.Write.WriteFragment
 import com.example.graduation_project.ui.profile.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.ktx.auth

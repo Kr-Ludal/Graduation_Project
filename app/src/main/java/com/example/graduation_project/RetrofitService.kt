@@ -13,9 +13,12 @@ interface RetrofitService {
     //Login Area End
 
     //MainScreen Area
-    @GET("/requestmainscreen")
-    suspend fun requestMainScreen(@Query("user_id") userId: String): Response<ResponseBody>
+    @FormUrlEncoded
+    @POST("/requestmainscreen")
+    suspend fun requestMainScreen(@Field("user_id") userId: String): Response<ResponseBody>
+    //MainScreen Area End
 
+    //Bookmark Area
     @FormUrlEncoded
     @POST("/postBookmark")
     suspend fun requestMainBookmark(
@@ -29,7 +32,7 @@ interface RetrofitService {
         @Field("post_id") postId: Int,
         @Field("user_id") userId: String
     ): Response<ResponseBody>
-    //MainScreen Area End
+    //Bookmark Area End
 
     //Contest Area
     @GET("/requestcontestscreen")
@@ -42,6 +45,19 @@ interface RetrofitService {
     //Postdetail Area End
 
     //BookMark Area
-    @GET("/reqBookmark")
-    suspend fun requestBookmark(@Query("user_id") user_id: String): Response<ResponseBody>
+    @FormUrlEncoded
+    @POST("/reqBookmark")
+    suspend fun requestBookmark(@Field("user_id") user_id: String): Response<ResponseBody>
+
+    //Write Area
+    @FormUrlEncoded
+    @POST("/PostWrite")
+    suspend fun postWriteData(
+        @Field("user_id") user_id: String,
+        @Field("subtext") title: String,
+        @Field("maintext") content: String,
+        @Field("tag") tag:String,
+        @Field("language_type") languageType: Int
+    ): Response<ResponseBody>
+
 }

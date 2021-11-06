@@ -8,8 +8,8 @@ import com.example.graduation_project.data.Postdetail.Result
 
 class PostdetailViewModel(private val postdetailRepository: PostdetailRepository):ViewModel() {
 
-    private val _postdetailDataState = MutableLiveData<ArrayList<PostdetailModel>>()
-    val postdetailDataState : LiveData<ArrayList<PostdetailModel>> = _postdetailDataState
+    private val _postdetailDataState = MutableLiveData<String>()
+    val postdetailDataState : LiveData<String> = _postdetailDataState
 
     fun getPostdetailData(post_id:Int){
         postdetailRepository.getPostdetailData(post_id) {

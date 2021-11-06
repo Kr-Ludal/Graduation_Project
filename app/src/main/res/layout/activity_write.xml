@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.post.WriteActivity">
+    tools:context=".ui.Write.WriteActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -21,6 +21,21 @@
             android:layout_marginBottom="18dp"
             app:srcCompat="@drawable/ic_round_close_24" />
 
+
+        <EditText
+            android:id="@+id/Write_Title_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginVertical="8dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:background="@drawable/edittext_background"
+            android:hint="Title"
+            android:drawableStart="@drawable/ic_launcher_file_img_foreground"
+            android:layout_gravity="center"
+            />
+
         <at.markushi.ui.CircleButton
             android:id="@+id/floatingActionButton"
             android:layout_width="48dp"
@@ -33,7 +48,29 @@
             app:cb_color="@color/res_contest_hero_background"
             app:cb_pressedRingWidth="8dp" />
 
+
     </FrameLayout>
+
+    <com.aqoong.lib.hashtagedittextview.HashTagEditTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:itemMaxLength="5"
+        app:itemMaxCount="5"
+        app:autoPoundSign="true"
+        app:itemMaxLengthOverMent="The tag is too long."
+        app:itemMaxCountOverMent="Too many tags."
+        tools:ignore="MissingClass" />
+
+    <EditText
+        android:id="@+id/Write_Hashtag_Text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Hash Tag"
+        android:textSize="8dp"
+        android:backgroundTint="@color/res_background_gray"
+
+        />
 
     <io.github.rosemoe.sora.widget.CodeEditor
         android:layout_height="match_parent"

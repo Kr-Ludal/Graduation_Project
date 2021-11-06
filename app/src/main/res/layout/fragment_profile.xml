@@ -145,10 +145,10 @@
         app:layout_constraintTop_toBottomOf="@+id/profile_Radiogroup">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/Contest_Recycler"
+            android:id="@+id/Profile_Recycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/home_listview" />
+            android:visibility="visible"/>
 
     </ScrollView>
 

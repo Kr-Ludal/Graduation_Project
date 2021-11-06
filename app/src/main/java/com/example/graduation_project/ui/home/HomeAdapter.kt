@@ -40,14 +40,18 @@ class HomeAdapter(val homeListItem: ArrayList<HomeModel>) :
                 }
             }
             itemView.setOnClickListener {
-
                 val curPos: Int = adapterPosition
+                val post_Id = this@HomeAdapter.homeListItem[curPos].post_Id
                 val intent = Intent(parent.context, PostdetailActivity::class.java)
-                intent.putExtra(
-                    "post_id",
-                    this@HomeAdapter.homeListItem.get(curPos).post_Id
-                )
+                intent.putExtra("post_id", post_Id)
+                intent.putExtra("language_img",this@HomeAdapter.homeListItem[curPos].language_img)
+                intent.putExtra("date",itemView.home_cardview_status_txt.text)
+                intent.putExtra("nickname",this@HomeAdapter.homeListItem[curPos].nickname)
+                intent.putExtra("title",this@HomeAdapter.homeListItem[curPos].title)
+                intent.putExtra("tag",this@HomeAdapter.homeListItem[curPos].tag)
+                intent.putExtra("profile_img",this@HomeAdapter.homeListItem[curPos].profile_img)
                 parent.context.startActivity(intent)
+
             }
         }
 

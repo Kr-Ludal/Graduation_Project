@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.graduation_project.R
 import kotlinx.android.synthetic.main.fragment_profile.*
 
@@ -26,13 +27,18 @@ class ProfileFragment : Fragment() {
         profileViewModel.profileCodeDataState.observe(viewLifecycleOwner, Observer {
             val codeDataState = it?:return@Observer
 
-
+            Profile_Recycler.layoutManager = LinearLayoutManager(requireContext())
+            Profile_Recycler.adapter = ProfileCodeAdapter(codeDataState)
+            Profile_Recycler.setHasFixedSize(true)
 
         })
 
         profileViewModel.profileSolutionDataState.observe(viewLifecycleOwner, Observer {
             val solutionDataState = it ?: return@Observer
 
+            Profile_Recycler.layoutManager = LinearLayoutManager(requireContext())
+            Profile_Recycler.adapter = ProfileSolutionAdapter(solutionDataState)
+            Profile_Recycler.setHasFixedSize(true)
         })
 
 

@@ -17,7 +17,7 @@ class BookmarkAdapter(val bookmarkListItem : ArrayList<HomeModel>):
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.cardview_home, parent, false)
 
-        return BookmarkAdapter.ViewHolder(v).apply {
+        return ViewHolder(v).apply {
             itemView.home_cardview_bookmark.setOnClickListener {
                 val getpos: Int = adapterPosition
                 val post_id: Int = this@BookmarkAdapter.bookmarkListItem.get(getpos).post_Id
@@ -40,12 +40,18 @@ class BookmarkAdapter(val bookmarkListItem : ArrayList<HomeModel>):
             }
             itemView.setOnClickListener {
                 val curPos: Int = adapterPosition
+                val post_Id = this@BookmarkAdapter.bookmarkListItem[curPos].post_Id
+
                 val intent = Intent(parent.context, PostdetailActivity::class.java)
-                intent.putExtra(
-                    "post_id",
-                    this@BookmarkAdapter.bookmarkListItem.get(curPos).post_Id
-                )
+                intent.putExtra("post_id", post_Id)
+                intent.putExtra("language_img",this@BookmarkAdapter.bookmarkListItem[curPos].language_img)
+                intent.putExtra("date",itemView.home_cardview_status_txt.text)
+                intent.putExtra("nickname",this@BookmarkAdapter.bookmarkListItem[curPos].nickname)
+                intent.putExtra("title",this@BookmarkAdapter.bookmarkListItem[curPos].title)
+                intent.putExtra("tag",this@BookmarkAdapter.bookmarkListItem[curPos].tag)
+                intent.putExtra("profile_img",this@BookmarkAdapter.bookmarkListItem[curPos].profile_img)
                 parent.context.startActivity(intent)
+
             }
         }
     }

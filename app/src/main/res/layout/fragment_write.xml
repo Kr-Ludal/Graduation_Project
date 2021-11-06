@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:layout_marginBottom="?attr/actionBarSize"
     android:background="@drawable/background_color_white"
-    tools:context=".ui.post.WriteFragment">
+    tools:context=".ui.Write.WriteFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -23,14 +23,14 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="20dp">
 
-
+<!--
             <ImageButton
                 android:id="@+id/write_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_round_keyboard_arrow_left_24" />
 
-
+-->
         </LinearLayout>
 
         <TextView

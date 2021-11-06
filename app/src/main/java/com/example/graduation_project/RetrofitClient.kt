@@ -147,6 +147,7 @@ class RetrofitClient {
                     val prettyJson = gson.toJson(
                         JsonParser.parseString(response.body()?.string())
                     )
+                    Log.d("retrofitclient : ", "requestPostdetail: $prettyJson")
                     success(JSONObject(prettyJson))
                 } else {
                     error(response.code().toString())
@@ -158,7 +159,37 @@ class RetrofitClient {
 
     //Postdetail Area End=================================================
 
-    //Bookmark Area
+    //Write Area==========================================================
+
+    fun postWriteData(
+        title: String,
+        content: String,
+        languageType: Int,
+        success: (JSONObject) -> Unit,
+        error: (String) -> Unit
+    ) {
+        val user_id = Firebase.auth.currentUser?.uid.toString()
+        val testTag = "#TestTag #Class"
+        val service = buildRetrofit()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = service.postWriteData(user_id,title, content,testTag,languageType)
+            withContext(Dispatchers.Main){
+                if(response.isSuccessful){
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(
+                        JsonParser.parseString(response.body()?.string())
+                    )
+                    Log.d("requestBookmark", "$prettyJson ")
+                    success(JSONObject(prettyJson))
+                } else
+                    error(response.code().toString())
+            }
+        }
+    }
+
+    //Write Area End======================================================
+
+    //Bookmark Area=======================================================
     fun requestBookmark(success: (JSONObject) -> Unit, error: (String) -> Unit) {
         val user_id = Firebase.auth.currentUser?.uid.toString()
         val service = buildRetrofit()
@@ -170,6 +201,7 @@ class RetrofitClient {
                     val prettyJson = gson.toJson(
                         JsonParser.parseString(response.body()?.string())
                     )
+                    Log.d("requestBookmark", "$prettyJson ")
                     success(JSONObject(prettyJson))
                 } else
                     error(response.code().toString())

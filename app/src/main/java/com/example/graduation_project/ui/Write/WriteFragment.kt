@@ -1,6 +1,5 @@
-package com.example.graduation_project.ui.post
+package com.example.graduation_project.ui.Write
 
-import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
@@ -8,9 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
-import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.example.graduation_project.R
 import kotlinx.android.synthetic.main.fragment_write.*
 
@@ -26,6 +25,8 @@ class WriteFragment : Fragment() {
     lateinit var itemMap : Map<Int, mapItem>
 
     lateinit var itemList : List<Pair<RadioButton, Int>>
+//
+//     private lateinit var writeViewModel : WriteViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +35,15 @@ class WriteFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+//
+//        writeViewModel = ViewModelProvider(this,WriteViewModelFactory())
+//            .get(WriteViewModel::class.java)
+//
+//        writeViewModel.writeFromState.observe(viewLifecycleOwner, Observer {
+//            val writeState =it ?:return@Observer
+//           write_enter.isEnabled = writeState.isDataValid
+//        })
+
         var checkeditem: Int = 0
 
         itemMap = mapOf(
@@ -82,16 +92,20 @@ class WriteFragment : Fragment() {
                         R.drawable.ic_launcher_checked_foreground,
                         0
                     )
-
                     radioButton.setTypeface(Typeface.DEFAULT_BOLD)
                 }
                 checkeditem = item.checkedItem
             }
         }
+//
+//        write_item_group.apply {
+//            writeViewModel.writeDataChanged(checkeditem)
+//        }
 
         write_enter.setOnClickListener {
             if (checkeditem != 0) {
                 val intent = Intent(this.context, WriteActivity::class.java)
+                intent.putExtra("languageType",checkeditem)
                 startActivity(intent)
             }
         }
