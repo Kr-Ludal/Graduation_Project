@@ -38,6 +38,7 @@
 
     <!--home-->
     <item name="res_cardview_listitem_background" type="color">#EFF2F5</item>
+    <item name="res_notification_background" type="color">#111111</item>
 
     <!--comment-->
     <item name="res_cardview_comment_listitem_txtcolor" type="color">#EEEEEE</item>

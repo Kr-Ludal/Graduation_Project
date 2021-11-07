@@ -15,14 +15,15 @@ class WriteViewModel(private val writeRepository: WriteRepository):ViewModel() {
         writeRepository.postWriteData(title,content,languageType){}
     }
 
-    fun writeDataChanged(title : String, content:String){
-        if(!isCheckDataValid(title)){
-            //_writeFormState.value= WriteFormState(isTitleDataValid = true)
-        }else if(!isCheckDataValid(content)){
-            //_writeFormState.value= WriteFormState(isContentDataValid = true)
-        }else{
-            _writeFormState.value= WriteFormState(isBothDataValid = true)
+    fun writeDataChanged(title : String){
+        if(isCheckDataValid(title)){
+            _writeFormState.value= WriteFormState(isTitleDataValid = true)
         }
+        //else if(!isCheckDataValid(content)){
+//            _writeFormState.value= WriteFormState(isContentDataValid = true)
+//        }else{
+//            _writeFormState.value= WriteFormState(isBothDataValid = true)
+//        }
 
 
 //        if(isCheckDataValid(title)){

@@ -60,6 +60,7 @@ dependencies {
     implementation 'io.github.Rosemoe.sora-editor:language-python:0.7.0'
     implementation 'io.github.Rosemoe.sora-editor:language-universal:0.7.0'
 
+    implementation 'io.github.Rosemoe.sora-editor:editor:0.7.0'
     // android-circlebutton
     implementation 'com.github.markushi:circlebutton:1.1'
     //해시태그

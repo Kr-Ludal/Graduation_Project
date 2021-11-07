@@ -3,6 +3,7 @@ package com.example.graduation_project.ui.Write
 import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,33 +17,25 @@ import kotlinx.android.synthetic.main.fragment_write.*
 
 class WriteFragment : Fragment() {
 
-    data class mapItem (
+    data class mapItem(
         val match_drawable: Int,
         val checkedItem: Int,
         val radioButton: RadioButton
-        )
+    )
 
-    lateinit var itemMap : Map<Int, mapItem>
+    lateinit var itemMap: Map<Int, mapItem>
 
-    lateinit var itemList : List<Pair<RadioButton, Int>>
-//
+    lateinit var itemList: List<Pair<RadioButton, Int>>
+
 //     private lateinit var writeViewModel : WriteViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-//
-//        writeViewModel = ViewModelProvider(this,WriteViewModelFactory())
-//            .get(WriteViewModel::class.java)
-//
-//        writeViewModel.writeFromState.observe(viewLifecycleOwner, Observer {
-//            val writeState =it ?:return@Observer
-//           write_enter.isEnabled = writeState.isDataValid
-//        })
+
 
         var checkeditem: Int = 0
 
@@ -72,7 +65,7 @@ class WriteFragment : Fragment() {
             Pair(radio_swift, R.drawable.ic_swift), Pair(radio_javascript, R.drawable.ic_javascript)
         )
 
-        write_item_group.setOnCheckedChangeListener{ group, checkedId ->
+        write_item_group.setOnCheckedChangeListener { group, checkedId ->
             for (item in itemList) {
                 item.first.setCompoundDrawablesWithIntrinsicBounds(
                     item.second,
@@ -84,7 +77,7 @@ class WriteFragment : Fragment() {
             }
 
             val item = itemMap[checkedId]
-            if(item != null) {
+            if (item != null) {
                 with(item) {
                     radioButton.setCompoundDrawablesRelativeWithIntrinsicBounds(
                         match_drawable,
@@ -97,15 +90,31 @@ class WriteFragment : Fragment() {
                 checkeditem = item.checkedItem
             }
         }
-//
-//        write_item_group.apply {
-//            writeViewModel.writeDataChanged(checkeditem)
-//        }
 
         write_enter.setOnClickListener {
             if (checkeditem != 0) {
                 val intent = Intent(this.context, WriteActivity::class.java)
-                intent.putExtra("languageType",checkeditem)
+                var chItem = 0
+                when (checkeditem) {
+                    1 -> { chItem = R.drawable.ic_python
+                        Log.d("WriteFragment", "$chItem 파이썬")}
+                    2 -> { chItem = R.drawable.ic_cplpl
+                        Log.d("WriteFragment", "$chItem C++")}
+                    3 -> { chItem = R.drawable.ic_c
+                        Log.d("WriteFragment", "$chItem C")}
+                    4 -> { chItem = R.drawable.ic_cshop
+                        Log.d("WriteFragment", "$chItem C#")}
+                    5 -> { chItem = R.drawable.ic_kotlin
+                        Log.d("WriteFragment", "$chItem 코틀린")}
+                    6 -> { chItem = R.drawable.ic_java
+                        Log.d("WriteFragment", "$chItem 자바")}
+                    7 -> { chItem = R.drawable.ic_swift
+                        Log.d("WriteFragment", "$chItem 스위프트")}
+                    8 -> { chItem = R.drawable.ic_javascript
+                        Log.d("WriteFragment", "$chItem 자바 스크립트")}
+                }
+                Log.d("WriteFragment", "chItem: $chItem")
+                intent.putExtra("languageType", chItem)
                 startActivity(intent)
             }
         }

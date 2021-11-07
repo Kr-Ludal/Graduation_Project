@@ -14,27 +14,66 @@ import kotlinx.android.synthetic.main.fragment_contest.*
 
 class ContestFragment : Fragment() {
 
-    var profileList = mutableListOf<ContestModel>()
+    var profileList = ArrayList<ContestModel>()
 
     private lateinit var contestViewModel: ContestViewModel
 
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        profileList.add(ContestModel("class MetricsCallback(Callback):\n" +
+                "    def __init__(self, test_data, y_true):\n" +
+                "        # Should be the label encoding of your classes\n" +
+                "        self.y_true = y_true\n" +
+                "        self.test_data = test_data\n"
+            ,R.drawable.zongseok,"Benne",R.drawable.ic_javascript,true))
+         profileList.add(ContestModel("class MetricsCallback(Callback):\n" +
+                 "    def __init__(self, test_data, y_true):\n" +
+                 "        # Should be the label encoding of your classes\n" +
+                 "        self.y_true = y_true\n" +
+                 "        self.test_data = test_data\n" +
+                 "\n" +
+                 "    def on_epoch_end(self, epoch, logs=None):\n" +
+                 "        # Here we get the probabilities - longer process\n" +
+                 "        y_pred = self.model.predict(self.test_data)\n" +
+                 "\n" +
+                 "        # Here we get the actual classes",R.drawable.iu,"눈나나죽어",R.drawable.ic_swift,false))
+        profileList.add(ContestModel(
+                "    def on_epoch_end(self, epoch, logs=None):\n" +
+                "        # Here we get the probabilities - longer process\n" +
+                "        y_pred = self.model.predict(self.test_data)\n"
+                ,R.drawable.seolhyeon,"올리비아",R.drawable.ic_kotlin,false))
+        profileList.add(ContestModel(
+            "contestViewModel.contestDataState.observe(viewLifecycleOwner, Observer {\n" +
+                    "            val contestState=it ?:return@Observer\n" +
+                    "\n" +
+                    "            Contest_Recycler.layoutManager = LinearLayoutManager(requireContext())\n" +
+                    "            Contest_Recycler.adapter = ContestAdapter(contestState)\n" +
+                    "            Contest_Recycler.setHasFixedSize(true)\n" +
+                    "        })"
+            ,R.drawable.seahyeong,"그란데",R.drawable.ic_cplpl,false))
+        profileList.add(ContestModel("class MetricsCallback(Callback):\n" +
+                "    def __init__(self, test_data, y_true):\n" +
+                "        # Should be the label encoding of your classes\n" +
+                "        self.y_true = y_true\n" +
+                "        self.test_data = test_data\n" +
+                "\n" +
+                "    def on_epoch_end(self, epoch, logs=None):\n" +
+                "        # Here we get the probabilities - longer process\n" +
+                "        y_pred = self.model.predict(self.test_data)\n" +
+                "\n" +
+                "        # Here we get the actual classes",R.drawable.nexon,"넥슨갈끄니까",R.drawable.ic_swift,false))
 
-        contestViewModel = ViewModelProvider(
-            this,
-            ContestViewModelFectory()
-        ).get(ContestViewModel::class.java)
+        Contest_Recycler.layoutManager = LinearLayoutManager(requireContext())
+        Contest_Recycler.adapter = ContestAdapter(profileList)
+        Contest_Recycler.setHasFixedSize(true)
+
+        contestViewModel = ViewModelProvider(this, ContestViewModelFectory())
+            .get(ContestViewModel::class.java)
 
         contestViewModel.contestDataState.observe(viewLifecycleOwner, Observer {
             val contestState=it ?:return@Observer
 
 
-            Contest_Recycler.layoutManager = LinearLayoutManager(requireContext())
-            Contest_Recycler.adapter = ContestAdapter(contestState)
-
-            Contest_Recycler.setHasFixedSize(true)
         })
 
 
@@ -60,25 +99,4 @@ class ContestFragment : Fragment() {
         return contestView
 
     }
-
 }
-//
-//        profileList.add(
-//            ContestModel(
-//                "class MetricsCallback(Callback):\n" +
-//                        "    def __init__(self, test_data, y_true):\n" +
-//                        "        # Should be the label encoding of your classes\n" +
-//                        "        self.y_true = y_true\n" +
-//                        "        self.test_data = test_data\n" +
-//                        "\n" +
-//                        "    def on_epoch_end(self, epoch, logs=None):\n" +
-//                        "        # Here we get the probabilities - longer process\n" +
-//                        "        y_pred = self.model.predict(self.test_data)\n" +
-//                        "\n" +
-//                        "        # Here we get the actual classes",
-//                R.drawable.ic_javascript,
-//                "올리비아",
-//                R.drawable.ic_python,
-//                1
-//            )
-//        )

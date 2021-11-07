@@ -5,6 +5,6 @@ class ContestModel(
     val profile_img: Int,
     val nickname: String,
     val language_img: Int,
-    val medal: Int
+    val medal: Boolean
 ) {
 }

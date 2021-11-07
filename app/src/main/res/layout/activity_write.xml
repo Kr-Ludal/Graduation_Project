@@ -51,29 +51,6 @@
 
     </FrameLayout>
 
-    <com.aqoong.lib.hashtagedittextview.HashTagEditTextView
-        android:id="@+id/Write_Hashtag_Text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:itemMaxLength="10"
-        app:itemMaxCount="3"
-        app:autoPoundSign="true"
-        android:layout_marginHorizontal="20dp"
-        android:backgroundTint="@color/res_background_gray"
-        app:itemMaxLengthOverMent="The tag is too long."
-        app:itemMaxCountOverMent="Too many tags."
-        />
-
-    <!--EditText
-        android:id="@+id/Write_Hashtag_Text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:hint="Hash Tag"
-        android:textSize="8dp"
-        android:backgroundTint="@color/res_background_gray"
-        /-->
-
     <io.github.rosemoe.sora.widget.CodeEditor
         android:layout_height="match_parent"
         android:layout_width="match_parent"

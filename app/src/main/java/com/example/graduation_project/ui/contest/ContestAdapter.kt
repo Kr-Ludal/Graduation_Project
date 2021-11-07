@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.graduation_project.R
@@ -13,17 +14,16 @@ import kotlinx.android.synthetic.main.cardview_home.view.*
 import kotlin.collections.ArrayList
 
 
-class ContestAdapter(val profileList: List<ContestModel>) :
+class ContestAdapter(val profileList: ArrayList<ContestModel>) :
     RecyclerView.Adapter<ContestAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.cardview_contest, parent, false)
 
-        val v =
-            LayoutInflater.from(parent.context).inflate(R.layout.cardview_contest, parent, false)
         return ViewHolder(v).apply {
             itemView.setOnClickListener {
-                Log.d("tag", "onCreateViewHolder: ")
+
             }
         }
 
@@ -48,7 +48,7 @@ class ContestAdapter(val profileList: List<ContestModel>) :
             itemView.contest_cardview_profile_img.setImageResource(model.profile_img)
             itemView.contest_cardview_name.text = model.nickname
             itemView.contest_cardview_language_img.setImageResource(model.language_img)
-
+            itemView.contest_cardview_medal_img.isVisible=model.medal
         }
     }
 }

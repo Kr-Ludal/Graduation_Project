@@ -30,7 +30,7 @@
                 android:id="@+id/imageView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:srcCompat="@tools:sample/avatars" />
+                android:src="@drawable/nexon" />
 
         </androidx.cardview.widget.CardView>
 
@@ -46,8 +46,8 @@
                 android:id="@+id/profile_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/pretendard_regular"
-                android:text="Name"
+                android:fontFamily="@font/pretendard_b"
+                android:text="넥슨갈끄니까"
                 android:textColor="@color/res_text_color_black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -56,11 +56,13 @@
                 android:id="@+id/profile_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/pretendard_l"
-                android:text="TextView"
+                android:fontFamily="@font/pretendard_light"
+                android:text="cannexon@naver.com"
+                android:textStyle="normal"
                 android:textColor="@color/res_text_color_black"
                 android:textSize="12sp"
-
+                android:lineSpacingExtra="4sp"
+                android:lineHeight="16sp"
                 />
 
         </LinearLayout>

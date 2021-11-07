@@ -52,7 +52,6 @@ class RetrofitClient {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(
                         JsonParser.parseString(response.body()?.string())
-
                         //JsonParser.parseString(response.body()?.string())
                     )
                     success(JSONObject(prettyJson))
