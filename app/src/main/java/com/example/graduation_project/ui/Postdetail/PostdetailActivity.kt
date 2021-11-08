@@ -7,13 +7,14 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.graduation_project.R
 import kotlinx.android.synthetic.main.activity_postdetail.*
-import kotlinx.android.synthetic.main.cardview_home.view.*
 
 class PostdetailActivity : AppCompatActivity() {
 
     private lateinit var postdetailViewModel: PostdetailViewModel
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,8 +28,14 @@ class PostdetailActivity : AppCompatActivity() {
         val getTitle=intent.getStringExtra("title")
         val getDate=intent.getStringExtra("date")
         val getProfile_img=intent.getIntExtra("profile",0)
+
+        Comment_Recycler.layoutManager = LinearLayoutManager(this)
+        Comment_Recycler.setHasFixedSize(true)
+
         postdetailViewModel=ViewModelProvider(this,PostdetailViewModelFactory())
             .get(PostdetailViewModel::class.java)
+
+
 
         postdetailViewModel.getPostdetailData(getPostId)
 
@@ -43,6 +50,11 @@ class PostdetailActivity : AppCompatActivity() {
             post_banner_title.setText(getTitle)
             post_banner_profile_img.setImageResource(getProfile_img)
 
+        })
+
+        postdetailViewModel.commentDataState.observe(this, Observer {
+            val commentState = it?:return@Observer
+            Comment_Recycler.adapter = CommentAdapter(commentState)
         })
 
         post_detail_write_txt.setOnFocusChangeListener { v,

@@ -36,7 +36,6 @@ class WriteFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-
         var checkeditem: Int = 0
 
         itemMap = mapOf(
@@ -94,26 +93,7 @@ class WriteFragment : Fragment() {
         write_enter.setOnClickListener {
             if (checkeditem != 0) {
                 val intent = Intent(this.context, WriteActivity::class.java)
-                var chItem = 0
-                when (checkeditem) {
-                    1 -> { chItem = R.drawable.ic_python
-                        Log.d("WriteFragment", "$chItem 파이썬")}
-                    2 -> { chItem = R.drawable.ic_cplpl
-                        Log.d("WriteFragment", "$chItem C++")}
-                    3 -> { chItem = R.drawable.ic_c
-                        Log.d("WriteFragment", "$chItem C")}
-                    4 -> { chItem = R.drawable.ic_cshop
-                        Log.d("WriteFragment", "$chItem C#")}
-                    5 -> { chItem = R.drawable.ic_kotlin
-                        Log.d("WriteFragment", "$chItem 코틀린")}
-                    6 -> { chItem = R.drawable.ic_java
-                        Log.d("WriteFragment", "$chItem 자바")}
-                    7 -> { chItem = R.drawable.ic_swift
-                        Log.d("WriteFragment", "$chItem 스위프트")}
-                    8 -> { chItem = R.drawable.ic_javascript
-                        Log.d("WriteFragment", "$chItem 자바 스크립트")}
-                }
-                Log.d("WriteFragment", "chItem: $chItem")
+                var chItem = isCheckedItem(checkeditem)
                 intent.putExtra("languageType", chItem)
                 startActivity(intent)
             }
@@ -127,4 +107,36 @@ class WriteFragment : Fragment() {
     ): View? {
         return inflater.inflate(R.layout.fragment_write, container, false)
     }
+
+    private fun isCheckedItem(checked: Int): Int {
+        var chItem = 0
+        when (checked) {
+            1 -> {
+                chItem = R.drawable.ic_python
+            }
+            2 -> {
+                chItem = R.drawable.ic_cplpl
+            }
+            3 -> {
+                chItem = R.drawable.ic_c
+            }
+            4 -> {
+                chItem = R.drawable.ic_cshop
+            }
+            5 -> {
+                chItem = R.drawable.ic_kotlin
+            }
+            6 -> {
+                chItem = R.drawable.ic_java
+            }
+            7 -> {
+                chItem = R.drawable.ic_swift
+            }
+            8 -> {
+                chItem = R.drawable.ic_javascript
+            }
+        }
+        return chItem
+    }
+
 }

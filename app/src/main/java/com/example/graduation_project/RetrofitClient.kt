@@ -188,6 +188,25 @@ class RetrofitClient {
 
     //Write Area End======================================================
 
+    fun postSearch(search_Data:String, success: (JSONObject) -> Unit, error: (String) -> Unit){
+        val user_id = Firebase.auth.currentUser?.uid.toString()
+        val service = buildRetrofit()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = service.postSearchData(user_id,search_Data)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(
+                        JsonParser.parseString(response.body()?.string())
+                    )
+                    success(JSONObject(prettyJson))
+                } else
+                    error(response.code().toString())
+            }
+        }
+    }
+
+
     //Bookmark Area=======================================================
     fun requestBookmark(success: (JSONObject) -> Unit, error: (String) -> Unit) {
         val user_id = Firebase.auth.currentUser?.uid.toString()
@@ -209,7 +228,7 @@ class RetrofitClient {
     }
 
 
-    //Register Area
+    //Register Area=========================================================
     fun requestSignUp(
         uid: String,
         success: (JSONObject) -> Unit,

@@ -36,14 +36,8 @@ class WriteActivity : AppCompatActivity() {
             .get(WriteViewModel::class.java)
 
         when (languageType) {
-            R.drawable.ic_python -> {code_editor.setEditorLanguage(PythonLanguage())}
-            //R.drawable.ic_cplpl -> {code_editor.setEditorLanguage()}
-            //R.drawable.ic_c -> {code_editor.setEditorLanguage()}
-            //R.drawable.ic_cshop -> {code_editor.setEditorLanguage()}
-            //R.drawable.ic_kotlin -> {code_editor.setEditorLanguage()}
-            R.drawable.ic_java -> {code_editor.setEditorLanguage(JavaLanguage())}
-            //R.drawable.ic_swift -> {code_editor.setEditorLanguage()}
-            //R.drawable.ic_javascript -> {code_editor.setEditorLanguage()}
+            R.drawable.ic_python -> {code_editor.setEditorLanguage(PythonLanguage()) }
+            R.drawable.ic_java -> { code_editor.setEditorLanguage(JavaLanguage()) }
         }
 
 
@@ -67,9 +61,9 @@ class WriteActivity : AppCompatActivity() {
         floatingActionButton.setOnClickListener {
             if (Write_Title_text.text.toString().equals("") || code_editor.text.toString()
                     .equals("")
-            ){
+            ) {
                 Toast.makeText(this, "제목 혹은 내용을 입력해주세요", Toast.LENGTH_SHORT).show()
-            }else {
+            } else {
                 writeViewModel.postWriteData(
                     Write_Title_text.text.toString(),
                     code_editor.text.toString(),
@@ -87,7 +81,6 @@ class WriteActivity : AppCompatActivity() {
             override fun afterTextChanged(editable: Editable?) {
                 afterTextChanged.invoke(editable.toString())
             }
-
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
         })

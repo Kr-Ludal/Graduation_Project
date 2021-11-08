@@ -60,4 +60,12 @@ interface RetrofitService {
         @Field("language_type") languageType: Int
     ): Response<ResponseBody>
 
+    //Search Area
+    @FormUrlEncoded
+    @POST("/reqsearch")
+    suspend fun postSearchData(
+        @Field("user_id") user_id: String,
+        @Field("search_data") search_data:String
+    ): Response<ResponseBody>
+
 }
