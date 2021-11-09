@@ -5,10 +5,7 @@ import android.util.Log
 import com.example.graduation_project.ui.home.HomeModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.google.gson.GsonBuilder
-import com.google.gson.JsonArray
-import com.google.gson.JsonObject
-import com.google.gson.JsonParser
+import com.google.gson.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -113,6 +110,30 @@ class RetrofitClient {
         }
     }
     //MainScreen Area End==================================================
+
+    //Search Area==========================================================
+
+    fun postCommentData(postId: Int, success: (JSONObject) -> Unit, error: (String) -> Unit){
+        val user_id = Firebase.auth.currentUser?.uid.toString()
+        val service = buildRetrofit()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response=service.postCommentData(user_id,postId)
+            withContext(Dispatchers.Main){
+                if(response.isSuccessful){
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(
+                        JsonParser.parseString(response.body()?.string())
+                    )
+                    success(JSONObject(prettyJson))
+                }else{
+                    error(response.code().toString())
+                }
+            }
+        }
+    }
+
+
+    //Search Area End======================================================
 
     //Contest Area=========================================================
     fun requestContestScreen(success: (JSONObject) -> Unit, error: (String) -> Unit) {

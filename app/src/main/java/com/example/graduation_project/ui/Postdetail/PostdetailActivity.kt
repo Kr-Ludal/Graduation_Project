@@ -55,6 +55,11 @@ class PostdetailActivity : AppCompatActivity() {
         postdetailViewModel.commentDataState.observe(this, Observer {
             val commentState = it?:return@Observer
             Comment_Recycler.adapter = CommentAdapter(commentState)
+
+            post_comment_nickname.setText(getNickname)
+            post_comment_profile.setImageResource(getProfile_img)
+            post_comment_title.setText(getTitle)
+
         })
 
         post_detail_write_txt.setOnFocusChangeListener { v,

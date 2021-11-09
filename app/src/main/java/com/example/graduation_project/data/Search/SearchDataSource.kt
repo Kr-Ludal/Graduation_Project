@@ -38,7 +38,7 @@ class SearchDataSource {
                     0, language_type, bookmark,post_id))
             }
 
-                //mainDataSource = ((mainDataSource + arrayList) as ArrayList<HomeModel>)
+                mainDataSource =  arrayList as ArrayList<HomeModel>
             result(Result.Success(mainDataSource))
         }, {
             Log.d("TAG", "getSearchData: fail")

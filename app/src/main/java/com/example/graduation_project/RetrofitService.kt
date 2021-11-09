@@ -68,4 +68,13 @@ interface RetrofitService {
         @Field("search_data") search_data:String
     ): Response<ResponseBody>
 
+    //Comment Area
+    @FormUrlEncoded
+    @POST("postComment")
+    suspend fun postCommentData(
+        @Field("user_id") user_id:String,
+        @Field("post_id") post_id: Int
+    ):Response<ResponseBody>
+
+
 }

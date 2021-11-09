@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Graduation_Project"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ContestPostActivity"
+            android:name=".ui.ContestPostdetail.ContestPostActivity"
             android:exported="false" />
         <activity android:name=".ui.Search.SearchActivity" />
         <activity android:name=".StartActivity" />

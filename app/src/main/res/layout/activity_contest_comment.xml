@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_color_white"
-    tools:context=".ContestPostActivity">
+    tools:context=".ui.ContestPostdetail.ContestPostActivity">
 
     <FrameLayout
         android:layout_width="match_parent"

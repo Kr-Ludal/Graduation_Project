@@ -23,7 +23,11 @@ class PostdetailViewModel(private val postdetailRepository: PostdetailRepository
     }
 
     fun getCommentData(post_id: Int){
-
+        postdetailRepository.getCommentData(post_id){
+            if(it is Result.Success){
+                _commentDataState.value=it.data
+            }
+        }
     }
 
 
