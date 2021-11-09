@@ -13,4 +13,8 @@ class PostdetailRepository(val dataSource: PostdetailDataSource) {
         dataSource.getCommentData(post_id,result)
     }
 
+    fun postCommentData(comment : String, post_id:Int,result: (Result<String>) -> Unit){
+        dataSource.postCommentData(comment,post_id,result)
+    }
+
 }

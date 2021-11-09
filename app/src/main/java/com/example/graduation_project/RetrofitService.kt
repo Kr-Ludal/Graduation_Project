@@ -70,11 +70,18 @@ interface RetrofitService {
 
     //Comment Area
     @FormUrlEncoded
-    @POST("postComment")
-    suspend fun postCommentData(
+    @POST("/getComment")
+    suspend fun getCommentData(
         @Field("user_id") user_id:String,
         @Field("post_id") post_id: Int
     ):Response<ResponseBody>
 
+    @FormUrlEncoded
+    @POST("/postComment")
+    suspend fun postCommentData(
+        @Field("comment") comment:String,
+        @Field("user_id") user_id: String,
+        @Field("post_id") post_id:Int
+    ):Response<ResponseBody>
 
 }

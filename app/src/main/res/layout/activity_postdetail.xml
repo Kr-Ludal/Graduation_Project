@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:layout_marginHorizontal="20dp"
             android:orientation="vertical"
-            android:visibility="visible">
+            android:visibility="invisible">
 
 
             <LinearLayout
@@ -178,7 +178,7 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="20dp"
             android:orientation="vertical"
-            android:visibility="invisible">
+            android:visibility="visible">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -223,11 +223,12 @@
                         android:id="@+id/post_comment_nickname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/pretendard"
+                        android:fontFamily="@font/pretendard_extral"
                         android:lineSpacingExtra="4sp"
                         android:text="TextView"
                         android:textColor="@color/res_text_color_black"
                         android:textSize="12sp"
+                        android:lineHeight="12sp"
                         android:textStyle="normal" />
 
                     <TextView
@@ -235,12 +236,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="@font/pretendard_extralight"
+                        android:fontFamily="@font/pretendard_b"
                         android:lineSpacingExtra="4sp"
                         android:text="TextView"
                         android:textColor="@color/res_text_color_black"
-                        android:textSize="12sp"
-                        android:textStyle="normal" />
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:lineHeight="20sp"/>
                 </LinearLayout>
 
             </LinearLayout>

@@ -21,15 +21,15 @@ class PostdetailDataSource {
     }
 
     fun getCommentData(post_id: Int,result: (Result<ArrayList<CommentModel>>) -> Unit){
-        RetrofitClient.getInstance().postCommentData(post_id,{
-            val jsonArray = it.getJSONArray("comment")
+        RetrofitClient.getInstance().getCommentData(post_id,{
+            val jsonArray = it.getJSONArray("date")
             val arrayList= mutableListOf<CommentModel>()
 
             for(i in 0 until jsonArray.length()){
                 val item = jsonArray[i] as JSONObject
-                val name = item.get("name").toString()
-                val date = item.get("date").toString()
-                val comment = item.get("maintext").toString()
+                val name = item.get("nickname").toString()
+                val date = item.get("Comment_date").toString()
+                val comment = item.get("Comment").toString()
                 val like = item.get("") as Int
                 val likeCheckable= item.get("") as Int
                 arrayList.add(CommentModel(name,date, comment,like,likeCheckable))
@@ -38,7 +38,17 @@ class PostdetailDataSource {
             result(Result.Success(commentDataSource))
         },{
             result(Result.Error(NetworkErrorException()))
+            Log.d("postdetailDataSource", "getCommentData: fail")
         })
+    }
+
+    fun postCommentData(comment:String,post_id:Int, result: (Result<String>) -> Unit){
+        RetrofitClient.getInstance().postCommentData(comment,post_id,{
+            Log.d("postdetailDataSource", "postCommentData: Success")
+        },{
+            Log.d("postdetailDataSource", "postCommentData: Fail")
+        })
+
     }
 
 }

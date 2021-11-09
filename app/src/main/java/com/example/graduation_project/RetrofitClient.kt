@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.json.JSONObject
+import org.w3c.dom.Comment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -111,27 +112,71 @@ class RetrofitClient {
     }
     //MainScreen Area End==================================================
 
-    //Search Area==========================================================
+    //Comment Area=========================================================
 
-    fun postCommentData(postId: Int, success: (JSONObject) -> Unit, error: (String) -> Unit){
+    fun postCommentData(
+        comment: String,
+        post_id: Int,
+        success: (JSONObject) -> Unit,
+        error: (String) -> Unit
+    ) {
         val user_id = Firebase.auth.currentUser?.uid.toString()
         val service = buildRetrofit()
         CoroutineScope(Dispatchers.IO).launch {
-            val response=service.postCommentData(user_id,postId)
-            withContext(Dispatchers.Main){
-                if(response.isSuccessful){
+            val response = service.postCommentData(comment, user_id, post_id)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(
                         JsonParser.parseString(response.body()?.string())
                     )
                     success(JSONObject(prettyJson))
-                }else{
+                } else {
                     error(response.code().toString())
                 }
             }
         }
     }
 
+    fun getCommentData(postId: Int, success: (JSONObject) -> Unit, error: (String) -> Unit) {
+        val user_id = Firebase.auth.currentUser?.uid.toString()
+        val service = buildRetrofit()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = service.getCommentData(user_id, postId)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(
+                        JsonParser.parseString(response.body()?.string())
+                    )
+                    success(JSONObject(prettyJson))
+                } else {
+                    error(response.code().toString())
+                }
+            }
+        }
+    }
+
+    //Comment Area End=====================================================
+
+    //Search Area==========================================================
+    fun postSearch(search_Data: String, success: (JSONObject) -> Unit, error: (String) -> Unit) {
+        val user_id = Firebase.auth.currentUser?.uid.toString()
+        val service = buildRetrofit()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = service.postSearchData(user_id, search_Data)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(
+                        JsonParser.parseString(response.body()?.string())
+                    )
+                    success(JSONObject(prettyJson))
+                } else
+                    error(response.code().toString())
+            }
+        }
+    }
 
     //Search Area End======================================================
 
@@ -192,9 +237,9 @@ class RetrofitClient {
         val testTag = "#TestTag #Class"
         val service = buildRetrofit()
         CoroutineScope(Dispatchers.IO).launch {
-            val response = service.postWriteData(user_id,title, content,testTag,languageType)
-            withContext(Dispatchers.Main){
-                if(response.isSuccessful){
+            val response = service.postWriteData(user_id, title, content, testTag, languageType)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(
                         JsonParser.parseString(response.body()?.string())
@@ -208,24 +253,6 @@ class RetrofitClient {
     }
 
     //Write Area End======================================================
-
-    fun postSearch(search_Data:String, success: (JSONObject) -> Unit, error: (String) -> Unit){
-        val user_id = Firebase.auth.currentUser?.uid.toString()
-        val service = buildRetrofit()
-        CoroutineScope(Dispatchers.IO).launch {
-            val response = service.postSearchData(user_id,search_Data)
-            withContext(Dispatchers.Main) {
-                if (response.isSuccessful) {
-                    val gson = GsonBuilder().setPrettyPrinting().create()
-                    val prettyJson = gson.toJson(
-                        JsonParser.parseString(response.body()?.string())
-                    )
-                    success(JSONObject(prettyJson))
-                } else
-                    error(response.code().toString())
-            }
-        }
-    }
 
 
     //Bookmark Area=======================================================
