@@ -63,13 +63,20 @@
             android:id="@+id/txt_popular_keyword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="18dp"
             android:text="인기검색어"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/res_text_color_black"
             android:fontFamily="@font/pretendard_b"/>
 
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/Search_Popular_Recycler"
+            />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -80,7 +87,6 @@
                 android:id="@+id/txt_resent_keyword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="최근 검색어"
                 android:textSize="16sp"
                 android:textStyle="bold"
@@ -88,6 +94,7 @@
                 android:fontFamily="@font/pretendard_b"
                 android:layout_weight="1"
                 />
+
 
             <TextView
                 android:id="@+id/txt_delete_keyword"
@@ -98,12 +105,16 @@
                 android:textStyle="normal"
                 android:textColor="@color/res_search_txtcolor_gray"
                 android:fontFamily="@font/pretendard_m"
-
-
                 />
 
         </LinearLayout>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/Search_Recent_Recycler"
+            />
 
     </LinearLayout>
 
@@ -113,7 +124,6 @@
             android:orientation="vertical"
             android:id="@+id/search_result"
             android:visibility="invisible">
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"

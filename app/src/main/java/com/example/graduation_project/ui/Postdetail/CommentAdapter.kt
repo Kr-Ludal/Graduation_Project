@@ -63,7 +63,7 @@ class CommentAdapter(val commentListItem: ArrayList<CommentModel>) :
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(model: CommentModel) {
-            itemView.cardview_comment_profile.setImageResource(R.drawable.seolhyeon)
+            itemView.cardview_comment_profile.setImageResource(model.profileImg)
             itemView.cardview_comment_nickname.text = model.name
             itemView.cardview_comment_postdate.text = model.date.split("T")[0]
             itemView.cardview_comment_content.text=model.comment

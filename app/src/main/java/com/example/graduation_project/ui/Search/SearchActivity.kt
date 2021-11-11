@@ -14,6 +14,7 @@ import com.example.graduation_project.R
 import com.example.graduation_project.ui.home.HomeAdapter
 //import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_search.*
+import kotlinx.android.synthetic.main.activity_start.*
 
 class SearchActivity : AppCompatActivity() {
 
@@ -23,6 +24,25 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
         supportActionBar?.hide()
+
+        val popularArray = ArrayList<String>()
+        popularArray.add("Python")
+        popularArray.add("Algorithm")
+        popularArray.add("Swift")
+
+        val recentArray = ArrayList<String>()
+        recentArray.add("Hello")
+        recentArray.add("c++")
+        recentArray.add("stack")
+        recentArray.add("list")
+
+        Search_Popular_Recycler.layoutManager=LinearLayoutManager(this)
+        Search_Popular_Recycler.adapter = SearchAdapter(popularArray)
+        Search_Popular_Recycler.setHasFixedSize(true)
+
+        Search_Recent_Recycler.layoutManager=LinearLayoutManager(this)
+        Search_Recent_Recycler.adapter=SearchAdapter(recentArray)
+        Search_Recent_Recycler.setHasFixedSize(true)
 
         Search_Recycler.layoutManager = LinearLayoutManager(this)
         Search_Recycler.setHasFixedSize(true)
@@ -62,18 +82,5 @@ class SearchActivity : AppCompatActivity() {
             finish()
         }
     }
-
-
-    /*fun EditText.onTextChanged(onTextChanged: (String) -> Unit) {
-        this.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(editable: Editable?) {
-                onTextChanged.invoke(editable.toString())
-            }
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-
-            }
-        })*/
 
 }

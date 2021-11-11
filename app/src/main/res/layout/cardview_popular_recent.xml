@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+    <TextView
+        android:id="@+id/Search_Pop_Rec_Text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:layout_gravity="center_vertical"
+        android:fontFamily="@font/pretendard"
+        android:textColor="@color/res_text_color_black"
+        android:lineHeight="18sp"
+        android:textSize="14sp"
+        />
+</androidx.cardview.widget.CardView>

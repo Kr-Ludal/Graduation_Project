@@ -37,7 +37,14 @@ class WriteActivity : AppCompatActivity() {
 
         when (languageType) {
             1 -> {code_editor.setEditorLanguage(PythonLanguage()) }
+            2 -> { code_editor.setEditorLanguage(JavaLanguage()) }
+            3 -> { code_editor.setEditorLanguage(JavaLanguage()) }
+            4 -> { code_editor.setEditorLanguage(JavaLanguage()) }
+            5 -> { code_editor.setEditorLanguage(JavaLanguage()) }
             6 -> { code_editor.setEditorLanguage(JavaLanguage()) }
+            7 -> { code_editor.setEditorLanguage(JavaLanguage()) }
+            8 -> { code_editor.setEditorLanguage(JavaLanguage()) }
+
         }
 
 

@@ -1,6 +1,7 @@
 package com.example.graduation_project.ui.Postdetail
 
 data class CommentModel(
+    val profileImg : Int,
     val name : String,
     val date : String,
     val comment : String,

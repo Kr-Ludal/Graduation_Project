@@ -2,6 +2,7 @@ package com.example.graduation_project.data.Postdetail
 
 import android.accounts.NetworkErrorException
 import android.util.Log
+import com.example.graduation_project.R
 import com.example.graduation_project.RetrofitClient
 import com.example.graduation_project.ui.Postdetail.CommentModel
 import com.example.graduation_project.ui.Postdetail.PostdetailModel
@@ -26,6 +27,7 @@ class PostdetailDataSource {
             val arrayList= mutableListOf<CommentModel>()
             Log.d("postdetailDataSource", "getCommentData: success")
             for(i in 0 until jsonArray.length()){
+                val random = (1..8).random()
                 val item = jsonArray[i] as JSONObject
                 val date = item.get("comment_date").toString()
                 val comment = item.get("comment").toString()
@@ -35,7 +37,7 @@ class PostdetailDataSource {
                 val name = item.get("user_id").toString()
 
 
-                arrayList.add(CommentModel(name,date, comment,like,likeCheckable,comment_uid))
+                arrayList.add(CommentModel(setProfileImage(random),name,date, comment,like,likeCheckable,comment_uid))
 
             }
             commentDataSource= arrayList as ArrayList<CommentModel>
@@ -54,9 +56,19 @@ class PostdetailDataSource {
             result(Result.Error(NetworkErrorException()))
         })
     }
-
-    fun postCommentLike(comment_uid:Int,comment_liked:Int,result: (Result<String>) -> Unit){
-
+    private fun setProfileImage(languageType : Int) : Int{
+        var type = 0
+        when(languageType){
+            1->{type= R.drawable.hongbin}
+            2->{type= R.drawable.nico}
+            3->{type= R.drawable.seolhyeon}
+            4->{type= R.drawable.seahyeong}
+            5->{type= R.drawable.gongyou}
+            6->{type= R.drawable.nana}
+            7->{type= R.drawable.zongseok}
+            8->{type= R.drawable.iu}
+        }
+        return type
     }
 
 }

@@ -93,7 +93,6 @@ class HomeAdapter(val homeListItem: ArrayList<HomeModel>) :
                 6->{type=R.drawable.ic_java}
                 7->{type=R.drawable.ic_swift}
                 8->{type=R.drawable.ic_javascript}
-
             }
             return type
         }

@@ -30,7 +30,7 @@ class PostdetailActivity : AppCompatActivity() {
         val getNickname = intent.getStringExtra("nickname")
         val getTitle = intent.getStringExtra("title")
         val getDate = intent.getStringExtra("date")
-        val getProfile_img = intent.getIntExtra("profile", 0)
+        val getProfile_img = intent.getIntExtra("profile_img", 0)
 
         Comment_Recycler.layoutManager = LinearLayoutManager(this)
         Comment_Recycler.setHasFixedSize(true)
@@ -43,23 +43,24 @@ class PostdetailActivity : AppCompatActivity() {
         postdetailViewModel.postdetailDataState.observe(this, Observer {
             val postdetailState = it ?: return@Observer
 
-            post_txt_content.setText(postdetailState)
+            post_txt_content.text = postdetailState
             post_language_img.setImageResource(setLanguageImage(getLanguageImg))
-            post_detail_txt_tag.setText(getTag)
-            post_detail_txt_info.setText(getDate)
-            post_banner_nickname.setText(getNickname)
-            post_banner_title.setText(getTitle)
+            post_detail_txt_tag.text = getTag
+            post_detail_txt_info.text = getDate
+            post_banner_nickname.text = getNickname
+            post_banner_title.text = getTitle
             post_banner_profile_img.setImageResource(getProfile_img)
 
-            post_comment_nickname.setText(getNickname)
+            post_comment_nickname.text = getNickname
             post_comment_profile.setImageResource(getProfile_img)
-            post_comment_title.setText(getTitle)
+            post_comment_title.text = getTitle
         })
 
         postdetailViewModel.commentDataState.observe(this, Observer {
             val commentState = it ?: return@Observer
-            Comment_Recycler.adapter = CommentAdapter(commentState)
 
+            Comment_Recycler.layoutManager = LinearLayoutManager(this)
+            Comment_Recycler.adapter = CommentAdapter(commentState)
         })
 
         postdetailViewModel.commentFormState.observe(this, Observer {
