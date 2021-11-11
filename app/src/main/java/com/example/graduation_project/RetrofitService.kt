@@ -70,7 +70,7 @@ interface RetrofitService {
 
     //Comment Area
     @FormUrlEncoded
-    @POST("/getComment")
+    @POST("/reqcomment")
     suspend fun getCommentData(
         @Field("user_id") user_id:String,
         @Field("post_id") post_id: Int
@@ -82,6 +82,20 @@ interface RetrofitService {
         @Field("comment") comment:String,
         @Field("user_id") user_id: String,
         @Field("post_id") post_id:Int
+    ):Response<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("/postcommentlike")
+    suspend fun postCommentLike(
+        @Field("user_id") user_id:String,
+    @Field("comment_uid") comment_uid:Int
+    ):Response<ResponseBody>
+
+    @FormUrlEncoded
+    @POST("/canclecommentlike")
+    suspend fun cancelCommentLike(
+        @Field("user_id") user_id:String,
+        @Field("comment_uid") comment_uid:Int
     ):Response<ResponseBody>
 
 }

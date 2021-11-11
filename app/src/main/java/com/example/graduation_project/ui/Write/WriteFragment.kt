@@ -58,7 +58,7 @@ class WriteFragment : Fragment() {
         )
 
         itemList = listOf(
-            Pair(radio_python, R.drawable.ic_java), Pair(radio_cplpl, R.drawable.ic_cplpl),
+            Pair(radio_python, R.drawable.ic_python), Pair(radio_cplpl, R.drawable.ic_cplpl),
             Pair(radio_c, R.drawable.ic_c), Pair(radio_cshop, R.drawable.ic_cshop),
             Pair(radio_kotlin, R.drawable.ic_kotlin), Pair(radio_java, R.drawable.ic_java),
             Pair(radio_swift, R.drawable.ic_swift), Pair(radio_javascript, R.drawable.ic_javascript)
@@ -93,8 +93,8 @@ class WriteFragment : Fragment() {
         write_enter.setOnClickListener {
             if (checkeditem != 0) {
                 val intent = Intent(this.context, WriteActivity::class.java)
-                var chItem = isCheckedItem(checkeditem)
-                intent.putExtra("languageType", chItem)
+
+                intent.putExtra("languageType", checkeditem)
                 startActivity(intent)
             }
         }
@@ -106,37 +106,6 @@ class WriteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_write, container, false)
-    }
-
-    private fun isCheckedItem(checked: Int): Int {
-        var chItem = 0
-        when (checked) {
-            1 -> {
-                chItem = R.drawable.ic_python
-            }
-            2 -> {
-                chItem = R.drawable.ic_cplpl
-            }
-            3 -> {
-                chItem = R.drawable.ic_c
-            }
-            4 -> {
-                chItem = R.drawable.ic_cshop
-            }
-            5 -> {
-                chItem = R.drawable.ic_kotlin
-            }
-            6 -> {
-                chItem = R.drawable.ic_java
-            }
-            7 -> {
-                chItem = R.drawable.ic_swift
-            }
-            8 -> {
-                chItem = R.drawable.ic_javascript
-            }
-        }
-        return chItem
     }
 
 }

@@ -4,6 +4,7 @@ data class CommentModel(
     val name : String,
     val date : String,
     val comment : String,
-    val like:Int,
-    val likeCheckable : Int
+    var like:Int,
+    var likeCheckable : Int,
+    val comment_uid : Int
 )

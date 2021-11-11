@@ -44,7 +44,7 @@ class PostdetailActivity : AppCompatActivity() {
             val postdetailState = it ?: return@Observer
 
             post_txt_content.setText(postdetailState)
-            post_language_img.setImageResource(getLanguageImg)
+            post_language_img.setImageResource(setLanguageImage(getLanguageImg))
             post_detail_txt_tag.setText(getTag)
             post_detail_txt_info.setText(getDate)
             post_banner_nickname.setText(getNickname)
@@ -64,9 +64,7 @@ class PostdetailActivity : AppCompatActivity() {
 
         postdetailViewModel.commentFormState.observe(this, Observer {
             val commentFormState = it ?: return@Observer
-
             post_detail_btn_post.isEnabled=commentFormState
-            Log.d("TAG", "onCreate: $commentFormState")
 
         })
 
@@ -75,6 +73,7 @@ class PostdetailActivity : AppCompatActivity() {
             Log.d("postDetailActivity", "postComment : $comment $getPostId")
             postdetailViewModel.postCommentData(post_detail_write_txt.text.toString(), getPostId)
             post_detail_write_txt.setText("")
+            postdetailViewModel.getCommentData(getPostId)
         }
 
         post_detail_write_txt.setOnFocusChangeListener { v,
@@ -104,7 +103,6 @@ class PostdetailActivity : AppCompatActivity() {
         post_detail_write_txt.apply {
             afterTextChanged {
                 postdetailViewModel.loginDataChanged(post_detail_write_txt.text.toString())
-                Log.d("postdetailActivity", "comment Data Check")
             }
         }
 
@@ -121,5 +119,20 @@ class PostdetailActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
         })
 
+    }
+    private fun setLanguageImage(languageType : Int) : Int{
+        var type = 0
+        when(languageType){
+            1->{type=R.drawable.ic_python}
+            2->{type=R.drawable.ic_cplpl}
+            3->{type=R.drawable.ic_c}
+            4->{type=R.drawable.ic_cshop}
+            5->{type=R.drawable.ic_kotlin}
+            6->{type=R.drawable.ic_java}
+            7->{type=R.drawable.ic_swift}
+            8->{type=R.drawable.ic_javascript}
+
+        }
+        return type
     }
 }

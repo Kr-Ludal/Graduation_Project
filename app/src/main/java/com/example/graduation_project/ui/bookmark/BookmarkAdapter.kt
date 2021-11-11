@@ -71,14 +71,29 @@ class BookmarkAdapter(val bookmarkListItem : ArrayList<HomeModel>):
             itemView.home_cardview_title_txt.text = model.title
             itemView.home_cardview_tag_txt.text = model.tag
             itemView.home_cardview_status_txt.text =
-                model.date.split("T")[0] + "." + model.date.split("T",".")[1] + " : " + model.saved.toString() + " Saved"
-            itemView.home_cardview_language_image.setImageResource(model.language_img)
+                model.date.split("T")[0] + "." + model.date.split("T",".")[1] +
+                        " : " + model.saved.toString() + " Saved"
+            itemView.home_cardview_language_image.setImageResource(setLanguageImage(model.language_img))
             if (model.bookmark_checkable.equals(1)) {
                 itemView.home_cardview_bookmark.setImageResource(R.drawable.ic_baseline_bookmark_check_24)
             } else {
                 itemView.home_cardview_bookmark.setImageResource(R.drawable.ic_baseline_bookmark_uncheck_border_24)
             }
-
+        }
+        private fun setLanguageImage(languageType : Int) : Int{
+            var type = 0
+            when(languageType){
+                1->{type=R.drawable.ic_python}
+                2->{type=R.drawable.ic_cplpl}
+                3->{type=R.drawable.ic_c}
+                4->{type=R.drawable.ic_cshop}
+                5->{type=R.drawable.ic_kotlin}
+                6->{type=R.drawable.ic_java}
+                7->{type=R.drawable.ic_swift}
+                8->{type=R.drawable.ic_javascript}
+            }
+            return type
         }
     }
+
 }

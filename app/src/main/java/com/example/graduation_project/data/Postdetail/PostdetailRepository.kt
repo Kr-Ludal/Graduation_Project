@@ -17,4 +17,5 @@ class PostdetailRepository(val dataSource: PostdetailDataSource) {
         dataSource.postCommentData(comment,post_id,result)
     }
 
+
 }

@@ -19,7 +19,7 @@ class BookmarkDataSource {
             //val uid = item.get("uid")
             val title = item.get("title")
             val post_tag = item.get("post_tag")
-            val language_type = item.get("language_type")
+            val language_type = item.get("language_type") as Int
 //                val language_thumbnails = item.get("language_thumbnails")
             val post_id = item.get("post_id") as Int
             val write_time = item.get("write_time")
@@ -34,7 +34,7 @@ class BookmarkDataSource {
                 R.drawable.ic_javascript,
                 title.toString(), writer_nickname.toString(),
                 post_tag.toString(), write_time.toString(),
-                0, R.drawable.ic_python, bookmark,post_id))
+                0, language_type, bookmark,post_id))
         }
 
         mainDataSource = ((mainDataSource + arrayList) as ArrayList<HomeModel>)

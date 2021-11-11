@@ -36,8 +36,8 @@ class WriteActivity : AppCompatActivity() {
             .get(WriteViewModel::class.java)
 
         when (languageType) {
-            R.drawable.ic_python -> {code_editor.setEditorLanguage(PythonLanguage()) }
-            R.drawable.ic_java -> { code_editor.setEditorLanguage(JavaLanguage()) }
+            1 -> {code_editor.setEditorLanguage(PythonLanguage()) }
+            6 -> { code_editor.setEditorLanguage(JavaLanguage()) }
         }
 
 

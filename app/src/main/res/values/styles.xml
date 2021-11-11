@@ -42,8 +42,8 @@
 
     <!--comment-->
     <item name="res_cardview_comment_listitem_txtcolor" type="color">#EEEEEE</item>
-    <item name="res_cardview_comment_like_color" type="color">#ff453a</item>
-    <item name="res_cardview_comment_unlike_color" type="color">#cccccc</item>
+    <item name="res_cardview_comment_like_color" type="color">#FF453A</item>
+    <item name="res_cardview_comment_unlike_color" type="color">#CCCCCC</item>
 
 
     <!--contest-->

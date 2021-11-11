@@ -29,11 +29,8 @@ class PostdetailViewModel(private val postdetailRepository: PostdetailRepository
 
     fun postCommentData(comment:String,post_id : Int){
         postdetailRepository.postCommentData(comment,post_id){
-            if(it is Result.Success){
-
-            } else{
-
-            }
+            if(it is Result.Success){}
+            else{}
         }
     }
 
@@ -48,9 +45,10 @@ class PostdetailViewModel(private val postdetailRepository: PostdetailRepository
     fun loginDataChanged(comment: String) {
         _commentForm.value = isCommentValid(comment)
     }
+
+
     private fun isCommentValid(comment: String): Boolean {
         return comment.isNotBlank()
-
     }
 
 }
