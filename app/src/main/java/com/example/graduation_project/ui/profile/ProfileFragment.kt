@@ -37,7 +37,7 @@ class ProfileFragment : Fragment() {
             ,60
         ))
 
-        solutionArray.add(ContestModel("class MetricsCallback(Callback):\n" +
+        solutionArray.add(ContestModel(1,"class MetricsCallback(Callback):\n" +
                 "    def __init__(self, test_data, y_true):\n" +
                 "        # Should be the label encoding of your classes\n" +
                 "        self.y_true = y_true\n" +
@@ -48,7 +48,7 @@ class ProfileFragment : Fragment() {
                 "        y_pred = self.model.predict(self.test_data)\n" +
                 "\n" +
                 "        # Here we get the actual classes",R.drawable.nexon,"넥슨갈끄니까",R.drawable.ic_swift,false))
-        solutionArray.add(ContestModel("class MetricsCallback(Callback):\n" +
+        solutionArray.add(ContestModel(2,"class MetricsCallback(Callback):\n" +
                 "    def __init__(self, test_data, y_true):\n" +
                 "        # Should be the label encoding of your classes\n" +
                 "        self.y_true = y_true\n" +

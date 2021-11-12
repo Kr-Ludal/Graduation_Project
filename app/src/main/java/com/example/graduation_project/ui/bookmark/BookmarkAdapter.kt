@@ -15,7 +15,8 @@ import kotlinx.android.synthetic.main.cardview_home.view.*
 class BookmarkAdapter(val bookmarkListItem : ArrayList<HomeModel>):
     RecyclerView.Adapter<BookmarkAdapter.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.cardview_home, parent, false)
+        val v = LayoutInflater.from(parent.context)
+            .inflate(R.layout.cardview_home, parent, false)
 
         return ViewHolder(v).apply {
             itemView.home_cardview_bookmark.setOnClickListener {

@@ -93,8 +93,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:inputType="textMultiLine"
-                android:text="TextView"
                 android:textColor="@color/res_text_color_black"
+                android:fontFamily="@font/jetbrainsmono"
                 android:textSize="14sp"
                 android:textStyle="normal" />
 
