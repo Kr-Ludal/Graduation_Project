@@ -36,7 +36,7 @@ class WriteActivity : AppCompatActivity() {
             .get(WriteViewModel::class.java)
 
         when (languageType) {
-            1 -> {code_editor.setEditorLanguage(PythonLanguage()) }
+            1 -> { code_editor.setEditorLanguage(PythonLanguage()) }
             2 -> { code_editor.setEditorLanguage(JavaLanguage()) }
             3 -> { code_editor.setEditorLanguage(JavaLanguage()) }
             4 -> { code_editor.setEditorLanguage(JavaLanguage()) }
