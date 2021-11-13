@@ -109,7 +109,7 @@
         </LinearLayout>
 
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnEnter"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -135,7 +135,7 @@
 
     </LinearLayout>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnGithub"
         android:layout_width="0dp"
         android:layout_height="60dp"

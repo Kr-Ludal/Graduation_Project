@@ -277,7 +277,7 @@
             android:id="@+id/relative_next"
             android:visibility="visible"><!--button area-->
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnNext"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -301,7 +301,7 @@
             android:id="@+id/relative_finish"
             android:visibility="invisible"><!--finish button area-->
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnfinish"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"

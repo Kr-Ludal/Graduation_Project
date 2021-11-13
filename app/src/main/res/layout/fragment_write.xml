@@ -49,7 +49,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/write_enter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
